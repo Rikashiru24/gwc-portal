@@ -1,4 +1,4 @@
-import gwcLogo from '../assets/gwc-logo-laurel.png'
+import gwcLogo from '../../assets/gwc-logo-laurel.png'
 
 export function renderLoginPage(): string {
   return `
@@ -45,4 +45,3 @@ export function renderLoginPage(): string {
     </main>
   `
 }
-
