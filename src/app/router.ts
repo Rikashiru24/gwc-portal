@@ -18,11 +18,11 @@ export function renderRoute(app: HTMLDivElement, pathname: string): void {
   }
 
   if (pathname === ROUTES.LOGIN) {
-    document.title = 'Student Portal Login | Golden West Colleges'
+    document.title = 'Student Portal Login | Golden West Colleges, Inc.'
     app.innerHTML = renderLoginPage()
     return
   }
 
-  document.title = 'Page Not Found | Golden West Colleges'
+  document.title = 'Page Not Found | Golden West Colleges, Inc.'
   app.innerHTML = renderNotFoundPage()
 }
