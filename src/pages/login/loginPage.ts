@@ -1,4 +1,5 @@
 import gwcLogo from '../../assets/gwc-logo-laurel.png'
+import { renderPortalSiteFooter } from '../../components/siteFooter'
 import { renderPortalHeader } from '../../components/siteHeader'
 
 export function renderLoginPage(): string {
@@ -35,9 +36,7 @@ export function renderLoginPage(): string {
         </div>
       </section>
 
-      <footer class="portal-footer">
-        <p class="mb-0">All rights reserved, GOLDEN WEST COLLEGES, INC.</p>
-      </footer>
+      ${renderPortalSiteFooter()}
     </main>
   `
 }
