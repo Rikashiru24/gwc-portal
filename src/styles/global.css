@@ -218,8 +218,8 @@ body.overlay-open {
   display: flex;
   align-items: stretch;
   justify-content: space-between;
-  background: rgba(12, 26, 55, 0.34);
-  backdrop-filter: blur(2px);
+  background: transparent;
+  transition: background-color 180ms ease, box-shadow 180ms ease;
 }
 
 .home-brand {
@@ -228,6 +228,7 @@ body.overlay-open {
   color: #fff;
   gap: 10px;
   padding: 0 14px;
+  transition: color 180ms ease;
 }
 
 .home-brand-logo {
@@ -243,6 +244,17 @@ body.overlay-open {
   font-size: clamp(1rem, 1.6vw, 1.8rem);
   line-height: 1;
   white-space: nowrap;
+}
+
+.home-header.is-scrolled .home-header-inner,
+.home-header.home-header-solid .home-header-inner {
+  background: #f3f4f6;
+  box-shadow: 0 2px 0 rgba(17, 24, 39, 0.08);
+}
+
+.home-header.is-scrolled .home-brand,
+.home-header.home-header-solid .home-brand {
+  color: #171a23;
 }
 
 .home-brand-title-short,

@@ -29,6 +29,7 @@ type MainSiteHeaderOptions = {
   logoSrc: string
   logoAlt: string
   actions: HeaderAction[]
+  solid?: boolean
 }
 
 type PortalHeaderOptions = {
@@ -70,9 +71,11 @@ export function renderSiteHeader(options: SiteHeaderOptions): string {
 }
 
 export function renderMainSiteHeader(options: MainSiteHeaderOptions): string {
+  const headerClass = options.solid ? 'home-header home-header-solid' : 'home-header'
+
   return renderSiteHeader({
     brandHref: options.brandHref,
-    headerClass: 'home-header',
+    headerClass,
     innerClass: 'home-header-inner',
     brandClass: 'home-brand text-decoration-none',
     logoSrc: options.logoSrc,
@@ -87,6 +90,34 @@ export function renderMainSiteHeader(options: MainSiteHeaderOptions): string {
     actionBaseClass: 'home-quick-item',
     actions: options.actions,
   })
+}
+
+type MainHeaderActionsOptions = {
+  showAnnouncementsIcon?: boolean
+}
+
+export function buildMainHeaderActions(
+  announcementsHref: string,
+  options: MainHeaderActionsOptions = {},
+): HeaderAction[] {
+  const actions: HeaderAction[] = []
+
+  if (options.showAnnouncementsIcon ?? true) {
+    actions.push({
+      type: 'link',
+      href: announcementsHref,
+      icon: 'megaphone',
+      ariaLabel: 'Announcement',
+      className: 'home-quick-item-icon-only',
+    })
+  }
+
+  actions.push(
+    { type: 'button', icon: 'search', label: 'SEARCH', attrs: 'data-overlay-open="search"' },
+    { type: 'button', icon: 'menu', label: 'MENU', attrs: 'data-overlay-open="menu"' },
+  )
+
+  return actions
 }
 
 export function renderPortalHeader(options: PortalHeaderOptions): string {

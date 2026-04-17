@@ -3,7 +3,7 @@ import gwcLogoWhite from '../../assets/gwc-logo-white.png'
 import coverImage from '../../assets/cover.png'
 import { ROUTES } from '../../app/routes'
 import { renderMainSiteFooter } from '../../components/siteFooter'
-import { renderMainSiteHeader } from '../../components/siteHeader'
+import { buildMainHeaderActions, renderMainSiteHeader } from '../../components/siteHeader'
 import { renderHomeOverlays } from '../../components/siteOverlay'
 
 export function renderHomePage(): string {
@@ -13,17 +13,7 @@ export function renderHomePage(): string {
         brandHref: ROUTES.HOME,
         logoSrc: gwcLogo,
         logoAlt: 'Golden West Colleges logo',
-        actions: [
-          {
-            type: 'link',
-            href: ROUTES.ANNOUNCEMENTS,
-            icon: 'megaphone',
-            ariaLabel: 'Announcement',
-            className: 'home-quick-item-icon-only',
-          },
-          { type: 'button', icon: 'search', label: 'SEARCH', attrs: 'data-overlay-open="search"' },
-          { type: 'button', icon: 'menu', label: 'MENU', attrs: 'data-overlay-open="menu"' },
-        ],
+        actions: buildMainHeaderActions(ROUTES.ANNOUNCEMENTS),
       })}
 
       ${renderHomeOverlays({

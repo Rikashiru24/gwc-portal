@@ -1,6 +1,7 @@
 import { createIcons, Megaphone, Menu, Search } from 'lucide'
 
 export function setupSiteInteractions(root: HTMLElement): () => void {
+  const homeHeader = root.querySelector<HTMLElement>('.home-header')
   const overlays = Array.from(root.querySelectorAll<HTMLElement>('[data-overlay]'))
   const openButtons = Array.from(root.querySelectorAll<HTMLElement>('[data-overlay-open]'))
   const closeButtons = Array.from(root.querySelectorAll<HTMLElement>('[data-overlay-close]'))
@@ -71,16 +72,28 @@ export function setupSiteInteractions(root: HTMLElement): () => void {
     hideAll()
   }
 
+  const updateHeaderScrollState = (): void => {
+    if (!homeHeader) return
+    if (homeHeader.classList.contains('home-header-solid')) {
+      homeHeader.classList.remove('is-scrolled')
+      return
+    }
+    homeHeader.classList.toggle('is-scrolled', window.scrollY > 24)
+  }
+
   openButtons.forEach((button) => button.addEventListener('click', onOpenClick))
   closeButtons.forEach((button) => button.addEventListener('click', onCloseClick))
   document.addEventListener('keydown', onKeydown)
   searchForm?.addEventListener('submit', onSearchSubmit)
+  window.addEventListener('scroll', updateHeaderScrollState, { passive: true })
+  updateHeaderScrollState()
 
   return () => {
     openButtons.forEach((button) => button.removeEventListener('click', onOpenClick))
     closeButtons.forEach((button) => button.removeEventListener('click', onCloseClick))
     document.removeEventListener('keydown', onKeydown)
     searchForm?.removeEventListener('submit', onSearchSubmit)
+    window.removeEventListener('scroll', updateHeaderScrollState)
     unlockScroll()
   }
 }
