@@ -38,7 +38,7 @@ export function renderAnnouncementsPage(): string {
       ${renderHomeOverlays({
         logoSrc: gwcLogoWhite,
         logoAlt: 'Golden West Colleges logo',
-        shortBrand: 'GWC',
+        shortBrand: 'GWC, INC.',
         searchAriaLabel: 'Search announcements',
       })}
 

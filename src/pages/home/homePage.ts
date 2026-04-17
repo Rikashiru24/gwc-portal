@@ -1,6 +1,6 @@
 ﻿import gwcLogo from '../../assets/gwc-logo.png'
 import gwcLogoWhite from '../../assets/gwc-logo-white.png'
-import coverImage from '../../assets/cover.jpg'
+import coverImage from '../../assets/cover.png'
 import { ROUTES } from '../../app/routes'
 import { renderMainSiteFooter } from '../../components/siteFooter'
 import { renderMainSiteHeader } from '../../components/siteHeader'

@@ -82,7 +82,7 @@ export function renderMainSiteHeader(options: MainSiteHeaderOptions): string {
     titleFullClass: 'home-brand-title-full',
     titleShortClass: 'home-brand-title-short',
     titleFull: 'GOLDEN WEST COLLEGES, INC.',
-    titleShort: 'GWC',
+    titleShort: 'GWC, INC.',
     actionsNavClass: 'home-quick-menu',
     actionBaseClass: 'home-quick-item',
     actions: options.actions,
