@@ -13,6 +13,7 @@ import {
 import { setupsite_interactions } from '../components/site_interactions'
 import { renderhome_page } from '../pages/home/home_page'
 import { renderadministrators_login_page } from '../pages/login/administrators_login_page'
+import { renderfaculty_login_page } from '../pages/login/faculty_login_page'
 import { renderstudent_login_page } from '../pages/login/student_login_page'
 import { rendernot_found_page } from '../pages/not-found/not_found_page'
 import { rendersearch_page } from '../pages/search/search_page'
@@ -40,6 +41,12 @@ export function renderRoute(app: HTMLDivElement, pathname: string): void {
   if (pathname === ROUTES.ADMINISTRATORS_LOGIN) {
     document.title = 'Administrator Login | Golden West Colleges, Inc.'
     app.innerHTML = renderadministrators_login_page()
+    return
+  }
+
+  if (pathname === ROUTES.FACULTY_LOGIN) {
+    document.title = 'Faculty Login | Golden West Colleges, Inc.'
+    app.innerHTML = renderfaculty_login_page()
     return
   }
 
