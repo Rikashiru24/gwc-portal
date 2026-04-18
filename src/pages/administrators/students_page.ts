@@ -1,11 +1,17 @@
 import { ROUTES } from '../../app/routes'
 import { renderAdminShell } from '../../components/admin_layout'
+import { renderAdminBreadcrumbNav } from '../../components/nav_breadcrumb'
 
 export function renderstudents_page(): string {
   return renderAdminShell(
     'students',
     `
       <section class="admin-content">
+        ${renderAdminBreadcrumbNav([
+          { label: 'Home', href: ROUTES.ADMINISTRATORS },
+          { label: 'Students', active: true },
+        ])}
+
         <article class="admin-students-home">
           <h2>Students</h2>
           <p>Create, upload, and manage student records.</p>

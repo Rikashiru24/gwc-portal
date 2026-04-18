@@ -1,6 +1,6 @@
 import { ROUTES } from '../../app/routes'
 import { renderAdminShell } from '../../components/admin_layout'
-import { renderAdminBreadcrumbNav } from '../../components/admin_breadcrumb_nav'
+import { renderAdminBreadcrumbNav } from '../../components/nav_breadcrumb'
 
 function renderSectionFields(): string {
   const floatingInput = (id: string, label: string, type = 'text'): string => `
@@ -65,7 +65,8 @@ export function renderstudents_create_page(): string {
     `
       <section class="admin-content">
         ${renderAdminBreadcrumbNav([
-          { label: 'Home', href: ROUTES.ADMINISTRATORS_STUDENTS },
+          { label: 'Home', href: ROUTES.ADMINISTRATORS },
+          { label: 'Students', href: ROUTES.ADMINISTRATORS_STUDENTS },
           { label: 'Manage Students', href: ROUTES.ADMINISTRATORS_STUDENTS_MANAGE },
           { label: 'Create Student', active: true },
         ])}

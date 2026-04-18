@@ -1,6 +1,6 @@
 import { ROUTES } from '../../app/routes'
 import { renderAdminShell, setupAdminShell } from '../../components/admin_layout'
-import { renderAdminBreadcrumbNav } from '../../components/admin_breadcrumb_nav'
+import { renderAdminBreadcrumbNav } from '../../components/nav_breadcrumb'
 import { renderSharedModal, setupSharedModal } from '../../components/shared_modal'
 import { renderSharedPagination, setupSharedPagination } from '../../components/shared_pagination'
 import { renderStudentAccountForm } from '../../components/student_account_form'
@@ -67,7 +67,8 @@ export function renderstudents_manage_page(): string {
     `
       <section class="admin-content">
         ${renderAdminBreadcrumbNav([
-          { label: 'Home', href: ROUTES.ADMINISTRATORS_STUDENTS },
+          { label: 'Home', href: ROUTES.ADMINISTRATORS },
+          { label: 'Students', href: ROUTES.ADMINISTRATORS_STUDENTS },
           { label: 'Manage Students', active: true },
         ])}
 
