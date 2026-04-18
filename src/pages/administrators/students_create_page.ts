@@ -77,19 +77,21 @@ export function renderstudents_create_page(): string {
           </header>
 
           <section class="admin-student-section">
-            <h3>Student Information</h3>
+            <h3><span class="admin-student-section-title">Student Information</span></h3>
             ${renderSectionFields()}
           </section>
 
           <section class="admin-student-section">
-            <h3>Parent and Guardian's Information</h3>
-            ${renderGuardianFields('Father')}
-            ${renderGuardianFields('Mother')}
-            ${renderGuardianFields('Guardian')}
-            <div class="admin-student-form-grid admin-student-form-grid-4">
-              <div class="form-floating">
-                <input class="form-control form-control-sm" id="guardian-relation" placeholder="Relation" />
-                <label for="guardian-relation">Relation</label>
+            <h3><span class="admin-student-section-title">Parent and Guardian's Information</span></h3>
+            <div class="admin-student-guardian-stack">
+              ${renderGuardianFields('Father')}
+              ${renderGuardianFields('Mother')}
+              ${renderGuardianFields('Guardian')}
+              <div class="admin-student-form-grid admin-student-form-grid-4">
+                <div class="form-floating">
+                  <input class="form-control form-control-sm" id="guardian-relation" placeholder="Relation" />
+                  <label for="guardian-relation">Relation</label>
+                </div>
               </div>
             </div>
           </section>

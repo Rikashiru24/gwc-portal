@@ -1,29 +1,9 @@
 import { ROUTES } from '../../app/routes'
 import { renderAdminShell } from '../../components/admin_layout'
 import { renderAdminBreadcrumbNav } from '../../components/admin_breadcrumb_nav'
+import { renderStudentAccountForm } from '../../components/student_account_form'
 
 function renderBulkCard(index: number): string {
-  const floatingInput = (id: string, label: string, type = 'text'): string => `
-    <div class="form-floating">
-      <input type="${type}" class="form-control form-control-sm" id="${id}" placeholder="${label}" />
-      <label for="${id}">${label}</label>
-    </div>
-  `
-  const floatingSelect = (id: string, label: string): string => `
-    <div class="form-floating">
-      <select class="form-select form-select-sm" id="${id}">
-        <option value="">Select ${label}</option>
-      </select>
-      <label for="${id}">${label}</label>
-    </div>
-  `
-  const floatingParentInput = (id: string, label: string): string => `
-    <div class="form-floating">
-      <input class="form-control form-control-sm" id="${id}" placeholder="${label}" />
-      <label for="${id}">${label}</label>
-    </div>
-  `
-
   return `
     <article class="admin-bulk-card">
       <header>
@@ -31,38 +11,7 @@ function renderBulkCard(index: number): string {
         <button type="button" class="btn btn-outline-secondary btn-sm">Remove</button>
       </header>
       <p>Fill out the student details below.</p>
-
-      <section class="admin-student-section">
-        <h3>Student Information</h3>
-        <div class="admin-student-form-grid">
-          ${floatingInput(`bulk-${index}-student-id`, 'Student ID')}
-          ${floatingInput(`bulk-${index}-first-name`, 'First Name')}
-          ${floatingInput(`bulk-${index}-middle-name`, 'Middle Name (Optional)')}
-          ${floatingInput(`bulk-${index}-last-name`, 'Last Name')}
-          ${floatingInput(`bulk-${index}-email`, 'Email Address', 'email')}
-          ${floatingSelect(`bulk-${index}-course`, 'Course')}
-          ${floatingSelect(`bulk-${index}-year-level`, 'Year Level')}
-          ${floatingSelect(`bulk-${index}-student-type`, 'Student Type')}
-          ${floatingInput(`bulk-${index}-section`, 'Section')}
-          ${floatingSelect(`bulk-${index}-gender`, 'Gender')}
-          ${floatingInput(`bulk-${index}-birth-date`, 'Birth Date', 'date')}
-          ${floatingSelect(`bulk-${index}-province`, 'Province')}
-          ${floatingSelect(`bulk-${index}-city`, 'City/Municipality')}
-          ${floatingSelect(`bulk-${index}-barangay`, 'Barangay')}
-          ${floatingInput(`bulk-${index}-street`, 'Street')}
-        </div>
-      </section>
-
-      <section class="admin-student-section">
-        <h3>Parent and Guardian's Information</h3>
-        <h4>Father</h4>
-        <div class="admin-student-form-grid admin-student-form-grid-4">
-          ${floatingParentInput(`bulk-${index}-father-first-name`, 'First Name')}
-          ${floatingParentInput(`bulk-${index}-father-middle-name`, 'Middle Name (Optional)')}
-          ${floatingParentInput(`bulk-${index}-father-last-name`, 'Last Name')}
-          ${floatingParentInput(`bulk-${index}-father-contact-number`, 'Contact Number')}
-        </div>
-      </section>
+      ${renderStudentAccountForm(`bulk-${index}`)}
     </article>
   `
 }

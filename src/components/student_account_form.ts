@@ -56,12 +56,12 @@ function renderGuardianFields(prefix: string, title: string): string {
 export function renderStudentAccountForm(prefix: string): string {
   return `
     <section class="admin-student-section">
-      <h3>Student Information</h3>
+      <h3><span class="admin-student-section-title">Student Information</span></h3>
       ${renderStudentInfoFields(prefix)}
     </section>
 
     <section class="admin-student-section">
-      <h3>Parent and Guardian's Information</h3>
+      <h3><span class="admin-student-section-title">Parent and Guardian's Information</span></h3>
       <div class="admin-student-guardian-stack">
         ${renderGuardianFields(prefix, 'Father')}
         ${renderGuardianFields(prefix, 'Mother')}
