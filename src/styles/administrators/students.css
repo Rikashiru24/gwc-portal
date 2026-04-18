@@ -164,31 +164,6 @@
   box-shadow: 0 0 0 0.1rem rgb(42 79 149 / 16%);
 }
 
-#students-manage-modal .modal-dialog {
-  max-width: min(560px, 92vw);
-}
-
-#students-manage-modal.is-modal-form .modal-dialog {
-  max-width: min(1100px, 94vw);
-}
-
-#students-manage-modal .admin-student-section:first-child {
-  margin-top: 0;
-}
-
-#students-manage-modal .admin-student-section h3 {
-  font-size: 0.95rem;
-}
-
-#students-manage-modal .admin-student-form-grid {
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 0.45rem;
-}
-
-#students-manage-modal .admin-student-form-grid-4 {
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-}
-
 .admin-student-form-grid-4 {
   grid-template-columns: repeat(4, minmax(0, 1fr));
 }
@@ -247,14 +222,6 @@
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  #students-manage-modal.is-modal-form .modal-dialog {
-    max-width: min(900px, 96vw);
-  }
-
-  #students-manage-modal .admin-student-form-grid,
-  #students-manage-modal .admin-student-form-grid-4 {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
 }
 
 @media (max-width: 640px) {
@@ -267,8 +234,4 @@
     grid-template-columns: 1fr;
   }
 
-  #students-manage-modal .admin-student-form-grid,
-  #students-manage-modal .admin-student-form-grid-4 {
-    grid-template-columns: 1fr;
-  }
 }

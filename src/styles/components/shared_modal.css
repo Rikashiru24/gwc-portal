@@ -42,12 +42,45 @@
   gap: 0.6rem;
 }
 
+[data-shared-modal] .shared-modal-grid-1 {
+  grid-template-columns: 1fr;
+}
+
+[data-shared-modal] .shared-modal-grid-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+[data-shared-modal] .shared-modal-grid-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+[data-shared-modal] .shared-modal-grid-4 {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+@media (max-width: 991px) {
+  [data-shared-modal].is-modal-form .modal-dialog {
+    max-width: min(900px, 96vw);
+  }
+
+  [data-shared-modal] .shared-modal-grid-3,
+  [data-shared-modal] .shared-modal-grid-4 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
 @media (max-width: 640px) {
   [data-shared-modal] .modal-body {
     padding: 0.75rem;
   }
 
   [data-shared-modal] .shared-modal-grid {
+    grid-template-columns: 1fr;
+  }
+
+  [data-shared-modal] .shared-modal-grid-2,
+  [data-shared-modal] .shared-modal-grid-3,
+  [data-shared-modal] .shared-modal-grid-4 {
     grid-template-columns: 1fr;
   }
 }
