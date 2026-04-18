@@ -335,6 +335,11 @@
   color: #3f3115;
 }
 
+.admin-pill.is-inactive {
+  background: #94a3b8;
+  color: #0f172a;
+}
+
 .admin-actions-popover {
   position: relative;
   display: inline-flex;
@@ -396,6 +401,23 @@
 .admin-actions-menu button.is-danger:hover,
 .admin-actions-menu button.is-danger:focus {
   background: #fee2e2;
+}
+
+.admin-directory-card-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.62rem 0.78rem;
+  border-top: 1px solid #d9e0eb;
+  background: #f3f6fb;
+}
+
+.admin-pagination-summary {
+  margin: 0;
+  color: #475569;
+  font-size: 0.8rem;
+  font-weight: 600;
 }
 
 @media (max-width: 1200px) {
@@ -507,6 +529,11 @@
 
   .admin-add-btn {
     width: 100%;
+  }
+
+  .admin-directory-card-foot {
+    flex-direction: column;
+    align-items: flex-start;
   }
 }
 

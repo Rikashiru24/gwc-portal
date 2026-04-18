@@ -7,6 +7,7 @@ import {
   renderfaculty_page,
   renderreports_page,
   rendersettings_page,
+  setupadministrators_directory_page,
   renderstudents_page,
   setupadministrators_page,
 } from '../pages/administrators/administrators_page'
@@ -74,7 +75,7 @@ export function renderRoute(app: HTMLDivElement, pathname: string): void {
   if (pathname === ROUTES.ADMINISTRATORS_DIRECTORY) {
     document.title = 'Administrators | Golden West Colleges, Inc.'
     app.innerHTML = renderadministrators_directory_page()
-    cleanupCurrentRoute = setupadministrators_page(app)
+    cleanupCurrentRoute = setupadministrators_directory_page(app)
     return
   }
 
