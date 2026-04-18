@@ -321,37 +321,39 @@ export function setupadministrators_directory_page(root: HTMLElement): () => voi
 
     return `
       <form class="needs-validation" data-admin-modal-form novalidate>
-        <div class="form-floating mb-3">
-          <input type="text" class="form-control" id="admin-modal-first-name" placeholder="First name" value="${escapeHtml(firstName)}" ${disabled} required />
-          <label for="admin-modal-first-name">First name</label>
-        </div>
-        <div class="form-floating mb-3">
-          <input type="text" class="form-control" id="admin-modal-middle-name" placeholder="Middle name (optional)" value="${escapeHtml(middleName)}" ${disabled} />
-          <label for="admin-modal-middle-name">Middle name (optional)</label>
-        </div>
-        <div class="form-floating mb-3">
-          <input type="text" class="form-control" id="admin-modal-last-name" placeholder="Last name" value="${escapeHtml(lastName)}" ${disabled} required />
-          <label for="admin-modal-last-name">Last name</label>
-        </div>
-        <div class="form-floating mb-3">
-          <input type="text" class="form-control" id="admin-modal-position" placeholder="Position" value="${escapeHtml(record?.position ?? '')}" ${disabled} required />
-          <label for="admin-modal-position">Position</label>
-        </div>
-        <div class="form-floating mb-3">
-          <input type="text" class="form-control" id="admin-modal-office" placeholder="Office" value="${escapeHtml(record?.office ?? '')}" ${disabled} required />
-          <label for="admin-modal-office">Office</label>
-        </div>
-        <div class="form-floating mb-3">
-          <input type="email" class="form-control" id="admin-modal-email" placeholder="Email address" value="${escapeHtml(record?.email ?? '')}" ${disabled} required />
-          <label for="admin-modal-email">Email address</label>
-        </div>
-        <div class="form-floating">
-          <select class="form-select" id="admin-modal-status" ${selectDisabled}>
-            <option value="Active" ${activeSelected}>Active</option>
-            <option value="On Leave" ${leaveSelected}>On Leave</option>
-            <option value="Inactive" ${inactiveSelected}>Inactive</option>
-          </select>
-          <label for="admin-modal-status">Status</label>
+        <div class="admin-directory-modal-grid">
+          <div class="form-floating">
+            <input type="text" class="form-control" id="admin-modal-first-name" placeholder="First name" value="${escapeHtml(firstName)}" ${disabled} required />
+            <label for="admin-modal-first-name">First name</label>
+          </div>
+          <div class="form-floating">
+            <input type="text" class="form-control" id="admin-modal-middle-name" placeholder="Middle name (optional)" value="${escapeHtml(middleName)}" ${disabled} />
+            <label for="admin-modal-middle-name">Middle name (optional)</label>
+          </div>
+          <div class="form-floating">
+            <input type="text" class="form-control" id="admin-modal-last-name" placeholder="Last name" value="${escapeHtml(lastName)}" ${disabled} required />
+            <label for="admin-modal-last-name">Last name</label>
+          </div>
+          <div class="form-floating">
+            <input type="text" class="form-control" id="admin-modal-position" placeholder="Position" value="${escapeHtml(record?.position ?? '')}" ${disabled} required />
+            <label for="admin-modal-position">Position</label>
+          </div>
+          <div class="form-floating">
+            <input type="text" class="form-control" id="admin-modal-office" placeholder="Office" value="${escapeHtml(record?.office ?? '')}" ${disabled} required />
+            <label for="admin-modal-office">Office</label>
+          </div>
+          <div class="form-floating">
+            <input type="email" class="form-control" id="admin-modal-email" placeholder="Email address" value="${escapeHtml(record?.email ?? '')}" ${disabled} required />
+            <label for="admin-modal-email">Email address</label>
+          </div>
+          <div class="form-floating">
+            <select class="form-select" id="admin-modal-status" ${selectDisabled}>
+              <option value="Active" ${activeSelected}>Active</option>
+              <option value="On Leave" ${leaveSelected}>On Leave</option>
+              <option value="Inactive" ${inactiveSelected}>Inactive</option>
+            </select>
+            <label for="admin-modal-status">Status</label>
+          </div>
         </div>
       </form>
     `

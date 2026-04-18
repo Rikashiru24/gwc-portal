@@ -3,6 +3,7 @@ import { renderAdminShell, setupAdminShell } from '../../components/admin_layout
 import { renderAdminBreadcrumbNav } from '../../components/admin_breadcrumb_nav'
 import { renderSharedModal, setupSharedModal } from '../../components/shared_modal'
 import { renderSharedPagination, setupSharedPagination } from '../../components/shared_pagination'
+import { renderStudentAccountForm } from '../../components/student_account_form'
 
 type StudentRecord = {
   studentNo: string
@@ -183,16 +184,7 @@ export function setupstudents_manage_page(root: HTMLElement): () => void {
         title: 'Edit Student',
         confirmLabel: 'Save Changes',
         bodyHtml: `
-          <form class="row g-2">
-            <div class="col-md-6 form-floating">
-              <input class="form-control" id="student-edit-name" placeholder="Name" value="${studentName}" />
-              <label for="student-edit-name">Name</label>
-            </div>
-            <div class="col-md-6 form-floating">
-              <input class="form-control" id="student-edit-email" placeholder="Email" />
-              <label for="student-edit-email">Email</label>
-            </div>
-          </form>
+          ${renderStudentAccountForm('edit-student')}
         `,
       })
       return
