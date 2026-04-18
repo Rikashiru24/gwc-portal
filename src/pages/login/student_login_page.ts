@@ -15,7 +15,7 @@ export function renderstudent_login_page(): string {
           <div class="row justify-content-center justify-content-lg-end">
             <div class="col-12 col-sm-10 col-md-8 col-lg-5 col-xl-4">
               <section class="login-card p-4 p-md-4">
-                  <h2 class="login-heading mb-2">Login to GWC Portal</h2>
+                  <h2 class="login-heading mb-2">Student Login</h2>
                   <p class="login-subheading mb-4">Enter your email and password to use the system</p>
                   <form>
                     <div class="form-floating mb-3">

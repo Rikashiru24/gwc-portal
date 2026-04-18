@@ -96,21 +96,23 @@
 }
 
 .login-heading {
-  color: #0f2f8f;
+  color: #1f334d;
   font-size: clamp(1.55rem, 2.2vw, 2.05rem);
   margin: 0;
-  border-bottom: 2px solid #e0c25a;
+  border-bottom: 2px solid #2a3c5c;
   padding-bottom: 6px;
 }
 
 .login-subheading {
-  color: #12307a;
+  color: #334155;
   font-size: 1.02rem;
 }
 
 .login-submit-btn {
-  background-color: #1c46a5;
-  border-color: #1c46a5;
+  --login-btn-bg: #2a3c5c;
+  --login-btn-bg-hover: #1f2f49;
+  background-color: var(--login-btn-bg);
+  border-color: var(--login-btn-bg);
   color: #fff;
   border-radius: 0;
   font-weight: 700;
@@ -119,29 +121,14 @@
 
 .login-submit-btn:hover,
 .login-submit-btn:focus {
-  background-color: #153b8d;
-  border-color: #153b8d;
+  background-color: var(--login-btn-bg-hover);
+  border-color: var(--login-btn-bg-hover);
   color: #fff;
 }
 
-.admin-login-page .login-heading {
-  color: #1f334d;
-  border-bottom-color: #2a3c5c;
-}
-
-.admin-login-page .login-subheading {
-  color: #334155;
-}
-
 .admin-login-page .login-submit-btn {
-  background-color: #2a3c5c;
-  border-color: #2a3c5c;
-}
-
-.admin-login-page .login-submit-btn:hover,
-.admin-login-page .login-submit-btn:focus {
-  background-color: #1f2f49;
-  border-color: #1f2f49;
+  --login-btn-bg: #2a3c5c;
+  --login-btn-bg-hover: #1f2f49;
 }
 
 .portal-footer {
