@@ -1,6 +1,6 @@
 import gwcLogo from '../../assets/gwc-logo-laurel.png'
-import { renderPortalSiteFooter } from '../../components/siteFooter'
 import { renderPortalHeader } from '../../components/siteHeader'
+import { renderPortalSiteFooter } from '../../components/siteFooter'
 
 export function renderLoginPage(): string {
   return `

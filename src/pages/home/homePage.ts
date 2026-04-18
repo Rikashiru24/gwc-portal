@@ -2,8 +2,8 @@
 import gwcLogoWhite from '../../assets/gwc-logo-white.png'
 import coverImage from '../../assets/cover.png'
 import { ROUTES } from '../../app/routes'
-import { renderMainSiteFooter } from '../../components/siteFooter'
 import { buildMainHeaderActions, renderMainSiteHeader } from '../../components/siteHeader'
+import { renderMainSiteFooter } from '../../components/siteFooter'
 import { renderHomeOverlays } from '../../components/siteOverlay'
 
 export function renderHomePage(): string {

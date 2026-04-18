@@ -2,6 +2,7 @@
 import gwcLogoWhite from '../../assets/gwc-logo-white.png'
 import { ROUTES } from '../../app/routes'
 import { buildMainHeaderActions, renderMainSiteHeader } from '../../components/siteHeader'
+import { renderMainSiteFooter } from '../../components/siteFooter'
 import { renderHomeOverlays } from '../../components/siteOverlay'
 
 const cards = [
@@ -67,6 +68,8 @@ export function renderAnnouncementsPage(): string {
             .join('')}
         </div>
       </section>
+
+      ${renderMainSiteFooter()}
     </main>
   `
 }
