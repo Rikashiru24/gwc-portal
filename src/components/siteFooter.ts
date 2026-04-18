@@ -18,7 +18,16 @@ export function renderMainSiteFooter(options: MainSiteFooterOptions = {}): strin
           <div class="site-footer-inner">
             <div class="site-footer-grid">
               <a href="${ROUTES.HOME}" class="site-footer-logo-link" aria-label="Go to home page">
-                <img src="${gwcLogoWhite}" alt="Golden West Colleges logo" class="site-footer-logo" />
+                <img
+                  src="${gwcLogoWhite}"
+                  alt="Golden West Colleges logo"
+                  class="site-footer-logo"
+                  loading="eager"
+                  decoding="sync"
+                  fetchpriority="high"
+                  width="210"
+                  height="210"
+                />
               </a>
 
               <section>
