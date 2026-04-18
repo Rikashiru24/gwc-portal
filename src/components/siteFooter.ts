@@ -15,7 +15,7 @@ export function renderMainSiteFooter(options: MainSiteFooterOptions = {}): strin
   return `
       <footer class="home-footer">
         <div class="home-footer-main">
-          <div class="container">
+          <div class="home-footer-inner">
             <div class="home-footer-grid">
               <a href="${ROUTES.HOME}" class="home-footer-logo-link" aria-label="Go to home page">
                 <img src="${gwcLogoWhite}" alt="Golden West Colleges logo" class="home-footer-logo" />
@@ -56,7 +56,7 @@ export function renderMainSiteFooter(options: MainSiteFooterOptions = {}): strin
         </div>
 
         <div class="home-footer-bottom">
-          <div class="container">
+          <div class="home-footer-bottom-inner">
             <p class="mb-0"><strong>${copyrightText}</strong></p>
             <p class="mb-0"><strong>Designed and developed by:</strong> GWC - Information Technology</p>
           </div>
