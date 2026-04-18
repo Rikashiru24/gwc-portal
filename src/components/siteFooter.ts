@@ -1,6 +1,8 @@
+﻿import gwcLogoWhite from '../assets/gwc-logo-white.png'
+import { ROUTES } from '../app/routes'
+
 type MainSiteFooterOptions = {
   copyrightText?: string
-  addressText?: string
 }
 
 type PortalSiteFooterOptions = {
@@ -9,13 +11,55 @@ type PortalSiteFooterOptions = {
 
 export function renderMainSiteFooter(options: MainSiteFooterOptions = {}): string {
   const copyrightText = options.copyrightText ?? '© Golden West Colleges, Inc.'
-  const addressText = options.addressText ?? 'San Jose Drive, Alaminos City, Pangasinan 2404'
 
   return `
       <footer class="home-footer">
-        <div class="container py-4 d-flex flex-column flex-md-row justify-content-between gap-2">
-          <p class="mb-0">${copyrightText}</p>
-          <p class="mb-0">${addressText}</p>
+        <div class="home-footer-main">
+          <div class="container">
+            <div class="home-footer-grid">
+              <a href="${ROUTES.HOME}" class="home-footer-logo-link" aria-label="Go to home page">
+                <img src="${gwcLogoWhite}" alt="Golden West Colleges logo" class="home-footer-logo" />
+              </a>
+
+              <section>
+                <h2>Security & Brand</h2>
+                <ul class="home-footer-links">
+                  <li><a href="#">Data Privacy Notice</a></li>
+                  <li><a href="#">Security Issue</a></li>
+                  <li><a href="#">Copyright Infringement</a></li>
+                </ul>
+              </section>
+
+              <section>
+                <h2>Get In Touch</h2>
+                <ul class="home-footer-contact">
+                  <li><a href="mailto:info@gwc.edu.ph">info@gwc.edu.ph</a></li>
+                  <li><a href="tel:+636550498720">+63-6550-498-720</a></li>
+                </ul>
+                <div class="home-footer-social" aria-label="Social links">
+                  <a href="#" aria-label="Facebook">
+                    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                      <path d="M13.5 21v-8h2.7l.4-3h-3.1V8.1c0-.9.3-1.6 1.6-1.6h1.7V3.8c-.3 0-1.3-.1-2.4-.1-2.4 0-4 1.5-4 4.2V10H8v3h2.4v8h3.1z" />
+                    </svg>
+                  </a>
+                </div>
+              </section>
+
+              <section>
+                <h2>Locate Us</h2>
+                <ul class="home-footer-address">
+                  <li>San Jose Drive, Alaminos City, Pangasinan 2404</li>
+                </ul>
+              </section>
+            </div>
+          </div>
+        </div>
+
+        <div class="home-footer-bottom">
+          <div class="container">
+            <p class="mb-0">${copyrightText}</p>
+            <p class="mb-0">Designed and developed by GWC - Management Information Systems</p>
+          </div>
         </div>
       </footer>
   `
@@ -30,3 +74,4 @@ export function renderPortalSiteFooter(options: PortalSiteFooterOptions = {}): s
       </footer>
   `
 }
+
