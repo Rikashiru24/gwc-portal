@@ -33,11 +33,11 @@ export function renderMainSiteFooter(options: MainSiteFooterOptions = {}): strin
               <section>
                 <h2>Get In Touch</h2>
                 <ul class="home-footer-contact">
-                  <li><a href="mailto:info@gwc.edu.ph">info@gwc.edu.ph</a></li>
-                  <li><a href="tel:+636550498720">+63-6550-498-720</a></li>
+                  <li><a href="mailto:goldenwest.colleges@yahoo.com.ph">goldenwest.colleges@yahoo.com.ph</a></li>
+                  <li><a href="tel:+639165969881">0916 596 9881</a></li>
                 </ul>
                 <div class="home-footer-social" aria-label="Social links">
-                  <a href="#" aria-label="Facebook">
+                  <a href="https://www.facebook.com/gwcalaminosofficial" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
                     <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                       <path d="M13.5 21v-8h2.7l.4-3h-3.1V8.1c0-.9.3-1.6 1.6-1.6h1.7V3.8c-.3 0-1.3-.1-2.4-.1-2.4 0-4 1.5-4 4.2V10H8v3h2.4v8h3.1z" />
                     </svg>
@@ -57,8 +57,8 @@ export function renderMainSiteFooter(options: MainSiteFooterOptions = {}): strin
 
         <div class="home-footer-bottom">
           <div class="container">
-            <p class="mb-0">${copyrightText}</p>
-            <p class="mb-0">Designed and developed by GWC - Management Information Systems</p>
+            <p class="mb-0"><strong>${copyrightText}</strong></p>
+            <p class="mb-0"><strong>Designed and developed by:</strong> GWC - Information Technology</p>
           </div>
         </div>
       </footer>
@@ -74,4 +74,6 @@ export function renderPortalSiteFooter(options: PortalSiteFooterOptions = {}): s
       </footer>
   `
 }
+
+
 
