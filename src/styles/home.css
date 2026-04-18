@@ -188,7 +188,6 @@
 
 .home-footer-main {
   background: linear-gradient(135deg, #334155 0%, #1e293b 100%);
-  border-top: 3px solid #f59e0b;
 }
 
 .home-footer-inner {
@@ -677,7 +676,7 @@
   }
 
   .home-footer-logo {
-    width: min(72vw, 290px);
+    width: min(84vw, 360px);
   }
 
   .home-footer-links li {

@@ -10,7 +10,7 @@ type PortalSiteFooterOptions = {
 }
 
 export function renderMainSiteFooter(options: MainSiteFooterOptions = {}): string {
-  const copyrightText = options.copyrightText ?? '© Golden West Colleges, Inc.'
+  const copyrightText = options.copyrightText ?? 'Golden West Colleges, Inc.'
 
   return `
       <footer class="home-footer">
@@ -57,7 +57,7 @@ export function renderMainSiteFooter(options: MainSiteFooterOptions = {}): strin
 
         <div class="home-footer-bottom">
           <div class="home-footer-bottom-inner">
-            <p class="mb-0"><strong>${copyrightText}</strong></p>
+            <p class="mb-0">&copy; Copyright <strong>${copyrightText}</strong></p>
             <p class="mb-0"><strong>Designed and developed by:</strong> GWC - Information Technology</p>
           </div>
         </div>
