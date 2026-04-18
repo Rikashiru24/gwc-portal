@@ -111,7 +111,10 @@ export function renderSearchPage(): string {
         <div class="search-input-row">
           <form action="${ROUTES.SEARCH}" method="get" class="search-query-form">
             <input type="search" name="q" value="${queryEscaped}" placeholder="Search" aria-label="Search site" autofocus />
-            <button type="submit">Search</button>
+            <button type="submit" aria-label="Search">
+              <i data-lucide="search" aria-hidden="true"></i>
+              <span class="search-button-label">Search</span>
+            </button>
           </form>
         </div>
 

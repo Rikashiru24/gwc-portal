@@ -43,11 +43,25 @@
   font-size: clamp(1rem, 1.7vw, 1.75rem);
   background: #1f2a44;
   padding: 1rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
 }
 
 .search-query-form button:hover,
 .search-query-form button:focus {
   background: #2c3959;
+}
+
+.search-query-form button i {
+  display: inline-flex;
+}
+
+.search-query-form button i svg {
+  width: 1.2rem;
+  height: 1.2rem;
+  stroke-width: 2.5;
 }
 
 .search-result-box {
@@ -103,10 +117,16 @@
 
 @media (max-width: 991px) {
   .search-query-form {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 54px;
   }
 
   .search-query-form button {
-    min-height: 56px;
+    min-height: 54px;
+    padding: 0;
+    gap: 0;
+  }
+
+  .search-button-label {
+    display: none;
   }
 }
