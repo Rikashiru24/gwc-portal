@@ -86,9 +86,12 @@
   color: #fff;
 }
 
+.site-post-section {
+  padding: 3rem 0;
+}
+
 .home-section-inner {
-  padding-top: 3rem;
-  padding-bottom: 3rem;
+  padding: 0;
 }
 
 .site-story-layout {
@@ -543,13 +546,11 @@
 
 @media (max-width: 991px) {
   .site-post-section {
-    padding-left: 1rem;
-    padding-right: 1rem;
+    padding: 2rem 1rem;
   }
 
   .home-section-inner {
-    padding-top: 2rem;
-    padding-bottom: 2rem;
+    padding: 0;
   }
 
   .site-cover {
