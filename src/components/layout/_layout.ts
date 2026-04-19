@@ -38,6 +38,7 @@ export type RegistrarStaffSection =
   | 'settings'
 
 export type FacultySection = 'dashboard' | 'classes' | 'gradebook' | 'settings'
+export type StudentSection = 'dashboard' | 'subjects' | 'grades' | 'schedule' | 'settings'
 
 type ShellMenuItem<TSection extends string> = {
   label: string
@@ -215,6 +216,46 @@ export const FACULTY_SHELL_CONFIG: ShellConfig<FacultySection> = {
     LayoutDashboard,
     CalendarDays,
     FileText,
+    Settings,
+  },
+}
+
+export const STUDENT_SHELL_CONFIG: ShellConfig<StudentSection> = {
+  pageClass: 'student-shell-page',
+  layoutClass: 'student-layout',
+  sidebarClass: 'student-sidebar',
+  sidebarAriaLabel: 'Student menu',
+  sidebarMainClass: 'student-sidebar-main',
+  sidebarHeadClass: 'student-sidebar-head',
+  sidebarEyebrowClass: 'student-eyebrow',
+  sidebarEyebrow: 'Student Portal',
+  sidebarTitle: 'Student',
+  sidebarTitleClass: 'student-header-link',
+  sidebarMenuClass: 'student-menu',
+  sidebarMenuAriaLabel: 'Student navigation',
+  sidebarFooterClass: 'student-sidebar-footer',
+  sidebarFooterValue: 'STUDENT',
+  backdropClass: 'student-sidebar-backdrop',
+  sidebarOpenClass: 'student-sidebar-open',
+  mobileBodyLockWidth: 991,
+  menuToggleSelector: '[data-student-sidebar-open]',
+  menuToggleClassName: 'student-header-menu-toggle',
+  menuToggleAriaLabel: 'Open sidebar menu',
+  headerBrandHref: ROUTES.HOME,
+  headerLogoAlt: 'Golden West Colleges logo',
+  menuItems: [
+    { label: 'Dashboard', icon: 'layout-dashboard', href: ROUTES.STUDENT_DASHBOARD, section: 'dashboard' },
+    { label: 'Subjects', icon: 'folder-open', href: ROUTES.STUDENT_SUBJECTS, section: 'subjects' },
+    { label: 'Grades', icon: 'file-text', href: ROUTES.STUDENT_GRADES, section: 'grades' },
+    { label: 'Schedule', icon: 'calendar-days', href: ROUTES.STUDENT_SCHEDULE, section: 'schedule' },
+    { label: 'Settings', icon: 'settings', href: ROUTES.STUDENT_SETTINGS, section: 'settings' },
+  ],
+  icons: {
+    Menu,
+    LayoutDashboard,
+    FolderOpen,
+    FileText,
+    CalendarDays,
     Settings,
   },
 }

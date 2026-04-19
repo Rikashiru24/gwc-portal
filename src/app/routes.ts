@@ -37,6 +37,12 @@ export const ROUTES = {
   FACULTY_GRADEBOOK: '/faculty-portal/gradebook',
   FACULTY_SETTINGS: '/faculty-portal/settings',
   STUDENT_LOGIN: '/student-portal/login',
+  STUDENT_PORTAL: '/student-portal',
+  STUDENT_DASHBOARD: '/student-portal/dashboard',
+  STUDENT_SUBJECTS: '/student-portal/subjects',
+  STUDENT_GRADES: '/student-portal/grades',
+  STUDENT_SCHEDULE: '/student-portal/schedule',
+  STUDENT_SETTINGS: '/student-portal/settings',
   
 } as const
 

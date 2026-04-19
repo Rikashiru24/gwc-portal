@@ -8,6 +8,7 @@ export function renderstudent_login_page(): string {
       ${renderPortalHeader({
         logoSrc: gwcLogo,
         logoAlt: 'Golden West Colleges logo',
+        portalTitle: 'STUDENT PORTAL',
       })}
 
       <section class="portal-body">

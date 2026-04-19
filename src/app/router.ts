@@ -29,6 +29,14 @@ import {
 } from '../pages/faculty/faculty_page'
 import { renderregistrar_staff_login_page } from '../pages/login/registrar_staff_login_page'
 import { renderstudent_login_page } from '../pages/login/student_login_page'
+import {
+  renderstudent_dashboard_page,
+  renderstudent_grades_page,
+  renderstudent_schedule_page,
+  renderstudent_settings_page,
+  renderstudent_subjects_page,
+  setupstudent_page,
+} from '../pages/student/student_page'
 import { rendernot_found_page } from '../pages/not-found/not_found_page'
 import {
   renderregistrar_staff_dashboard_page,
@@ -58,6 +66,36 @@ export function renderRoute(app: HTMLDivElement, pathname: string): void {
 
   if (pathname === ROUTES.STUDENT_LOGIN) {
     app.innerHTML = renderstudent_login_page()
+    return
+  }
+
+  if (pathname === ROUTES.STUDENT_PORTAL || pathname === ROUTES.STUDENT_DASHBOARD) {
+    app.innerHTML = renderstudent_dashboard_page()
+    cleanupCurrentRoute = setupstudent_page(app)
+    return
+  }
+
+  if (pathname === ROUTES.STUDENT_SUBJECTS) {
+    app.innerHTML = renderstudent_subjects_page()
+    cleanupCurrentRoute = setupstudent_page(app)
+    return
+  }
+
+  if (pathname === ROUTES.STUDENT_GRADES) {
+    app.innerHTML = renderstudent_grades_page()
+    cleanupCurrentRoute = setupstudent_page(app)
+    return
+  }
+
+  if (pathname === ROUTES.STUDENT_SCHEDULE) {
+    app.innerHTML = renderstudent_schedule_page()
+    cleanupCurrentRoute = setupstudent_page(app)
+    return
+  }
+
+  if (pathname === ROUTES.STUDENT_SETTINGS) {
+    app.innerHTML = renderstudent_settings_page()
+    cleanupCurrentRoute = setupstudent_page(app)
     return
   }
 
