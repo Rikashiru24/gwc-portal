@@ -197,6 +197,23 @@
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
+  transition: color 160ms ease;
+}
+
+#global-arena .site-mini-story span {
+  color: var(--gwc-brand-accent);
+}
+
+#global-arena .site-mini-story:hover span {
+  color: #111827;
+}
+
+#community .site-mini-story span {
+  color: #fff;
+}
+
+#community .site-mini-story:hover span {
+  color: #d4a017;
 }
 
 .site-story-card-on-dark {
