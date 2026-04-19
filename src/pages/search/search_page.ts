@@ -1,7 +1,7 @@
 import gwcLogo from '../../assets/gwc_logo\.avif'
 import gwcLogoWhite from '../../assets/gwc_logo_white\.avif'
 import { ROUTES } from '../../app/routes'
-import { getCategoryLabel, getPostPath, posts, type PostCategory } from '../../data/posts'
+import { getPostPath, posts } from '../../data/posts'
 import { buildMainHeaderActions, renderMainSiteHeader } from '../../components/layout/header'
 import { renderMainSiteFooter } from '../../components/layout/footer'
 import { renderHomeOverlays } from '../../components/layout/overlay'
@@ -9,15 +9,19 @@ import { renderHomeOverlays } from '../../components/layout/overlay'
 type SearchItem = {
   slug: string
   title: string
-  category: PostCategory
+  date: string
   excerpt: string
+  content: string
+  image?: string
 }
 
 const searchIndex: SearchItem[] = posts.map((post) => ({
   slug: post.slug,
   title: post.title,
-  category: post.category,
+  date: post.date,
   excerpt: post.excerpt,
+  content: post.content,
+  image: post.image,
 }))
 
 function escapeHtml(value: string): string {
@@ -35,15 +39,15 @@ function getQuery(): string {
 
 function renderSearchResults(query: string): string {
   if (!query) {
-    return '<p class="search-empty">Sorry, you must enter at least one search criteria before you can continue.</p>'
+    return '<p class="search-empty">Enter a keyword to search posts.</p>'
   }
 
   const normalized = query.toLowerCase()
   const matches = searchIndex.filter((item) => {
     const title = item.title.toLowerCase()
     const excerpt = item.excerpt.toLowerCase()
-    const category = item.category.toLowerCase()
-    return title.includes(normalized) || excerpt.includes(normalized) || category.includes(normalized)
+    const content = item.content.toLowerCase()
+    return title.includes(normalized) || excerpt.includes(normalized) || content.includes(normalized)
   })
 
   if (matches.length === 0) {
@@ -51,15 +55,26 @@ function renderSearchResults(query: string): string {
   }
 
   return `
+    <header class="search-summary">
+      <h2>Found ${matches.length} Result${matches.length === 1 ? '' : 's'} using:</h2>
+      <p>Keyword: "<strong>${escapeHtml(query)}</strong>"</p>
+    </header>
     <ul class="search-result-list">
       ${matches
         .map(
           (item) => `
         <li class="search-result-item">
-          <p class="search-result-kind">${getCategoryLabel(item.category)}</p>
-          <h3>${item.title}</h3>
-          <p>${item.excerpt}</p>
-          <a href="${getPostPath(item.slug)}">Read More</a>
+          ${
+            item.image
+              ? `<img class="search-result-thumb" src="${item.image}" alt="${escapeHtml(item.title)}" loading="lazy" />`
+              : '<div class="search-result-thumb search-result-thumb-placeholder" aria-hidden="true"></div>'
+          }
+          <div class="search-result-body">
+            <h3>${item.title}</h3>
+            <p class="search-result-date">Posted: ${item.date}</p>
+            <p>${item.excerpt}</p>
+            <a href="${getPostPath(item.slug)}">Read More</a>
+          </div>
         </li>
       `,
         )
