@@ -15,6 +15,7 @@ export const ROUTES = {
   // Admin routes
   ADMINISTRATORS: '/administrators/dashboard',
   ADMINISTRATORS_DIRECTORY: '/administrators/administrators',
+  ADMINISTRATORS_REGISTRAR_STAFF: '/administrators/registrar-staff',
   ADMINISTRATORS_FACULTY: '/administrators/faculty',
   ADMINISTRATORS_STUDENTS: '/administrators/students',
   ADMINISTRATORS_STUDENTS_MANAGE: '/administrators/students/manage',

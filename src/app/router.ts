@@ -2,6 +2,7 @@ import { renderannouncements_page } from '../pages/announcements/announcements_p
 import {
   renderadministrators_dashboard_page,
   renderadministrators_directory_page,
+  renderregistrar_staff_admin_page,
   renderdepartments_page,
   renderfaculty_page,
   renderreports_page,
@@ -137,6 +138,13 @@ export function renderRoute(app: HTMLDivElement, pathname: string): void {
     document.title = 'Administrators | Golden West Colleges, Inc.'
     app.innerHTML = renderadministrators_directory_page()
     cleanupCurrentRoute = setupadministrators_directory_page(app)
+    return
+  }
+
+  if (pathname === ROUTES.ADMINISTRATORS_REGISTRAR_STAFF) {
+    document.title = 'Registrar Staff | Golden West Colleges, Inc.'
+    app.innerHTML = renderregistrar_staff_admin_page()
+    cleanupCurrentRoute = setupadministrators_page(app)
     return
   }
 

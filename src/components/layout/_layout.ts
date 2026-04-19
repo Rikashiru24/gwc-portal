@@ -22,6 +22,7 @@ import type { HeaderAction } from './header'
 export type AdminSection =
   | 'dashboard'
   | 'administrators'
+  | 'registrar_staff'
   | 'faculty'
   | 'students'
   | 'departments'
@@ -105,6 +106,12 @@ export const ADMIN_SHELL_CONFIG: ShellConfig<AdminSection> = {
       href: ROUTES.ADMINISTRATORS_DIRECTORY,
       section: 'administrators',
     },
+    {
+      label: 'Registrar Staff',
+      icon: 'folder-open',
+      href: ROUTES.ADMINISTRATORS_REGISTRAR_STAFF,
+      section: 'registrar_staff',
+    },
     { label: 'Faculty', icon: 'graduation-cap', href: ROUTES.ADMINISTRATORS_FACULTY, section: 'faculty' },
     { label: 'Students', icon: 'users', href: ROUTES.ADMINISTRATORS_STUDENTS, section: 'students' },
     { label: 'Departments', icon: 'building-2', href: ROUTES.ADMINISTRATORS_DEPARTMENTS, section: 'departments' },
@@ -116,6 +123,7 @@ export const ADMIN_SHELL_CONFIG: ShellConfig<AdminSection> = {
     Search,
     LayoutDashboard,
     FileText,
+    FolderOpen,
     GraduationCap,
     Users,
     Building2,
