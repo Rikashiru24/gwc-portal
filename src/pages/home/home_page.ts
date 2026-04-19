@@ -8,7 +8,7 @@ import { renderHomeOverlays } from '../../components/layout/overlay'
 
 export function renderhome_page(): string {
   return `
-    <main class="site-page">
+    <main id="main" class="site-page site-post-page">
       ${renderMainSiteHeader({
         brandHref: ROUTES.HOME,
         logoSrc: gwcLogo,
@@ -23,73 +23,127 @@ export function renderhome_page(): string {
         searchAriaLabel: 'Search site',
       })}
 
-      <section class="site-cover" style="--site-cover-image: url('${coverImage}');" aria-label="Campus cover image"></section>
+      <section class="site-cover site-post-cover" style="--site-cover-image: url('${coverImage}');" aria-label="Campus cover image">
+        <div class="site-cover-overlay">
+          <div class="container">
+            <p class="site-post-eyebrow">Official GWC Updates</p>
+            <h1 class="site-post-title">Golden West Colleges, Inc. in Action</h1>
+          </div>
+        </div>
+      </section>
 
-      <section class="site-hero">
+      <section id="global-arena" class="site-post-section site-post-section-light">
         <div class="container py-5">
-          <div class="row align-items-center g-4">
-            <div class="col-12 col-lg-7">
-              <p class="site-kicker">Future-Ready Education</p>
-              <h1 class="site-hero-title">Shaping competent, service-driven, and globally prepared graduates.</h1>
-              <p class="site-hero-text">
-                Golden West Colleges empowers learners through academic excellence, community engagement, and
-                industry-aligned programs.
-              </p>
-              <div class="d-flex flex-wrap gap-2">
-                <a href="${ROUTES.STUDENT_LOGIN}" class="btn btn-warning px-4 fw-semibold">Go to Portal</a>
-                <a href="#academics" class="btn btn-outline-light px-4">View Programs</a>
-              </div>
-            </div>
-            <div class="col-12 col-lg-5">
-              <article class="site-feature-card">
-                <h2>Admissions 2026</h2>
-                <p>Applications are now open for incoming freshmen and transferees.</p>
-                <ul class="mb-0">
-                  <li>Online pre-registration</li>
-                  <li>Scholarship screening</li>
-                  <li>On-campus enrollment support</li>
-                </ul>
+          <h2 class="site-post-section-title">GWC in the Global Arena</h2>
+          <article class="site-story-layout">
+            <div class="site-story-main">
+              <article class="site-story-card">
+                <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1200&q=80" alt="Students in a seminar event" class="site-story-image" />
+                <div class="site-story-body">
+                  <h3>Delegates Join International Academic Exchange Program</h3>
+                  <p>
+                    GWC strengthens global engagement through exchange dialogues, collaborative research sessions, and
+                    international networking opportunities for students and faculty.
+                  </p>
+                  <a href="${ROUTES.ANNOUNCEMENTS}" class="site-story-link">Read More</a>
+                </div>
               </article>
             </div>
+            <aside class="site-story-side">
+              <h4>More Stories:</h4>
+              <a href="${ROUTES.ANNOUNCEMENTS}" class="site-mini-story">
+                <img src="https://picsum.photos/seed/gwc-campus-event/320/320" alt="Campus event thumbnail" />
+                <span>STEM Fair 2026</span>
+              </a>
+              <a href="${ROUTES.ANNOUNCEMENTS}" class="site-mini-story">
+                <img src="https://images.unsplash.com/photo-1519452575417-564c1401ecc0?auto=format&fit=crop&w=640&q=80" alt="Research conference thumbnail" />
+                <span>Research Colloquium</span>
+              </a>
+            </aside>
+          </article>
+        </div>
+      </section>
+
+      <section id="community" class="site-post-section site-post-section-dark">
+        <div class="container py-5">
+          <h2 class="site-post-section-title">GWC in the Community</h2>
+          <article class="site-story-layout">
+            <div class="site-story-main">
+              <article class="site-story-card site-story-card-on-dark">
+                <img src="https://picsum.photos/seed/gwc-community-extension/1200/720" alt="Community extension program" class="site-story-image" />
+                <div class="site-story-body">
+                  <h3>Youth Extension Program Reaches Local Barangays</h3>
+                  <p>
+                    Student volunteers and faculty facilitators continue literacy, livelihood, and mentoring activities with
+                    partner communities across Alaminos.
+                  </p>
+                  <a href="${ROUTES.ANNOUNCEMENTS}" class="site-story-link">Read More</a>
+                </div>
+              </article>
+            </div>
+            <aside class="site-story-side site-story-side-on-dark">
+              <h4>More Stories:</h4>
+              <a href="${ROUTES.ANNOUNCEMENTS}" class="site-mini-story">
+                <img src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&w=640&q=80" alt="Outreach program thumbnail" />
+                <span>Reading Outreach</span>
+              </a>
+              <a href="${ROUTES.ANNOUNCEMENTS}" class="site-mini-story">
+                <img src="https://images.unsplash.com/photo-1546410531-bb4caa6b424d?auto=format&fit=crop&w=640&q=80" alt="Community service thumbnail" />
+                <span>Campus Volunteers</span>
+              </a>
+            </aside>
+          </article>
+        </div>
+      </section>
+
+      <section id="events" class="site-post-section site-post-section-light">
+        <div class="container py-5">
+          <h2 class="site-post-section-title">Events</h2>
+          <div class="site-events-list">
+            <article class="site-event-item">
+              <p class="site-event-date">May 10, 2026</p>
+              <h3>Foundation Day Celebration</h3>
+            </article>
+            <article class="site-event-item">
+              <p class="site-event-date">June 7, 2026</p>
+              <h3>Alumni Homecoming</h3>
+            </article>
+            <article class="site-event-item">
+              <p class="site-event-date">June 21, 2026</p>
+              <h3>Research and Innovation Forum</h3>
+            </article>
           </div>
         </div>
       </section>
 
-      <section id="academics" class="site-section site-section-light">
+      <section id="perspective" class="site-post-section site-post-section-primary">
         <div class="container py-5">
-          <h2 class="site-section-title">Academics</h2>
-          <div class="row g-3">
-            <div class="col-12 col-md-6 col-lg-3"><article class="site-tile"><h3>Business Education</h3><p>BSA, BSMA, and entrepreneurship pathways.</p></article></div>
-            <div class="col-12 col-md-6 col-lg-3"><article class="site-tile"><h3>Computing Studies</h3><p>BSIT and practical digital skills training.</p></article></div>
-            <div class="col-12 col-md-6 col-lg-3"><article class="site-tile"><h3>Teacher Education</h3><p>Strong licensure preparation and field practice.</p></article></div>
-            <div class="col-12 col-md-6 col-lg-3"><article class="site-tile"><h3>Hospitality & Tourism</h3><p>Industry immersion and global-ready experience.</p></article></div>
-          </div>
+          <h2 class="site-post-section-title">Perspectives + Opinions</h2>
+          <article class="site-story-card site-story-card-dark">
+            <img src="https://images.unsplash.com/photo-1463320726281-696a485928c7?auto=format&fit=crop&w=1200&q=80" alt="Sustainability article" class="site-story-image" />
+            <div class="site-story-body">
+              <h3>Campus Sustainability and Student Leadership</h3>
+              <p>
+                A reflection on how student-led initiatives are shaping responsible campus culture and practical
+                environmental action.
+              </p>
+              <a href="${ROUTES.ANNOUNCEMENTS}" class="site-story-link site-story-link-dark">Read More</a>
+            </div>
+          </article>
         </div>
       </section>
 
-      <section id="community" class="site-section site-section-dark">
+      <section id="careers" class="site-post-section site-post-section-light">
         <div class="container py-5">
-          <h2 class="site-section-title text-white">Community and Extension</h2>
-          <p class="site-section-copy text-white-50 mb-4">
-            We strengthen local development through outreach, research collaboration, and student-led service initiatives.
-          </p>
-          <div class="row g-3">
-            <div class="col-12 col-lg-4"><article class="site-news-card"><h3>Workforce Development</h3><p>Career readiness and partner-employer matching programs.</p></article></div>
-            <div class="col-12 col-lg-4"><article class="site-news-card"><h3>Research Initiatives</h3><p>Applied studies designed to support local policy and innovation.</p></article></div>
-            <div class="col-12 col-lg-4"><article class="site-news-card"><h3>Student Services</h3><p>Guidance, health, and library services for holistic growth.</p></article></div>
-          </div>
-        </div>
-      </section>
-
-      <section id="partners" class="site-section site-section-light">
-        <div class="container py-5">
-          <h2 class="site-section-title">Institutional Partners</h2>
-          <div class="site-partner-grid">
-            <span>Industry Partners</span>
-            <span>Government Units</span>
-            <span>Academic Networks</span>
-            <span>International Linkages</span>
-            <span>Community Organizations</span>
+          <header class="site-careers-head">
+            <h2 class="site-post-section-title">Be Part of Our Team</h2>
+            <p class="site-careers-subtitle">Currently no vacant position available</p>
+            <p class="site-careers-caption">Available Faculty Positions:</p>
+          </header>
+          <div class="site-job-list site-job-list-wide">
+            <article class="site-job-item"><span class="site-job-count">2</span><strong>Instructor I</strong><span>SG 12 - ₱ 22,500.00</span></article>
+            <article class="site-job-item"><span class="site-job-count">1</span><strong>Instructor II</strong><span>SG 13 - ₱ 24,800.00</span></article>
+            <article class="site-job-item"><span class="site-job-count">1</span><strong>Instructor III</strong><span>SG 14 - ₱ 27,200.00</span></article>
           </div>
         </div>
       </section>
