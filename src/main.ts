@@ -95,8 +95,8 @@ renderRoute(app, window.location.pathname)
 AOS.init({
   offset: 120,
   delay: 0,
-  easing: 'ease',
-  duration: 400,
+  easing: 'ease-out-cubic',
+  duration: 700,
   once: false,
 })
 
