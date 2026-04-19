@@ -26,7 +26,6 @@
   min-height: 100dvh;
   width: 100%;
   margin: 0;
-  padding-right: var(--scrollbar-compensation, 0px);
   background: linear-gradient(180deg, #171c2b 0%, #141928 100%);
   color: #e7edf9;
   box-shadow: 0 30px 80px rgba(0, 0, 0, 0.35);
@@ -172,7 +171,28 @@
   display: grid;
   grid-template-columns: minmax(270px, 540px) 4px 1fr;
   min-height: calc(100dvh - (var(--site-topbar-height) + var(--site-accent-height)));
+  max-height: calc(100dvh - (var(--site-topbar-height) + var(--site-accent-height)));
   padding: 26px 0 24px 40px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-gutter: stable;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(214, 178, 71, 0.85) rgba(255, 255, 255, 0.12);
+  background-color: rgba(255, 255, 255, 0.04);
+}
+
+.site-overlay-panel-menu .site-overlay-menu-layout::-webkit-scrollbar {
+  width: 14px;
+}
+
+.site-overlay-panel-menu .site-overlay-menu-layout::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.site-overlay-panel-menu .site-overlay-menu-layout::-webkit-scrollbar-thumb {
+  background: rgba(214, 178, 71, 0.85);
+  border-radius: 999px;
+  border: 2px solid rgba(255, 255, 255, 0.12);
 }
 
 .site-overlay-menu-col {

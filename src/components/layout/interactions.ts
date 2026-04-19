@@ -29,9 +29,6 @@ export function setupSiteInteractions(root: HTMLElement): () => void {
   })
 
   const lockScroll = (): void => {
-    const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth
-    document.body.style.setProperty('--scrollbar-compensation', `${Math.max(0, scrollbarWidth)}px`)
-    document.body.style.paddingRight = 'var(--scrollbar-compensation)'
     document.body.classList.add('overlay-open')
     document.body.classList.add('no-scroll')
   }
@@ -39,8 +36,6 @@ export function setupSiteInteractions(root: HTMLElement): () => void {
   const unlockScroll = (): void => {
     document.body.classList.remove('overlay-open')
     document.body.classList.remove('no-scroll')
-    document.body.style.paddingRight = ''
-    document.body.style.removeProperty('--scrollbar-compensation')
   }
 
   const applyBodyOverlayState = (openOverlayName: 'menu' | 'search' | null): void => {

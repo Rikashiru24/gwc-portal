@@ -3,7 +3,6 @@
   top: 0;
   left: 0;
   width: 100%;
-  padding-right: var(--scrollbar-compensation, 0px);
   z-index: 1000;
 }
 
