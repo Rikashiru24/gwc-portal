@@ -87,11 +87,36 @@ export function setupSiteInteractions(root: HTMLElement): () => void {
     homeHeader.classList.toggle('is-scrolled', window.scrollY > 24)
   }
 
-  // Set correct background state before binding listeners to avoid reload flicker.
-  updateHeaderScrollState()
-  if (homeHeader) {
-    requestAnimationFrame(() => homeHeader.classList.add('is-ready'))
+  const markHeaderReady = (): void => {
+    if (!homeHeader || homeHeader.classList.contains('is-ready')) return
+    updateHeaderScrollState()
+    requestAnimationFrame(() => {
+      updateHeaderScrollState()
+      homeHeader.classList.add('is-ready')
+    })
   }
+
+  const onWindowLoad = (): void => {
+    markHeaderReady()
+  }
+
+  const onPageShow = (): void => {
+    // Browser scroll restoration can be applied after initial script run.
+    // Re-check once page is shown before enabling header transitions.
+    markHeaderReady()
+  }
+
+  // Keep transitions disabled until scroll restoration has settled.
+  updateHeaderScrollState()
+  requestAnimationFrame(() => {
+    updateHeaderScrollState()
+    requestAnimationFrame(() => {
+      updateHeaderScrollState()
+      markHeaderReady()
+    })
+  })
+  window.addEventListener('load', onWindowLoad, { once: true })
+  window.addEventListener('pageshow', onPageShow, { once: true })
 
   openButtons.forEach((button) => button.addEventListener('click', onOpenClick))
   closeButtons.forEach((button) => button.addEventListener('click', onCloseClick))
@@ -105,6 +130,8 @@ export function setupSiteInteractions(root: HTMLElement): () => void {
     document.removeEventListener('keydown', onKeydown)
     searchForm?.removeEventListener('submit', onSearchSubmit)
     window.removeEventListener('scroll', updateHeaderScrollState)
+    window.removeEventListener('load', onWindowLoad)
+    window.removeEventListener('pageshow', onPageShow)
     unlockScroll()
   }
 }
