@@ -59,6 +59,8 @@
 .site-post-title {
   font-size: clamp(1.9rem, 3.6vw, 3.3rem);
   margin: 0;
+  font-family: Georgia, 'Times New Roman', serif;
+  letter-spacing: 0.03em;
 }
 
 .site-post-section-title {
