@@ -1,4 +1,4 @@
-export type PostCategory = 'ANNOUNCEMENT' | 'GLOBAL' | 'COMMUNITY' | 'PERSPECTIVE'
+export type PostCategory = 'ANNOUNCEMENT' | 'GLOBAL' | 'COMMUNITY' | 'PERSPECTIVE' | 'EVENTS'
 
 export type PostItem = {
   slug: string
@@ -11,6 +11,39 @@ export type PostItem = {
 }
 
 export const posts: PostItem[] = [
+  {
+    slug: 'foundation-day-celebration-2026',
+    title: 'Foundation Day Celebration 2026',
+    date: 'May 10, 2026',
+    category: 'EVENTS',
+    excerpt:
+      'A campus-wide celebration featuring student performances, recognition ceremonies, and community activities honoring the college foundation milestone.',
+    content:
+      'Golden West Colleges marks Foundation Day with academic showcases, student organization presentations, and commemorative events for the campus community.',
+    image: 'https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=1280&q=80',
+  },
+  {
+    slug: 'alumni-homecoming-2026',
+    title: 'Alumni Homecoming 2026',
+    date: 'June 7, 2026',
+    category: 'EVENTS',
+    excerpt:
+      'Alumni return to campus for networking sessions, mentoring circles, and program reunions that reconnect graduates with students and faculty.',
+    content:
+      'The homecoming program includes department meetups, career talks, and alumni recognition to strengthen cross-batch ties and institutional engagement.',
+    image: 'https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?auto=format&fit=crop&w=1280&q=80',
+  },
+  {
+    slug: 'research-and-innovation-forum-2026',
+    title: 'Research and Innovation Forum 2026',
+    date: 'June 21, 2026',
+    category: 'EVENTS',
+    excerpt:
+      'Faculty and student researchers present practical innovations and studies focused on community needs, applied learning, and future-ready solutions.',
+    content:
+      'The forum highlights interdisciplinary outputs, prototype demonstrations, and academic discussions that support research culture across programs.',
+    image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1280&q=80',
+  },
   {
     slug: 'delegates-join-international-academic-exchange-program',
     title: 'Delegates Join International Academic Exchange Program',
@@ -170,6 +203,7 @@ const POST_CATEGORY_TO_SLUG: Record<PostCategory, string> = {
   GLOBAL: 'GLOBAL',
   COMMUNITY: 'COMMUNITY',
   PERSPECTIVE: 'PERSPECTIVE',
+  EVENTS: 'EVENTS',
 }
 
 const POST_SLUG_TO_CATEGORY: Record<string, PostCategory> = {
@@ -177,6 +211,7 @@ const POST_SLUG_TO_CATEGORY: Record<string, PostCategory> = {
   GLOBAL: 'GLOBAL',
   COMMUNITY: 'COMMUNITY',
   PERSPECTIVE: 'PERSPECTIVE',
+  EVENTS: 'EVENTS',
 }
 
 export function getPostCategorySlug(category: PostCategory): string {
@@ -196,5 +231,6 @@ export function getCategoryLabel(category: PostCategory): string {
   if (category === 'ANNOUNCEMENT') return 'Announcement'
   if (category === 'GLOBAL') return 'Global'
   if (category === 'COMMUNITY') return 'Community'
+  if (category === 'EVENTS') return 'Events'
   return 'Perspective'
 }

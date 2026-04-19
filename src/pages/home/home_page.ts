@@ -15,6 +15,7 @@ export function renderhome_page(): string {
   const globalPosts = getPostsByCategory('GLOBAL')
   const communityPosts = getPostsByCategory('COMMUNITY')
   const perspectivePosts = getPostsByCategory('PERSPECTIVE')
+  const eventPosts = getPostsByCategory('EVENTS')
 
   const globalFeatured = globalPosts[0]
   const globalMore = globalPosts.slice(1, 3)
@@ -128,28 +129,46 @@ export function renderhome_page(): string {
             </div>
             <div class="carousel-inner">
               <article class="carousel-item active">
-                <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=1280&q=80" class="d-block w-100 site-event-image" alt="Foundation Day Celebration event" />
-                <div class="carousel-caption d-none d-md-block site-event-caption">
-                  <p class="site-event-date">May 10, 2026</p>
-                  <h3>Foundation Day Celebration</h3>
-                  <p>Join campus-wide activities honoring the founding year of Golden West Colleges.</p>
-                </div>
+                <a href="${getPostPath(eventPosts[0]?.slug ?? 'stem-fair-2026')}" class="site-event-slide-link">
+                  <img src="${getImage(eventPosts[0], 'https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=1280&q=80')}" class="d-block w-100 site-event-image" alt="${eventPosts[0]?.title ?? 'Foundation Day Celebration event'}" />
+                  <div class="carousel-caption d-none d-md-block site-event-caption">
+                    <p class="site-event-date">${eventPosts[0]?.date ?? 'May 10, 2026'}</p>
+                    <h3>${eventPosts[0]?.title ?? 'Foundation Day Celebration'}</h3>
+                    <p>${eventPosts[0]?.excerpt ?? 'Join campus-wide activities honoring the founding year of Golden West Colleges.'}</p>
+                  </div>
+                  <div class="site-event-mobile-copy d-block d-md-none">
+                    <p class="site-event-date">${eventPosts[0]?.date ?? 'May 10, 2026'}</p>
+                    <h3>${eventPosts[0]?.title ?? 'Foundation Day Celebration'}</h3>
+                  </div>
+                </a>
               </article>
               <article class="carousel-item">
-                <img src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?auto=format&fit=crop&w=1280&q=80" class="d-block w-100 site-event-image" alt="Alumni Homecoming event" />
-                <div class="carousel-caption d-none d-md-block site-event-caption">
-                  <p class="site-event-date">June 7, 2026</p>
-                  <h3>Alumni Homecoming</h3>
-                  <p>Reconnect with fellow alumni, mentors, and student communities across programs.</p>
-                </div>
+                <a href="${getPostPath(eventPosts[1]?.slug ?? 'research-colloquium')}" class="site-event-slide-link">
+                  <img src="${getImage(eventPosts[1], 'https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?auto=format&fit=crop&w=1280&q=80')}" class="d-block w-100 site-event-image" alt="${eventPosts[1]?.title ?? 'Alumni Homecoming event'}" />
+                  <div class="carousel-caption d-none d-md-block site-event-caption">
+                    <p class="site-event-date">${eventPosts[1]?.date ?? 'June 7, 2026'}</p>
+                    <h3>${eventPosts[1]?.title ?? 'Alumni Homecoming'}</h3>
+                    <p>${eventPosts[1]?.excerpt ?? 'Reconnect with fellow alumni, mentors, and student communities across programs.'}</p>
+                  </div>
+                  <div class="site-event-mobile-copy d-block d-md-none">
+                    <p class="site-event-date">${eventPosts[1]?.date ?? 'June 7, 2026'}</p>
+                    <h3>${eventPosts[1]?.title ?? 'Alumni Homecoming'}</h3>
+                  </div>
+                </a>
               </article>
               <article class="carousel-item">
-                <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1280&q=80" class="d-block w-100 site-event-image" alt="Research and Innovation Forum event" />
-                <div class="carousel-caption d-none d-md-block site-event-caption">
-                  <p class="site-event-date">June 21, 2026</p>
-                  <h3>Research and Innovation Forum</h3>
-                  <p>Explore student and faculty-led innovations shaping future-ready education.</p>
-                </div>
+                <a href="${getPostPath(eventPosts[2]?.slug ?? 'campus-sustainability-and-student-leadership')}" class="site-event-slide-link">
+                  <img src="${getImage(eventPosts[2], 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1280&q=80')}" class="d-block w-100 site-event-image" alt="${eventPosts[2]?.title ?? 'Research and Innovation Forum event'}" />
+                  <div class="carousel-caption d-none d-md-block site-event-caption">
+                    <p class="site-event-date">${eventPosts[2]?.date ?? 'June 21, 2026'}</p>
+                    <h3>${eventPosts[2]?.title ?? 'Research and Innovation Forum'}</h3>
+                    <p>${eventPosts[2]?.excerpt ?? 'Explore student and faculty-led innovations shaping future-ready education.'}</p>
+                  </div>
+                  <div class="site-event-mobile-copy d-block d-md-none">
+                    <p class="site-event-date">${eventPosts[2]?.date ?? 'June 21, 2026'}</p>
+                    <h3>${eventPosts[2]?.title ?? 'Research and Innovation Forum'}</h3>
+                  </div>
+                </a>
               </article>
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#eventsCarousel" data-bs-slide="prev">
