@@ -1,8 +1,8 @@
 import { ROUTES } from '../../app/routes'
 import { ADMIN_SHELL_CONFIG, renderPortalShell, setupPortalShell } from '../../components/_layout'
 import { renderAdminBreadcrumbNav } from '../../components/nav_breadcrumb'
-import { renderSharedModal, setupSharedModal } from '../../components/shared_modal'
-import { renderSharedPagination, setupSharedPagination } from '../../components/shared_pagination'
+import { renderSharedModal, setupSharedModal } from '../../components/modal'
+import { renderSharedPagination, setupSharedPagination } from '../../components/pagination'
 import { renderStudentAccountForm } from '../../components/student_account_form'
 
 type StudentRecord = {
