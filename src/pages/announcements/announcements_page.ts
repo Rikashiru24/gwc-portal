@@ -36,28 +36,31 @@ export function renderannouncements_page(): string {
       </section>
 
       <section class="ann-list-wrap">
-        <h2>Other Announcements:</h2>
-        <div class="ann-grid">
-          ${cards
-            .map(
-              (card) => `
-            <article class="ann-card">
-              <img class="ann-card-img-top" src="${card.image}" alt="${card.title}" loading="lazy" />
-              <div class="ann-card-body">
-                <p class="ann-card-date">${card.date}</p>
-                <h3>${card.title}</h3>
-                <p>${card.excerpt}</p>
-              </div>
-              <div class="ann-card-footer">
-                <a href="${getPostPath(card.slug)}" class="ann-card-footer-link">
-                  <span>Read More</span>
-                  <i data-lucide="arrow-right" aria-hidden="true"></i>
-                </a>
-              </div>
-            </article>
-          `,
-            )
-            .join('')}
+        <div class="post-container">
+          <section class="post-related" aria-label="Other announcements">
+            <div class="post-related-head">
+              <h2>Other Announcements:</h2>
+            </div>
+            <div class="post-related-grid">
+              ${cards
+                .map(
+                  (card) => `
+                <article class="post-related-card">
+                  <img class="post-related-image" src="${card.image}" alt="${card.title}" loading="lazy" />
+                  <div class="post-related-body">
+                    <h3>${card.title}</h3>
+                    <p class="post-related-date">Posted: ${card.date}</p>
+                    <p>${card.excerpt}</p>
+                  </div>
+                  <div class="post-related-footer">
+                    <a href="${getPostPath(card.slug)}">Read More</a>
+                  </div>
+                </article>
+              `,
+                )
+                .join('')}
+            </div>
+          </section>
         </div>
       </section>
 
