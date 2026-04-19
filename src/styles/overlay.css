@@ -257,6 +257,7 @@
 
 .site-overlay-submenu-panel {
   min-height: 0;
+  min-width: min(340px, 40vw);
   padding: 0.35rem 0 0.35rem 2.5rem;
   margin-left: 1.25rem;
   align-self: start;
