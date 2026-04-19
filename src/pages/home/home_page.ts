@@ -67,7 +67,18 @@ export function renderhome_page(): string {
       <section id="community" class="site-post-section site-post-section-dark">
         <div class="container py-5">
           <h2 class="site-post-section-title">GWC in the Community</h2>
-          <article class="site-story-layout">
+          <article class="site-story-layout site-story-layout-left-rail">
+            <aside class="site-story-side site-story-side-on-dark">
+              <h4>More Stories:</h4>
+              <a href="${ROUTES.ANNOUNCEMENTS}" class="site-mini-story">
+                <img src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&w=640&q=80" alt="Outreach program thumbnail" />
+                <span>Reading Outreach</span>
+              </a>
+              <a href="${ROUTES.ANNOUNCEMENTS}" class="site-mini-story">
+                <img src="https://images.unsplash.com/photo-1546410531-bb4caa6b424d?auto=format&fit=crop&w=640&q=80" alt="Community service thumbnail" />
+                <span>Campus Volunteers</span>
+              </a>
+            </aside>
             <div class="site-story-main">
               <article class="site-story-card site-story-card-on-dark">
                 <img src="https://picsum.photos/seed/gwc-community-extension/1200/720" alt="Community extension program" class="site-story-image" />
@@ -81,17 +92,6 @@ export function renderhome_page(): string {
                 </div>
               </article>
             </div>
-            <aside class="site-story-side site-story-side-on-dark">
-              <h4>More Stories:</h4>
-              <a href="${ROUTES.ANNOUNCEMENTS}" class="site-mini-story">
-                <img src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&w=640&q=80" alt="Outreach program thumbnail" />
-                <span>Reading Outreach</span>
-              </a>
-              <a href="${ROUTES.ANNOUNCEMENTS}" class="site-mini-story">
-                <img src="https://images.unsplash.com/photo-1546410531-bb4caa6b424d?auto=format&fit=crop&w=640&q=80" alt="Community service thumbnail" />
-                <span>Campus Volunteers</span>
-              </a>
-            </aside>
           </article>
         </div>
       </section>
