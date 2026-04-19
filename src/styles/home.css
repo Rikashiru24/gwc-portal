@@ -124,18 +124,54 @@
 }
 
 .site-story-link {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 0;
   background: var(--gwc-brand-accent);
   color: #111827;
   padding: 0.45rem 0.95rem;
   text-decoration: none;
   font-weight: 600;
+  transition: background-color 150ms ease, color 150ms ease;
+}
+
+.site-story-link-icon {
+  display: inline-flex;
+  width: 0;
+  margin-left: 0;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateX(-4px);
+  transition: width 150ms ease, margin-left 150ms ease, opacity 150ms ease, transform 150ms ease;
+}
+
+.site-story-link-icon svg {
+  width: 0.95rem;
+  height: 0.95rem;
 }
 
 .site-story-link-dark {
   background: #111827;
   color: #fff;
   border: 1px solid #111827;
+}
+
+.site-story-link:hover,
+.site-story-link:focus-visible,
+.site-story-link-dark:hover,
+.site-story-link-dark:focus-visible {
+  background: #111827;
+  color: #fff;
+}
+
+.site-story-link:hover .site-story-link-icon,
+.site-story-link:focus-visible .site-story-link-icon,
+.site-story-link-dark:hover .site-story-link-icon,
+.site-story-link-dark:focus-visible .site-story-link-icon {
+  width: 1.15rem;
+  margin-left: 0.35rem;
+  opacity: 1;
+  transform: translateX(0);
 }
 
 .site-story-side {

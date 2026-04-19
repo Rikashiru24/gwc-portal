@@ -56,7 +56,7 @@ export function renderhome_page(): string {
                   <p>${globalFeatured?.excerpt ?? 'Check back soon for the latest updates from Golden West Colleges.'}</p>
                   ${
                     globalFeatured
-                      ? `<a href="${getPostPath(globalFeatured.slug)}" class="site-story-link">Read More</a>`
+                      ? `<a href="${getPostPath(globalFeatured.slug)}" class="site-story-link"><span>Read More</span><span class="site-story-link-icon" aria-hidden="true"><i data-lucide="arrow-right"></i></span></a>`
                       : ''
                   }
                 </div>
@@ -104,7 +104,7 @@ export function renderhome_page(): string {
                   <p>${communityFeatured?.excerpt ?? 'Community engagement stories will be posted here.'}</p>
                   ${
                     communityFeatured
-                      ? `<a href="${getPostPath(communityFeatured.slug)}" class="site-story-link">Read More</a>`
+                      ? `<a href="${getPostPath(communityFeatured.slug)}" class="site-story-link"><span>Read More</span><span class="site-story-link-icon" aria-hidden="true"><i data-lucide="arrow-right"></i></span></a>`
                       : ''
                   }
                 </div>
@@ -144,7 +144,7 @@ export function renderhome_page(): string {
               <p>${perspectiveFeatured?.excerpt ?? 'Perspective and opinion updates will appear here.'}</p>
               ${
                 perspectiveFeatured
-                  ? `<a href="${getPostPath(perspectiveFeatured.slug)}" class="site-story-link site-story-link-dark">Read More</a>`
+                  ? `<a href="${getPostPath(perspectiveFeatured.slug)}" class="site-story-link site-story-link-dark"><span>Read More</span><span class="site-story-link-icon" aria-hidden="true"><i data-lucide="arrow-right"></i></span></a>`
                   : ''
               }
             </div>

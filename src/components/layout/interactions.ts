@@ -1,4 +1,4 @@
-import { createIcons,  Megaphone, Menu, Search } from 'lucide'
+import { ArrowRight, createIcons, Megaphone, Menu, Newspaper, Search } from 'lucide'
 import { ROUTES } from '../../app/routes'
 
 export function setupSiteInteractions(root: HTMLElement): () => void {
@@ -11,9 +11,11 @@ export function setupSiteInteractions(root: HTMLElement): () => void {
 
   createIcons({
     icons: {
+      ArrowRight,
       Megaphone,
-      Search,
       Menu,
+      Newspaper,
+      Search,
     },
   })
 
