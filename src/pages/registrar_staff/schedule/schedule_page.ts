@@ -1,4 +1,6 @@
 import { REGISTRAR_STAFF_SHELL_CONFIG, renderPortalShell } from '../../../components/layout/_layout'
+import { ROUTES } from '../../../app/routes'
+import { renderBreadcrumbNav } from '../../../components/ui/nav_breadcrumb'
 
 export function renderregistrar_staff_schedule_page(): string {
   return renderPortalShell(
@@ -6,10 +8,13 @@ export function renderregistrar_staff_schedule_page(): string {
     'schedule',
     `
       <section class="registrar_staff-content class-scheduling-content">
+        ${renderBreadcrumbNav([
+          { label: 'Home', href: ROUTES.REGISTRAR_STAFF_DASHBOARD },
+          { label: 'Schedule', active: true },
+        ])}
         <header class="class-scheduling-header">
-          <p class="class-scheduling-eyebrow">Academic Planning</p>
           <h2>Class Scheduling</h2>
-          <p>Create and organize course schedules for the upcoming term. This page is a UI mockup only.</p>
+          <p>Create and organize course schedules for the upcoming term.</p>
         </header>
 
         <form class="class-scheduling-form" action="#" method="post" novalidate>
@@ -224,7 +229,5 @@ export function setupclass_scheduling_form(root: HTMLElement): () => void {
     slotContainer.removeEventListener('click', onSlotAction)
   }
 }
-
-
 
 
