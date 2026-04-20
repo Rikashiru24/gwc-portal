@@ -17,6 +17,8 @@
 .site-brand {
   display: flex;
   align-items: center;
+  min-width: 0;
+  flex: 1 1 auto;
   color: #fff;
   gap: 10px;
   padding: 0 14px;
@@ -44,6 +46,7 @@
   font-size: clamp(1.45rem, 1.8vw, 1.85rem);
   line-height: 1;
   white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .site-header.is-scrolled .site-header-inner,
@@ -60,6 +63,7 @@
 .site-brand-title-short { display: none; }
 
 .site-quick-menu {
+  flex: 0 0 auto;
   min-width: 0;
   width: fit-content;
   height: var(--site-topbar-height);
@@ -188,6 +192,34 @@
 
   .site-quick-label {
     display: none;
+  }
+}
+
+@media (max-width: 420px) {
+  .site-brand {
+    gap: 6px;
+    padding: 0 8px;
+  }
+
+  .site-brand-logo {
+    width: 44px;
+    height: 44px;
+  }
+
+  .site-brand-title {
+    font-size: 1.2rem;
+  }
+
+  .site-quick-item,
+  .site-quick-menu .site-quick-item {
+    padding: 0 0.45rem;
+    min-width: 44px;
+    gap: 0;
+  }
+
+  .site-quick-menu .site-quick-item-icon-only {
+    min-width: 44px;
+    padding: 0 0.45rem;
   }
 }
 
