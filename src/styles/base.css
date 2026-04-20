@@ -13,6 +13,7 @@
 body {
   --font-body: 'Century Gothic';
   --font-display: 'Bebas Neue';
+  --font-display-letter-spacing: 0.03em;
   --gold: hsl(45, 100%, 50%);
   --dark-blue: #132a63;
   --site-topbar-height: 62px;
@@ -36,6 +37,7 @@ h4,
 h5,
 h6 {
   font-family: var(--font-display);
+  letter-spacing: var(--font-display-letter-spacing);
 }
 
 b,
@@ -43,6 +45,7 @@ strong,
 .fw-bold,
 .font-weight-bold {
   font-family: var(--font-display);
+  letter-spacing: var(--font-display-letter-spacing);
 }
 
 body.overlay-open {
