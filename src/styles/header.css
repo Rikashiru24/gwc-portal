@@ -20,7 +20,7 @@
   min-width: 0;
   flex: 1 1 auto;
   color: #fff;
-  gap: 10px;
+  gap: 6px;
   padding: 0 14px;
 }
 
@@ -197,7 +197,7 @@
 
 @media (max-width: 420px) {
   .site-brand {
-    gap: 6px;
+    gap: 4px;
     padding: 0 8px;
   }
 
@@ -222,7 +222,6 @@
     padding: 0 0.45rem;
   }
 }
-
 
 
 

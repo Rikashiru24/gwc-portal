@@ -65,7 +65,7 @@
   align-items: center;
   min-width: 0;
   flex: 1 1 auto;
-  gap: 10px;
+  gap: 6px;
   color: #f4f6fa;
 }
 
@@ -396,7 +396,7 @@
   }
 
   .site-overlay-brand {
-    gap: 6px;
+    gap: 4px;
   }
 
   .site-overlay-brand-logo {
