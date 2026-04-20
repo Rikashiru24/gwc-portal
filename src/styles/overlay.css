@@ -172,7 +172,7 @@
   grid-template-columns: minmax(270px, 540px) 4px 1fr;
   min-height: calc(100dvh - (var(--site-topbar-height) + var(--site-accent-height)));
   max-height: calc(100dvh - (var(--site-topbar-height) + var(--site-accent-height)));
-  padding: 16px 16px 26px;
+  padding: 30px 30px 42px;
   overflow-y: auto;
   overflow-x: hidden;
   scrollbar-gutter: stable;
@@ -320,7 +320,7 @@
 
   .site-overlay-panel-menu .site-overlay-menu-layout {
     grid-template-columns: 1fr;
-    padding: 16px 16px 26px;
+    padding: 26px 24px 36px;
   }
 
   .site-overlay-menu-divider,
