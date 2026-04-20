@@ -1,5 +1,5 @@
 body {
-  --site-topbar-height: 86px;
+  --site-topbar-height: 62px;
   --site-accent-height: 4px;
   min-height: 100dvh;
   margin: 0;
@@ -15,9 +15,4 @@ body.overlay-open {
   overflow: hidden;
 }
 
-@media (max-width: 991px) {
-  body {
-    --site-topbar-height: 62px;
-  }
-}
 

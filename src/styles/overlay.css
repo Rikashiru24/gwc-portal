@@ -80,7 +80,7 @@
   font-family: 'Trebuchet MS', 'Segoe UI', Tahoma, sans-serif;
   font-weight: 700;
   letter-spacing: 0.8px;
-  font-size: clamp(1rem, 1.6vw, 1.8rem);
+  font-size: 1rem;
   line-height: 1;
   white-space: nowrap;
 }
@@ -90,13 +90,13 @@
 }
 
 .site-overlay-close {
-  width: 56px;
-  height: 56px;
+  width: 42px;
+  height: 42px;
   border: 0;
   background: transparent;
   color: #f4f6fa;
   border-radius: 999px;
-  font-size: 2rem;
+  font-size: 1.5rem;
   line-height: 1;
   font-weight: 700;
 }
@@ -172,7 +172,7 @@
   grid-template-columns: minmax(270px, 540px) 4px 1fr;
   min-height: calc(100dvh - (var(--site-topbar-height) + var(--site-accent-height)));
   max-height: calc(100dvh - (var(--site-topbar-height) + var(--site-accent-height)));
-  padding: 26px 0 24px 40px;
+  padding: 16px 16px 26px;
   overflow-y: auto;
   overflow-x: hidden;
   scrollbar-gutter: stable;
@@ -204,7 +204,7 @@
 .site-overlay-menu-col a {
   color: #f2f4fa;
   text-decoration: none;
-  font-size: clamp(1.35rem, 2.4vw, 3.2rem);
+  font-size: 1.6rem;
   font-family: 'Arial Black', 'Segoe UI', Tahoma, sans-serif;
   line-height: 1.2;
   text-transform: uppercase;
@@ -219,7 +219,7 @@
   padding: 0;
   text-align: left;
   color: #f2f4fa;
-  font-size: clamp(1.35rem, 2.4vw, 3.2rem);
+  font-size: 1.6rem;
   font-family: 'Arial Black', 'Segoe UI', Tahoma, sans-serif;
   line-height: 1.2;
   text-transform: uppercase;
