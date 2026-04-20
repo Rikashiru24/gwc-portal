@@ -109,11 +109,18 @@
 }
 
 .login-submit-btn {
-  --login-btn-bg: #2a3c5c;
-  --login-btn-bg-hover: #1f2f49;
-  background-color: var(--login-btn-bg);
-  border-color: var(--login-btn-bg);
-  color: #fff;
+  --login-btn-bg-start: #3c4c89;
+  --login-btn-bg-end: #34447d;
+  --login-btn-bg-start-hover: #111827;
+  --login-btn-bg-end-hover: #111827;
+  --bs-btn-color: #fff;
+  --bs-btn-hover-color: #fff;
+  --bs-btn-active-color: #fff;
+  --bs-btn-disabled-color: #fff;
+  background: linear-gradient(180deg, var(--login-btn-bg-start) 0%, var(--login-btn-bg-end) 100%);
+  border-color: var(--login-btn-bg-end);
+  color: #fff !important;
+  -webkit-text-fill-color: #fff;
   border-radius: 0;
   font-weight: 700;
   letter-spacing: 0.2px;
@@ -121,14 +128,24 @@
 
 .login-submit-btn:hover,
 .login-submit-btn:focus {
-  background-color: var(--login-btn-bg-hover);
-  border-color: var(--login-btn-bg-hover);
-  color: #fff;
+  background: linear-gradient(180deg, var(--login-btn-bg-start-hover) 0%, var(--login-btn-bg-end-hover) 100%);
+  border-color: var(--login-btn-bg-end-hover);
+  color: #fff !important;
+  -webkit-text-fill-color: #fff;
+}
+
+.login-submit-btn:active,
+.login-submit-btn.active,
+.show > .login-submit-btn.dropdown-toggle {
+  color: #fff !important;
+  -webkit-text-fill-color: #fff;
 }
 
 .admin-login-page .login-submit-btn {
-  --login-btn-bg: #2a3c5c;
-  --login-btn-bg-hover: #1f2f49;
+  --login-btn-bg-start: #3c4c89;
+  --login-btn-bg-end: #34447d;
+  --login-btn-bg-start-hover: #111827;
+  --login-btn-bg-end-hover: #111827;
 }
 
 .portal-footer {

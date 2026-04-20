@@ -1,4 +1,4 @@
-import gwcLogo from '../../assets/gwc_logo_laurel\.avif'
+import gwcLogo from '../../assets/gwc_logo\.avif'
 import { renderPortalHeader } from '../../components/layout/header'
 import { renderPortalSiteFooter } from '../../components/layout/footer'
 
@@ -39,3 +39,4 @@ export function renderfaculty_login_page(): string {
     </main>
   `
 }
+
