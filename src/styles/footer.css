@@ -76,19 +76,19 @@
 
 .site-footer-links a:hover,
 .site-footer-links a:focus {
-  color: #fde68a;
+  color: var(--gwc-logo-gold);
 }
 
 .site-footer-contact a:hover,
 .site-footer-contact a:focus {
-  color: #fde68a;
+  color: var(--gwc-logo-gold);
   text-decoration: none;
 }
 
 .site-footer-links li::before {
   content: ">";
   margin-right: 0.5rem;
-  color: #fbbf24;
+  color: var(--gwc-logo-gold);
 }
 
 .site-footer-address li {
@@ -201,4 +201,8 @@
     gap: 0.65rem;
   }
 }
+
+
+
+
 

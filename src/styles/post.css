@@ -124,7 +124,7 @@
 
 .post-see-more:hover,
 .post-see-more:focus-visible {
-  color: #b48a13;
+  color: var(--gwc-logo-gold);
 }
 
 .post-related-grid {
@@ -192,7 +192,7 @@
 
 .post-related-footer a:hover,
 .post-related-footer a:focus-visible {
-  color: #b48a13;
+  color: var(--gwc-logo-gold);
 }
 
 @media (max-width: 991px) {
@@ -222,3 +222,7 @@
     font-size: 0.9rem;
   }
 }
+
+
+
+

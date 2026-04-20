@@ -106,13 +106,13 @@
 
 .site-overlay-close:hover,
 .site-overlay-close:focus {
-  color: #f4d269;
+  color: var(--gwc-logo-gold);
   background: rgba(255, 255, 255, 0.08);
 }
 
 .site-overlay-accent-line {
   height: var(--site-accent-height);
-  background: #d6b247;
+  background: var(--gwc-logo-gold);
 }
 
 .site-overlay-panel-search .site-search-center {
@@ -251,7 +251,7 @@
 }
 
 .site-overlay-menu-trigger.is-active {
-  color: #d6b247;
+  color: var(--gwc-logo-gold);
 }
 
 .site-overlay-menu-divider {
@@ -381,5 +381,9 @@
     display: inline;
   }
 }
+
+
+
+
 
 

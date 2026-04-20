@@ -117,7 +117,7 @@
   height: 65%;
   transform: translateY(-50%);
   border-radius: 10px;
-  background: #f4ce57;
+  background: var(--gwc-logo-gold);
 }
 
 .student-content {
@@ -217,3 +217,7 @@
     display: flex;
   }
 }
+
+
+
+

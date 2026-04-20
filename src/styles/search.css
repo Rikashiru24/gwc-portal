@@ -196,7 +196,7 @@
 
 .search-result-body a:hover,
 .search-result-body a:focus-visible {
-  color: #9b7a25;
+  color: var(--gwc-logo-gold);
 }
 
 @media (max-width: 991px) {
@@ -237,3 +237,7 @@
     font-size: 1.45rem;
   }
 }
+
+
+
+

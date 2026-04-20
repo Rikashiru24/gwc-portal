@@ -1,6 +1,6 @@
 .site-page {
   --gwc-brand-primary: #102a5c;
-  --gwc-brand-accent: #d4a017;
+  --gwc-brand-accent: var(--gwc-logo-gold);
   min-height: 100dvh;
   background: #f4f6fb;
   color: #111827;
@@ -270,7 +270,7 @@
 }
 
 #community .site-mini-story:hover span {
-  color: #d4a017;
+  color: var(--gwc-logo-gold);
 }
 
 .site-story-card-on-dark {
@@ -441,7 +441,7 @@
   border-radius: 999px;
   background: var(--gwc-brand-accent);
   color: #111827;
-  border: 1px solid #b78607;
+  border: 1px solid var(--gwc-logo-gold);
   font-weight: 700;
   font-size: 2rem;
   line-height: 1;
@@ -454,7 +454,7 @@
   font-size: 0.8rem;
   font-weight: 700;
   margin-bottom: 0.6rem;
-  color: #f4ce55;
+  color: var(--gwc-logo-gold);
 }
 
 .site-hero-title {
@@ -654,5 +654,9 @@
     font-size: 2rem;
   }
 }
+
+
+
+
 
 

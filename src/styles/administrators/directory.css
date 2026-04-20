@@ -170,7 +170,7 @@
 }
 
 .admin-pill.is-warning {
-  background: #d6c08f;
+  background: var(--gwc-logo-gold);
   color: #3f3115;
 }
 
@@ -352,3 +352,7 @@
     font-size: 0.78rem;
   }
 }
+
+
+
+
