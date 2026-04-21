@@ -86,7 +86,7 @@
   justify-content: center;
   height: 100%;
   min-width: auto;
-  padding: 0 1rem;
+  padding: 0 14px;
   gap: 0.5rem;
   font-weight: 700;
   letter-spacing: 0.4px;
@@ -107,7 +107,7 @@
 
 .site-quick-item-icon-only {
   min-width: 64px;
-  padding: 0 0.7rem;
+  padding: 0 14px;
   justify-content: center;
 }
 
@@ -160,20 +160,20 @@
     min-width: auto;
     min-height: var(--site-topbar-height);
     justify-content: center;
-    padding: 0 0.75rem;
+    padding: 0 14px;
     gap: 0.4rem;
   }
 
   .site-quick-menu .site-quick-item-icon-only {
     min-width: 56px;
-    padding: 0 0.55rem;
+    padding: 0 14px;
   }
 }
 
 @media (max-width: 760px) {
   .site-quick-menu .site-quick-item {
     font-size: 1rem;
-    padding: 0 0.6rem;
+    padding: 0 14px;
     gap: 0.35rem;
   }
 }
@@ -213,14 +213,14 @@
 
   .site-quick-item,
   .site-quick-menu .site-quick-item {
-    padding: 0 0.45rem;
+    padding: 0 8px;
     min-width: 44px;
     gap: 0;
   }
 
   .site-quick-menu .site-quick-item-icon-only {
     min-width: 44px;
-    padding: 0 0.45rem;
+    padding: 0 8px;
   }
 }
 
