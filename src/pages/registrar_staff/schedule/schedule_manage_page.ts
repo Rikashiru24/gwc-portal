@@ -202,6 +202,7 @@ export function setupschedule_manage_page(root: HTMLElement): () => void {
 
     return `
       <form class="needs-validation" data-schedule-modal-form novalidate>
+        <h3><span class="admin-student-section-title">Schedule Information</span></h3>
         <div class="shared-modal-grid shared-modal-grid-3">
           <div class="form-floating">
             <input type="text" class="form-control" id="schedule-modal-code" placeholder="Subject Code" value="${escapeHtml(schedule.subjectCode)}" ${disabled} required />
