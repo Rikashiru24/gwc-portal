@@ -145,7 +145,7 @@
 
 .admin-student-form-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 0.35rem;
 }
 
@@ -168,12 +168,16 @@
 }
 
 .admin-student-form-grid-4 {
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 .admin-student-guardian-stack {
   display: grid;
   row-gap: 0.45rem;
+}
+
+.admin-student-col-span-2 {
+  grid-column: span 2;
 }
 
 .admin-student-form-footer {
@@ -223,6 +227,10 @@
   .admin-student-form-grid,
   .admin-student-form-grid-4 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .admin-student-col-span-2 {
+    grid-column: auto;
   }
 
 }

@@ -77,7 +77,7 @@ const SHARED_MODAL_CSS = `
 }
 
 [data-shared-modal] .shared-modal-grid-4 {
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 @media (max-width: 991px) {

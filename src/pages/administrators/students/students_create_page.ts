@@ -41,8 +41,15 @@ function renderSectionFields(): string {
 
 function renderGuardianFields(title: string): string {
   const key = title.toLowerCase()
+  const isGuardian = key === 'guardian'
   const floatingInput = (id: string, label: string): string => `
     <div class="form-floating">
+      <input class="form-control form-control-sm" id="${id}" placeholder="${label}" />
+      <label for="${id}">${label}</label>
+    </div>
+  `
+  const floatingInputSpan2 = (id: string, label: string): string => `
+    <div class="form-floating admin-student-col-span-2">
       <input class="form-control form-control-sm" id="${id}" placeholder="${label}" />
       <label for="${id}">${label}</label>
     </div>
@@ -55,6 +62,7 @@ function renderGuardianFields(title: string): string {
       ${floatingInput(`${key}-middle-name`, 'Middle Name (Optional)')}
       ${floatingInput(`${key}-last-name`, 'Last Name')}
       ${floatingInput(`${key}-contact-number`, 'Contact Number')}
+      ${isGuardian ? floatingInputSpan2('guardian-relation', 'Relation') : ''}
     </div>
   `
 }
@@ -89,12 +97,6 @@ export function renderstudents_create_page(): string {
               ${renderGuardianFields('Father')}
               ${renderGuardianFields('Mother')}
               ${renderGuardianFields('Guardian')}
-              <div class="admin-student-form-grid admin-student-form-grid-4">
-                <div class="form-floating">
-                  <input class="form-control form-control-sm" id="guardian-relation" placeholder="Relation" />
-                  <label for="guardian-relation">Relation</label>
-                </div>
-              </div>
             </div>
           </section>
 

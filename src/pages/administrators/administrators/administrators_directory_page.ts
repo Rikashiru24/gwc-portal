@@ -316,7 +316,7 @@ export function setupadministrators_directory_page(root: HTMLElement): () => voi
 
     return `
       <form class="needs-validation" data-admin-modal-form novalidate>
-        <div class="shared-modal-grid shared-modal-grid-4">
+        <div class="shared-modal-grid shared-modal-grid-3">
           <div class="form-floating">
             <input type="text" class="form-control" id="admin-modal-first-name" placeholder="First name" value="${escapeHtml(firstName)}" ${disabled} required />
             <label for="admin-modal-first-name">First name</label>

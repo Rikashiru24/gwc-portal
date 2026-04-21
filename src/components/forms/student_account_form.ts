@@ -42,6 +42,7 @@ function renderStudentInfoFields(prefix: string): string {
 
 function renderGuardianFields(prefix: string, title: string): string {
   const key = title.toLowerCase()
+  const isGuardian = key === 'guardian'
   return `
     <h4>${title}</h4>
     <div class="admin-student-form-grid admin-student-form-grid-4">
@@ -49,6 +50,14 @@ function renderGuardianFields(prefix: string, title: string): string {
       ${floatingInput(`${prefix}-${key}-middle-name`, 'Middle Name (Optional)')}
       ${floatingInput(`${prefix}-${key}-last-name`, 'Last Name')}
       ${floatingInput(`${prefix}-${key}-contact-number`, 'Contact Number')}
+      ${
+        isGuardian
+          ? `<div class="form-floating admin-student-col-span-2">
+      <input type="text" class="form-control form-control-sm" id="${prefix}-guardian-relation" placeholder="Relation" />
+      <label for="${prefix}-guardian-relation">Relation</label>
+    </div>`
+          : ''
+      }
     </div>
   `
 }
@@ -66,9 +75,6 @@ export function renderStudentAccountForm(prefix: string): string {
         ${renderGuardianFields(prefix, 'Father')}
         ${renderGuardianFields(prefix, 'Mother')}
         ${renderGuardianFields(prefix, 'Guardian')}
-        <div class="admin-student-form-grid admin-student-form-grid-4">
-          ${floatingInput(`${prefix}-guardian-relation`, 'Relation')}
-        </div>
       </div>
     </section>
   `
