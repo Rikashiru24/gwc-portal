@@ -215,8 +215,8 @@ body.overlay-open {
   height: 24vh;
   margin: auto;
   z-index: 999998;
-  opacity: 0;
-  animation: spin 4s linear infinite, loader-gear-reveal 180ms ease 220ms forwards;
+  opacity: 1;
+  animation: spin 4s linear infinite;
 }
 
 #loading-image {
@@ -233,12 +233,6 @@ body.overlay-open {
 @keyframes spin {
   100% {
     transform: rotate(360deg);
-  }
-}
-
-@keyframes loader-gear-reveal {
-  100% {
-    opacity: 1;
   }
 }
 
