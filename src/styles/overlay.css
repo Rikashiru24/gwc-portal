@@ -170,12 +170,16 @@
 .site-search-form button {
   min-height: 56px;
   min-width: 220px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
   border: 0;
   border-radius: var(--radius-none);
   background: #2a3553;
   color: var(--color-white);
   font-size: 2rem;
-  font-family: var(--font-display);
+  font-family: var(--font-body);
   font-weight: 700;
   padding: 0 1.5rem;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
@@ -183,7 +187,19 @@
 
 .site-search-form button:hover,
 .site-search-form button:focus {
-  background: #35446a;
+  background: #000;
+}
+
+.site-search-form button i {
+  font-size: 1.1em;
+  line-height: 1;
+  transform: translateX(0);
+  transition: transform 0.5s ease-in-out;
+}
+
+.site-search-form button:hover i,
+.site-search-form button:focus i {
+  transform: translateX(6px);
 }
 
 .site-overlay-panel-menu .site-overlay-menu-layout {

@@ -63,7 +63,10 @@ export function renderHomeOverlays(options: HomeOverlayOptions): string {
           <div class="site-search-center">
             <form class="site-search-form" data-search-form autocomplete="off">
               <input type="search" name="q" placeholder="type keyword(s) here" aria-label="${options.searchAriaLabel}" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" required />
-              <button type="submit">Search</button>
+              <button type="submit" aria-label="Search">
+                Search
+                <i class="bi bi-search" aria-hidden="true"></i>
+              </button>
             </form>
           </div>
         </div>
