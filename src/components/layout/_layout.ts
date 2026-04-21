@@ -286,8 +286,53 @@ export function renderPortalShell<TSection extends string>(
 export function setupPortalShell<TSection extends string>(root: HTMLElement, config: ShellConfig<TSection>): () => void {
   const toggle = root.querySelector<HTMLButtonElement>(config.menuToggleSelector)
   const backdrop = root.querySelector<HTMLButtonElement>(`.${config.backdropClass}`)
+  const headerBrands = Array.from(root.querySelectorAll<HTMLElement>('.site-brand'))
   const cleanupPopover = setupSharedPopover(root)
   let bodyLocked = false
+  let brandResizeFrame = 0
+
+  const parsePixelValue = (value: string): number | null => {
+    const parsed = Number.parseFloat(value)
+    return Number.isFinite(parsed) ? parsed : null
+  }
+
+  const doesBrandFit = (brand: HTMLElement): boolean => {
+    const previousMaxWidth = brand.style.maxWidth
+    brand.style.maxWidth = '100%'
+
+    const widthFits = brand.scrollWidth <= brand.clientWidth + 1
+    const parent = brand.parentElement
+    let heightLimit = brand.clientHeight
+    if (parent) {
+      const parentStyles = window.getComputedStyle(parent)
+      const minHeight = parsePixelValue(parentStyles.minHeight)
+      const explicitHeight = parsePixelValue(parentStyles.height)
+      heightLimit = minHeight ?? explicitHeight ?? parent.clientHeight
+    }
+    const heightFits = brand.scrollHeight <= heightLimit + 1
+
+    brand.style.maxWidth = previousMaxWidth
+    return widthFits && heightFits
+  }
+
+  const updateBrandVariants = (): void => {
+    const variants: Array<'full' | 'medium' | 'short'> = ['full', 'medium', 'short']
+    headerBrands.forEach((brand) => {
+      for (const variant of variants) {
+        brand.dataset.brandVariant = variant
+        if (doesBrandFit(brand)) return
+      }
+      brand.dataset.brandVariant = 'short'
+    })
+  }
+
+  const onHeaderResize = (): void => {
+    if (brandResizeFrame) return
+    brandResizeFrame = window.requestAnimationFrame(() => {
+      brandResizeFrame = 0
+      updateBrandVariants()
+    })
+  }
 
   const closeSidebar = (): void => {
     root.classList.remove(config.sidebarOpenClass)
@@ -329,7 +374,9 @@ export function setupPortalShell<TSection extends string>(root: HTMLElement, con
   toggle?.addEventListener('click', onToggle)
   backdrop?.addEventListener('click', closeSidebar)
   window.addEventListener('resize', onResize, { passive: true })
+  window.addEventListener('resize', onHeaderResize, { passive: true })
   document.addEventListener('keydown', onEscape)
+  updateBrandVariants()
 
   return () => {
     closeSidebar()
@@ -337,7 +384,12 @@ export function setupPortalShell<TSection extends string>(root: HTMLElement, con
     toggle?.removeEventListener('click', onToggle)
     backdrop?.removeEventListener('click', closeSidebar)
     window.removeEventListener('resize', onResize)
+    window.removeEventListener('resize', onHeaderResize)
     document.removeEventListener('keydown', onEscape)
+    if (brandResizeFrame) {
+      window.cancelAnimationFrame(brandResizeFrame)
+      brandResizeFrame = 0
+    }
   }
 }
 
