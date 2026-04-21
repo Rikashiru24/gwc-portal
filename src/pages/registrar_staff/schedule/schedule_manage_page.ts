@@ -3,6 +3,7 @@ import { REGISTRAR_STAFF_SHELL_CONFIG, renderPortalShell } from '../../../compon
 import { renderAdminBreadcrumbNav } from '../../../components/ui/nav_breadcrumb'
 import { renderSharedPagination, setupSharedPagination } from '../../../components/ui/pagination'
 import { renderSharedPopover } from '../../../components/ui/popover'
+import { renderSharedModal, setupSharedModal } from '../../../components/ui/modal'
 
 type ScheduleRecord = {
   subjectCode: string
@@ -129,11 +130,13 @@ export function renderregistrar_staff_schedule_manage_page(): string {
           </div>
         </article>
       </section>
+      ${renderSharedModal('schedule-manage-modal')}
     `,
   )
 }
 
 export function setupschedule_manage_page(root: HTMLElement): () => void {
+  const modal = setupSharedModal(root, { modalSelector: '#schedule-manage-modal' })
   const searchInput = root.querySelector<HTMLInputElement>('[data-schedule-search]')
   const allRows = Array.from(root.querySelectorAll<HTMLTableRowElement>('[data-schedule-row]'))
   const emptyRow = root.querySelector<HTMLTableRowElement>('[data-schedule-empty-row]')
@@ -174,11 +177,121 @@ export function setupschedule_manage_page(root: HTMLElement): () => void {
     renderVisibleRows()
   }
 
+  const escapeHtml = (value: string): string =>
+    value.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;')
+
+  const readRow = (row: HTMLTableRowElement): ScheduleRecord => {
+    const cells = row.querySelectorAll<HTMLTableCellElement>('td')
+    const statusText = cells[6]?.textContent?.trim() === 'Closed' ? 'Closed' : 'Open'
+    return {
+      subjectCode: cells[0]?.textContent?.trim() ?? '',
+      title: cells[1]?.textContent?.trim() ?? '',
+      section: cells[2]?.textContent?.trim() ?? '',
+      faculty: cells[3]?.textContent?.trim() ?? '',
+      room: cells[4]?.textContent?.trim() ?? '',
+      dayTime: cells[5]?.textContent?.trim() ?? '',
+      status: statusText,
+    }
+  }
+
+  const renderForm = (schedule: ScheduleRecord, readonly = false): string => {
+    const disabled = readonly ? 'readonly' : ''
+    const selectDisabled = readonly ? 'disabled' : ''
+    const openSelected = schedule.status === 'Open' ? 'selected' : ''
+    const closedSelected = schedule.status === 'Closed' ? 'selected' : ''
+
+    return `
+      <form class="needs-validation" data-schedule-modal-form novalidate>
+        <div class="shared-modal-grid shared-modal-grid-3">
+          <div class="form-floating">
+            <input type="text" class="form-control" id="schedule-modal-code" placeholder="Subject Code" value="${escapeHtml(schedule.subjectCode)}" ${disabled} required />
+            <label for="schedule-modal-code">Subject Code</label>
+          </div>
+          <div class="form-floating">
+            <input type="text" class="form-control" id="schedule-modal-title" placeholder="Title" value="${escapeHtml(schedule.title)}" ${disabled} required />
+            <label for="schedule-modal-title">Title</label>
+          </div>
+          <div class="form-floating">
+            <input type="text" class="form-control" id="schedule-modal-section" placeholder="Section" value="${escapeHtml(schedule.section)}" ${disabled} required />
+            <label for="schedule-modal-section">Section</label>
+          </div>
+          <div class="form-floating">
+            <input type="text" class="form-control" id="schedule-modal-faculty" placeholder="Faculty" value="${escapeHtml(schedule.faculty)}" ${disabled} required />
+            <label for="schedule-modal-faculty">Faculty</label>
+          </div>
+          <div class="form-floating">
+            <input type="text" class="form-control" id="schedule-modal-room" placeholder="Room" value="${escapeHtml(schedule.room)}" ${disabled} required />
+            <label for="schedule-modal-room">Room</label>
+          </div>
+          <div class="form-floating">
+            <input type="text" class="form-control" id="schedule-modal-day-time" placeholder="Day/Time" value="${escapeHtml(schedule.dayTime)}" ${disabled} required />
+            <label for="schedule-modal-day-time">Day/Time</label>
+          </div>
+          <div class="form-floating">
+            <select class="form-select" id="schedule-modal-status" ${selectDisabled}>
+              <option value="Open" ${openSelected}>Open</option>
+              <option value="Closed" ${closedSelected}>Closed</option>
+            </select>
+            <label for="schedule-modal-status">Status</label>
+          </div>
+        </div>
+      </form>
+    `
+  }
+
+  const onActionClick = (event: Event): void => {
+    const target = event.target as HTMLElement | null
+    const actionBtn = target?.closest<HTMLButtonElement>('[data-schedule-action]')
+    if (!actionBtn) return
+
+    const row = actionBtn.closest<HTMLTableRowElement>('[data-schedule-row]')
+    if (!row) return
+
+    const action = actionBtn.dataset.scheduleAction
+    const schedule = readRow(row)
+
+    if (action === 'view') {
+      modal.setMode('form')
+      modal.setOnConfirm(null)
+      modal.open({
+        title: 'View Schedule',
+        confirmLabel: 'Close',
+        bodyHtml: renderForm(schedule, true),
+        hideConfirm: true,
+      })
+      return
+    }
+
+    if (action === 'edit') {
+      modal.setMode('form')
+      modal.setOnConfirm(() => modal.close())
+      modal.open({
+        title: 'Edit Schedule',
+        confirmLabel: 'Save Changes',
+        bodyHtml: renderForm(schedule),
+      })
+      return
+    }
+
+    if (action === 'close') {
+      modal.setMode('confirm')
+      modal.setOnConfirm(() => modal.close())
+      modal.open({
+        title: 'Close Schedule',
+        confirmLabel: 'Close Schedule',
+        bodyHtml: `<p class="mb-0">Set <strong>${escapeHtml(schedule.subjectCode)} - ${escapeHtml(schedule.section)}</strong> to Closed?</p>`,
+      })
+    }
+  }
+
   searchInput?.addEventListener('input', applySearch)
+  root.addEventListener('click', onActionClick)
   renderVisibleRows()
 
   return () => {
+    modal.destroy()
     pagination?.destroy()
     searchInput?.removeEventListener('input', applySearch)
+    root.removeEventListener('click', onActionClick)
   }
 }
