@@ -243,8 +243,19 @@
 
 .class-scheduling-form {
   display: grid;
-  gap: 0.9rem;
-  margin-top: 1rem;
+  gap: 0;
+}
+
+.class-scheduling-toolbar {
+  margin: 0.15rem 0 0.6rem;
+}
+
+.class-scheduling-notes {
+  grid-column: 1 / -1;
+}
+
+.class-scheduling-notes textarea {
+  min-height: 110px;
 }
 
 .schedule-card {
