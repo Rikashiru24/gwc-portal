@@ -1,8 +1,8 @@
 .login-page {
-  min-height: 100dvh;
+  min-height: var(--layout-page-min-height);
   display: flex;
   flex-direction: column;
-  background: #eef1f7;
+  background: var(--layout-page-bg-soft);
 }
 
 .portal-header {

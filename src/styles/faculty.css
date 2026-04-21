@@ -1,13 +1,13 @@
 .faculty-shell-page {
-  min-height: 100dvh;
-  padding-top: var(--site-topbar-height);
-  background: #eef4fa;
+  min-height: var(--layout-page-min-height);
+  padding-top: var(--layout-page-top-offset);
+  background: var(--layout-page-bg);
 }
 
 .faculty-layout {
   display: grid;
   grid-template-columns: 240px 1fr;
-  min-height: calc(100dvh - var(--site-topbar-height));
+  min-height: var(--layout-shell-min-height);
 }
 
 .faculty-sidebar {
@@ -121,7 +121,7 @@
 }
 
 .faculty-content {
-  padding: clamp(0.8rem, 2.2vw, 1.5rem);
+  padding: var(--layout-content-padding);
   min-width: 0;
 }
 

@@ -1,7 +1,7 @@
 .ann-page {
-  min-height: 100dvh;
-  background: #eaedf3;
-  padding-top: var(--site-topbar-height);
+  min-height: var(--layout-page-min-height);
+  background: var(--layout-page-bg);
+  padding-top: var(--layout-page-top-offset);
 }
 
 .ann-header {
@@ -73,7 +73,7 @@
 
 .ann-title-block {
   background: var(--color-surface-50);
-  padding: clamp(2rem, 8vh, 5rem) 1rem;
+  padding: clamp(2rem, 8vh, 5rem) var(--layout-content-padding-mobile);
   text-align: center;
 }
 
@@ -110,15 +110,16 @@
 }
 
 .ann-highlight p {
-  width: min(1140px, 100%);
+  width: min(var(--layout-content-max), 100%);
   margin: 0 auto;
-  padding: clamp(1rem, 2.2vw, 1.6rem);
+  padding: var(--layout-content-padding);
   font-size: clamp(1.1rem, 2vw, 1.9rem);
   font-weight: 600;
 }
 
 .ann-list-wrap {
-  background: var(--color-surface-100);
+  background: var(--layout-page-bg);
+  min-height: var(--layout-shell-min-height);
   padding: 1.5rem 1rem 4rem;
 }
 

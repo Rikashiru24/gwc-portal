@@ -1,17 +1,17 @@
 .search-page {
-  min-height: auto;
-  padding-top: var(--site-topbar-height);
-  background: #e8edf3;
+  min-height: var(--layout-page-min-height);
+  padding-top: var(--layout-page-top-offset);
+  background: var(--layout-page-bg);
 }
 
 .search-shell.post-shell {
-  background: var(--color-surface-100);
-  min-height: 0;
+  background: var(--layout-page-bg);
+  min-height: var(--layout-shell-min-height);
   padding: 1.5rem 1rem 4rem;
 }
 
 .search-shell.post-shell .post-container {
-  padding: clamp(1rem, 2.2vw, 1.6rem);
+  padding: var(--layout-content-padding);
 }
 
 .search-input-row {
@@ -213,7 +213,7 @@
   }
 
   .search-shell.post-shell .post-container {
-    padding: clamp(1rem, 2.2vw, 1.6rem);
+    padding: var(--layout-content-padding-mobile);
   }
 
   .search-query-form {

@@ -1,13 +1,13 @@
 .registrar_staff-shell-page {
-  min-height: 100dvh;
-  padding-top: var(--site-topbar-height);
-  background: #eef3fb;
+  min-height: var(--layout-page-min-height);
+  padding-top: var(--layout-page-top-offset);
+  background: var(--layout-page-bg);
 }
 
 .registrar_staff-layout {
   display: grid;
   grid-template-columns: 240px 1fr;
-  min-height: calc(100dvh - var(--site-topbar-height));
+  min-height: var(--layout-shell-min-height);
 }
 
 .registrar_staff-sidebar {
@@ -121,7 +121,7 @@
 }
 
 .registrar_staff-content {
-  padding: clamp(0.8rem, 2.2vw, 1.5rem);
+  padding: var(--layout-content-padding);
   min-width: 0;
 }
 
@@ -424,7 +424,7 @@
 }
 
 .btn-warning {
-  background: var(--color-white)7ed;
+  background: #fff7ed;
   color: #9a3412;
   border-color: #fdba74;
 }

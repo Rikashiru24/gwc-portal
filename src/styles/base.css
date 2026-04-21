@@ -38,6 +38,17 @@
   --overlay-slate-55: rgb(148 163 184 / 55%);
   --overlay-ink-26: rgb(15 23 42 / 26%);
   --overlay-ink-42: rgb(15 23 42 / 42%);
+
+  --layout-page-bg: var(--color-surface-100);
+  --layout-page-bg-soft: var(--color-surface-50);
+  --layout-page-min-height: 100dvh;
+  --layout-page-top-offset: var(--site-topbar-height);
+  --layout-shell-min-height: calc(100dvh - var(--site-topbar-height));
+  --layout-content-max: 1140px;
+  --layout-content-padding: clamp(1rem, 2.2vw, 1.6rem);
+  --layout-content-padding-mobile: 1rem;
+  --layout-section-padding: 3rem 0;
+  --layout-section-padding-mobile: 2rem var(--layout-content-padding-mobile);
 }
 
 @font-face {

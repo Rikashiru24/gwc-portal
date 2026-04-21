@@ -1,13 +1,13 @@
 .fallback-page {
-  min-height: 100dvh;
-  background: #ececee;
+  min-height: var(--layout-page-min-height);
+  background: var(--layout-page-bg-soft);
   display: grid;
   place-items: center;
   padding: 2rem 1rem;
 }
 
 .fallback-card {
-  width: min(900px, 100%);
+  width: min(var(--layout-content-max), 100%);
   text-align: center;
 }
 
