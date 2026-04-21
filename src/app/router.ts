@@ -7,6 +7,7 @@ import {
   renderdepartments_page,
   renderfaculty_page,
   renderreports_page,
+  rendersystem_logs_page,
   rendersettings_page,
   renderstudents_bulk_page,
   setupstudents_bulk_page,
@@ -323,6 +324,12 @@ export function renderRoute(app: HTMLDivElement, pathname: string): void {
 
   if (pathname === ROUTES.ADMINISTRATORS_REPORTS) {
     app.innerHTML = renderreports_page()
+    cleanupCurrentRoute = setupadministrators_page(app)
+    return
+  }
+
+  if (pathname === ROUTES.ADMINISTRATORS_SYSTEM_LOGS) {
+    app.innerHTML = rendersystem_logs_page()
     cleanupCurrentRoute = setupadministrators_page(app)
     return
   }

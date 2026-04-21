@@ -19,6 +19,7 @@ export { rendertestimonials_page } from './testimonials/testimonials_page'
 export { rendertestimonials_create_page, setuptestimonials_create_page } from './testimonials/testimonials_create_page'
 export { renderdepartments_page } from './departments/departments_page'
 export { renderreports_page } from './reports/reports_page'
+export { rendersystem_logs_page } from './system_logs/system_logs_page'
 export { rendersettings_page } from './settings/settings_page'
 
 export function setupadministrators_page(root: HTMLElement): () => void {

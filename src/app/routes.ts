@@ -31,6 +31,7 @@ export const ROUTES = {
   ADMINISTRATORS_TESTIMONIALS_CREATE: '/administrators/testimonials/create',
   ADMINISTRATORS_DEPARTMENTS: '/administrators/departments',
   ADMINISTRATORS_REPORTS: '/administrators/reports',
+  ADMINISTRATORS_SYSTEM_LOGS: '/administrators/system-logs',
   ADMINISTRATORS_SETTINGS: '/administrators/settings',
 
   // Login routes
