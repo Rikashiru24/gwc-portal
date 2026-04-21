@@ -1,11 +1,11 @@
 .post-page {
   min-height: 100dvh;
-  background: #e9ecf3;
+  background: var(--color-surface-100);
   padding-top: var(--site-topbar-height);
 }
 
 .post-shell {
-  background: #e9ecf3;
+  background: var(--color-surface-100);
   min-height: calc(100dvh - var(--site-topbar-height));
   padding: 1.5rem 1rem 4rem;
 }
@@ -34,7 +34,7 @@
   font-size: clamp(1.7rem, 3.6vw, 2.5rem);
   line-height: 1;
   letter-spacing: 0.01em;
-  color: #ffffff;
+  color: var(--color-white)fff;
 }
 
 .post-container {
@@ -67,8 +67,8 @@
   font-size: 0.88rem;
   font-weight: 700;
   line-height: 1;
-  background: #4b5563;
-  color: #fff;
+  background: var(--color-text-muted);
+  color: var(--color-white);
 }
 
 .post-image {
@@ -84,7 +84,7 @@
 }
 
 .post-body {
-  color: #111827;
+  color: var(--color-ink-900);
   line-height: 1.65;
   max-width: 98ch;
 }
@@ -165,7 +165,7 @@
 }
 
 .post-related-date {
-  color: #4b5563;
+  color: var(--color-text-muted);
   font-size: 0.86rem;
   margin: 0 0 0.55rem;
   display: inline-flex;
@@ -229,6 +229,7 @@
     font-size: 0.9rem;
   }
 }
+
 
 
 

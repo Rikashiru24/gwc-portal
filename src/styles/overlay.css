@@ -165,7 +165,7 @@
   border: 0;
   border-radius: 0;
   background: #2a3553;
-  color: #fff;
+  color: var(--color-white);
   font-size: 2rem;
   font-family: var(--font-display);
   font-weight: 700;
@@ -188,7 +188,7 @@
   overflow-x: hidden;
   scrollbar-gutter: stable;
   scrollbar-width: thin;
-  scrollbar-color: rgba(214, 178, 71, 0.85) rgba(255, 255, 255, 0.12);
+  scrollbar-color: rgba(214, 178, 71, 0.85) var(--overlay-white-12);
   background-color: var(--site-overlay-surface-bg);
 }
 
@@ -197,13 +197,13 @@
 }
 
 .site-overlay-panel-menu .site-overlay-menu-layout::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, 0.12);
+  background: var(--overlay-white-12);
 }
 
 .site-overlay-panel-menu .site-overlay-menu-layout::-webkit-scrollbar-thumb {
   background: rgba(214, 178, 71, 0.85);
   border-radius: 999px;
-  border: 2px solid rgba(255, 255, 255, 0.12);
+  border: 2px solid var(--overlay-white-12);
 }
 
 .site-overlay-menu-col {
@@ -462,6 +462,7 @@
     height: 40px;
   }
 }
+
 
 
 

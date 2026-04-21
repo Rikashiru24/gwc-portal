@@ -1,3 +1,45 @@
+:root {
+  --font-body: 'Century Gothic';
+  --font-display: 'Bebas Neue';
+  --font-display-letter-spacing: 0.03em;
+  --gold: hsl(45, 100%, 50%);
+  --dark-blue: #132a63;
+  --site-topbar-height: 62px;
+  --site-accent-height: 4px;
+  --site-body-overflow: auto;
+  
+  --color-white: #fff;
+  --color-ink-900: #111827;
+  --color-slate-50: #f8fafc;
+  --color-slate-100: #f1f5f9;
+  --color-slate-200: #e2e8f0;
+  --color-slate-300: #cbd5e1;
+  --color-slate-400: #94a3b8;
+  --color-slate-500: #64748b;
+  --color-slate-600: #475569;
+  --color-slate-700: #334155;
+  --color-slate-800: #1e293b;
+  --color-slate-900: #0f172a;
+  --color-surface-50: #eef2f7;
+  --color-surface-100: #e9ecf3;
+  --color-surface-200: #d7dde8;
+  --color-surface-300: #d4deea;
+  --color-surface-400: #cfd7e4;
+  --color-surface-500: #c9d2e3;
+  --color-text-muted: #4b5563;
+  --color-text-secondary: #374151;
+  --color-brand-portal-start: #3c4c89;
+  --color-brand-portal-end: #34447d;
+  --overlay-white-12: rgba(255, 255, 255, 0.12);
+  --overlay-white-16: rgb(255 255 255 / 16%);
+  --overlay-white-18: rgb(255 255 255 / 18%);
+  --overlay-slate-22: rgb(148 163 184 / 22%);
+  --overlay-slate-24: rgb(148 163 184 / 24%);
+  --overlay-slate-55: rgb(148 163 184 / 55%);
+  --overlay-ink-26: rgb(15 23 42 / 26%);
+  --overlay-ink-42: rgb(15 23 42 / 42%);
+}
+
 @font-face {
   font-family: 'Bebas Neue';
   src: url('/fonts/BebasNeue.woff') format('woff');
@@ -11,18 +53,10 @@
 }
 
 body {
-  --font-body: 'Century Gothic';
-  --font-display: 'Bebas Neue';
-  --font-display-letter-spacing: 0.03em;
-  --gold: hsl(45, 100%, 50%);
-  --dark-blue: #132a63;
-  --site-topbar-height: 62px;
-  --site-accent-height: 4px;
-  --site-body-overflow: auto;
   min-height: 100dvh;
   margin: 0;
   font-family: var(--font-body);
-  background: #eef1f7;
+  background: var(--color-surface-50);
   overflow: var(--site-body-overflow);
 }
 
@@ -55,12 +89,12 @@ body.overlay-open {
 .btn-primary {
   --bs-btn-bg: var(--dark-blue);
   --bs-btn-border-color: var(--dark-blue);
-  --bs-btn-hover-color: #fff;
-  --bs-btn-hover-bg: #111827;
-  --bs-btn-hover-border-color: #111827;
-  --bs-btn-active-color: #fff;
-  --bs-btn-active-bg: #111827;
-  --bs-btn-active-border-color: #111827;
+  --bs-btn-hover-color: var(--color-white);
+  --bs-btn-hover-bg: var(--color-ink-900);
+  --bs-btn-hover-border-color: var(--color-ink-900);
+  --bs-btn-active-color: var(--color-white);
+  --bs-btn-active-bg: var(--color-ink-900);
+  --bs-btn-active-border-color: var(--color-ink-900);
   --bs-btn-disabled-bg: var(--dark-blue);
   --bs-btn-disabled-border-color: var(--dark-blue);
 }
@@ -68,12 +102,12 @@ body.overlay-open {
 .btn-outline-primary {
   --bs-btn-color: var(--dark-blue);
   --bs-btn-border-color: var(--dark-blue);
-  --bs-btn-hover-color: #fff;
-  --bs-btn-hover-bg: #111827;
-  --bs-btn-hover-border-color: #111827;
-  --bs-btn-active-color: #fff;
-  --bs-btn-active-bg: #111827;
-  --bs-btn-active-border-color: #111827;
+  --bs-btn-hover-color: var(--color-white);
+  --bs-btn-hover-bg: var(--color-ink-900);
+  --bs-btn-hover-border-color: var(--color-ink-900);
+  --bs-btn-active-color: var(--color-white);
+  --bs-btn-active-bg: var(--color-ink-900);
+  --bs-btn-active-border-color: var(--color-ink-900);
   --bs-btn-disabled-color: var(--dark-blue);
   --bs-btn-disabled-border-color: var(--dark-blue);
 }
@@ -85,3 +119,5 @@ body.overlay-open {
   --bs-pagination-active-bg: var(--dark-blue);
   --bs-pagination-active-border-color: var(--dark-blue);
 }
+
+

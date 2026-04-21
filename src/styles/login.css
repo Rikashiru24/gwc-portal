@@ -7,8 +7,8 @@
 
 .portal-header {
   position: relative;
-  background: linear-gradient(180deg, #3c4c89 0%, #34447d 100%);
-  color: #fff;
+  background: linear-gradient(180deg, var(--color-brand-portal-start) 0%, var(--color-brand-portal-end) 100%);
+  color: var(--color-white);
   overflow: hidden;
 }
 
@@ -105,23 +105,23 @@
 }
 
 .login-subheading {
-  color: #334155;
+  color: var(--color-slate-700);
   font-size: 1.02rem;
 }
 
 .login-submit-btn {
-  --login-btn-bg-start: #3c4c89;
-  --login-btn-bg-end: #34447d;
-  --login-btn-bg-start-hover: #111827;
-  --login-btn-bg-end-hover: #111827;
-  --bs-btn-color: #fff;
-  --bs-btn-hover-color: #fff;
-  --bs-btn-active-color: #fff;
-  --bs-btn-disabled-color: #fff;
+  --login-btn-bg-start: var(--color-brand-portal-start);
+  --login-btn-bg-end: var(--color-brand-portal-end);
+  --login-btn-bg-start-hover: var(--color-ink-900);
+  --login-btn-bg-end-hover: var(--color-ink-900);
+  --bs-btn-color: var(--color-white);
+  --bs-btn-hover-color: var(--color-white);
+  --bs-btn-active-color: var(--color-white);
+  --bs-btn-disabled-color: var(--color-white);
   background: linear-gradient(180deg, var(--login-btn-bg-start) 0%, var(--login-btn-bg-end) 100%);
   border-color: var(--login-btn-bg-end);
-  color: #fff !important;
-  -webkit-text-fill-color: #fff;
+  color: var(--color-white) !important;
+  -webkit-text-fill-color: var(--color-white);
   border-radius: 0;
   font-weight: 700;
   letter-spacing: 0.2px;
@@ -131,27 +131,27 @@
 .login-submit-btn:focus {
   background: linear-gradient(180deg, var(--login-btn-bg-start-hover) 0%, var(--login-btn-bg-end-hover) 100%);
   border-color: var(--login-btn-bg-end-hover);
-  color: #fff !important;
-  -webkit-text-fill-color: #fff;
+  color: var(--color-white) !important;
+  -webkit-text-fill-color: var(--color-white);
 }
 
 .login-submit-btn:active,
 .login-submit-btn.active,
 .show > .login-submit-btn.dropdown-toggle {
-  color: #fff !important;
-  -webkit-text-fill-color: #fff;
+  color: var(--color-white) !important;
+  -webkit-text-fill-color: var(--color-white);
 }
 
 .admin-login-page .login-submit-btn {
-  --login-btn-bg-start: #3c4c89;
-  --login-btn-bg-end: #34447d;
-  --login-btn-bg-start-hover: #111827;
-  --login-btn-bg-end-hover: #111827;
+  --login-btn-bg-start: var(--color-brand-portal-start);
+  --login-btn-bg-end: var(--color-brand-portal-end);
+  --login-btn-bg-start-hover: var(--color-ink-900);
+  --login-btn-bg-end-hover: var(--color-ink-900);
 }
 
 .portal-footer {
-  background: linear-gradient(180deg, #3c4c89 0%, #34447d 100%);
-  color: #fff;
+  background: linear-gradient(180deg, var(--color-brand-portal-start) 0%, var(--color-brand-portal-end) 100%);
+  color: var(--color-white);
   text-align: center;
   padding: 14px 16px;
   font-size: 0.94rem;
@@ -179,6 +179,7 @@
     justify-content: center;
   }
 }
+
 
 
 

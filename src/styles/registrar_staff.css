@@ -12,7 +12,7 @@
 
 .registrar_staff-sidebar {
   background: linear-gradient(180deg, #0f2d43 0%, #102a3f 100%);
-  color: #f8fafc;
+  color: var(--color-slate-50);
   padding: 0.9rem 0.72rem;
   display: flex;
   flex-direction: column;
@@ -33,7 +33,7 @@
 
 .registrar_staff-sidebar-head {
   padding: 0.22rem 0.42rem 0.65rem;
-  border-bottom: 1px solid rgb(255 255 255 / 16%);
+  border-bottom: 1px solid var(--overlay-white-16);
 }
 
 .registrar_staff-eyebrow {
@@ -70,7 +70,7 @@
   min-height: 0;
   overflow-y: auto;
   scrollbar-width: thin;
-  scrollbar-color: rgb(148 163 184 / 55%) transparent;
+  scrollbar-color: var(--overlay-slate-55) transparent;
   scrollbar-gutter: stable;
 }
 
@@ -79,7 +79,7 @@
   align-items: center;
   gap: 0.38rem;
   position: relative;
-  color: #e2e8f0;
+  color: var(--color-slate-200);
   text-decoration: none;
   padding: 0.5rem 0.5rem;
   border-radius: 0.42rem;
@@ -89,8 +89,8 @@
 
 .registrar_staff-menu a:hover,
 .registrar_staff-menu a:focus {
-  background: rgb(148 163 184 / 22%);
-  color: #fff;
+  background: var(--overlay-slate-22);
+  color: var(--color-white);
 }
 
 .registrar_staff-menu a i {
@@ -104,8 +104,8 @@
 }
 
 .registrar_staff-menu a.is-active {
-  background: rgb(148 163 184 / 24%);
-  color: #f8fafc;
+  background: var(--overlay-slate-24);
+  color: var(--color-slate-50);
 }
 
 .registrar_staff-menu a.is-active::before {
@@ -126,20 +126,20 @@
 }
 
 .registrar_staff-panel {
-  border: 1px solid #d4deea;
+  border: 1px solid var(--color-surface-300);
   border-radius: 0.75rem;
-  background: #fff;
+  background: var(--color-white);
   padding: clamp(0.85rem, 2vw, 1.1rem);
 }
 
 .registrar_staff-panel h3 {
   margin: 0;
-  color: #111827;
+  color: var(--color-ink-900);
 }
 
 .registrar_staff-panel p {
   margin: 0.7rem 0 0;
-  color: #374151;
+  color: var(--color-text-secondary);
 }
 
 .registrar_staff-sidebar-backdrop {
@@ -149,8 +149,8 @@
 .registrar_staff-sidebar-footer {
   margin-top: auto;
   padding: 0.55rem 0.42rem 0.24rem;
-  border-top: 1px solid rgb(255 255 255 / 18%);
-  color: #cbd5e1;
+  border-top: 1px solid var(--overlay-white-18);
+  color: var(--color-slate-300);
   flex-shrink: 0;
 }
 
@@ -164,7 +164,7 @@
   margin-top: 0.2rem;
   font-size: 0.8rem;
   letter-spacing: 0.06em;
-  color: #f8fafc;
+  color: var(--color-slate-50);
 }
 
 .registrar_staff-shell-page .site-quick-menu {
@@ -185,7 +185,7 @@
     transform: translateX(-105%);
     transition: transform 0.22s ease;
     z-index: 30;
-    box-shadow: 0 12px 34px rgb(15 23 42 / 26%);
+    box-shadow: 0 12px 34px var(--overlay-ink-26);
     padding: 0.75rem 0.65rem 0.85rem;
   }
 
@@ -201,7 +201,7 @@
     right: 0;
     bottom: 0;
     border: 0;
-    background: rgb(15 23 42 / 42%);
+    background: var(--overlay-ink-42);
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.22s ease;
@@ -238,7 +238,7 @@
 
 .class-scheduling-header p:last-child {
   margin: 0.7rem 0 0;
-  color: #374151;
+  color: var(--color-text-secondary);
 }
 
 .class-scheduling-form {
@@ -263,7 +263,7 @@
 .schedule-card {
   border: 1px solid #d6e4ef;
   border-radius: 0.95rem;
-  background: #fff;
+  background: var(--color-white);
   padding: clamp(0.9rem, 2.2vw, 1.2rem);
   box-shadow: 0 10px 20px rgb(15 23 42 / 5%);
 }
@@ -271,7 +271,7 @@
 .schedule-card h3 {
   margin: 0;
   font-size: 0.96rem;
-  color: #111827;
+  color: var(--color-ink-900);
 }
 
 .schedule-grid {
@@ -296,7 +296,7 @@
 .field span {
   font-size: 0.74rem;
   font-weight: 700;
-  color: #374151;
+  color: var(--color-text-secondary);
 }
 
 .field input,
@@ -305,7 +305,7 @@
   width: 100%;
   border: 1px solid #c9d9e6;
   background: #fdfefe;
-  color: #111827;
+  color: var(--color-ink-900);
   border-radius: 0.62rem;
   padding: 0.58rem 0.66rem;
   font-size: 0.84rem;
@@ -352,7 +352,7 @@
 .time-slot h4 {
   margin: 0;
   font-size: 0.82rem;
-  color: #111827;
+  color: var(--color-ink-900);
 }
 
 .time-slot-head {
@@ -418,20 +418,20 @@
 }
 
 .btn-secondary {
-  background: #f1f5f9;
-  color: #374151;
-  border-color: #cbd5e1;
+  background: var(--color-slate-100);
+  color: var(--color-text-secondary);
+  border-color: var(--color-slate-300);
 }
 
 .btn-warning {
-  background: #fff7ed;
+  background: var(--color-white)7ed;
   color: #9a3412;
   border-color: #fdba74;
 }
 
 .btn-primary {
   background: var(--dark-blue);
-  color: #fff;
+  color: var(--color-white);
   border-color: var(--dark-blue);
 }
 
@@ -445,26 +445,26 @@
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1rem;
   padding: 0.85rem 0;
-  border-top: 1px solid #d7dde8;
+  border-top: 1px solid var(--color-surface-200);
 }
 
 .schedule-view-item p {
   margin: 0;
-  color: #334155;
+  color: var(--color-slate-700);
   font-size: 0.84rem;
   font-weight: 700;
   letter-spacing: 0.01em;
 }
 
 .schedule-view-item + .schedule-view-item {
-  border-left: 1px solid #d7dde8;
+  border-left: 1px solid var(--color-surface-200);
   padding-left: 1rem;
 }
 
 .schedule-view-item strong {
   display: block;
   margin-top: 0.28rem;
-  color: #111827;
+  color: var(--color-ink-900);
   font-size: 0.98rem;
   font-family: var(--font-body);
   font-weight: 600;
@@ -482,7 +482,7 @@
   }
 
   .schedule-view-item + .schedule-view-item {
-    border-left: 1px solid #d7dde8;
+    border-left: 1px solid var(--color-surface-200);
   }
 }
 
@@ -512,11 +512,12 @@
 
   .schedule-view-item + .schedule-view-item {
     border-left: 0;
-    border-top: 1px solid #d7dde8;
+    border-top: 1px solid var(--color-surface-200);
     padding-left: 0;
     padding-top: 0.6rem;
   }
 }
+
 
 
 

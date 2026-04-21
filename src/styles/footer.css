@@ -4,7 +4,7 @@
 }
 
 .site-footer-main {
-  background: linear-gradient(135deg, #334155 0%, #1e293b 100%);
+  background: linear-gradient(135deg, var(--color-slate-700) 0%, var(--color-slate-800) 100%);
 }
 
 .site-footer-inner {
@@ -45,7 +45,7 @@
 .site-footer-grid h2 {
   margin: 0 0 0.8rem;
   font-size: clamp(1.1rem, 1.6vw, 1.5rem);
-  color: #f8fafc;
+  color: var(--color-slate-50);
   text-transform: uppercase;
   font-weight: 800;
 }
@@ -109,8 +109,8 @@
   min-width: 2rem;
   height: 2rem;
   border-radius: 999px;
-  background: #475569;
-  color: #fff;
+  background: var(--color-slate-600);
+  color: var(--color-white);
   text-decoration: none;
   display: inline-flex;
   align-items: center;
@@ -121,7 +121,7 @@
 
 .site-footer-social a:hover,
 .site-footer-social a:focus {
-  background: #64748b;
+  background: var(--color-slate-500);
 }
 
 .site-footer-social a svg {
@@ -131,7 +131,7 @@
 }
 
 .site-footer-bottom {
-  background: #0f172a;
+  background: var(--color-slate-900);
 }
 
 .site-footer-bottom-inner {
@@ -201,6 +201,7 @@
     gap: 0.65rem;
   }
 }
+
 
 
 

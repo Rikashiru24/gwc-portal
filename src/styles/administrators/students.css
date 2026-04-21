@@ -1,18 +1,18 @@
 .admin-students-home {
-  border: 1px solid #c9d2e3;
-  background: #fff;
+  border: 1px solid var(--color-surface-500);
+  background: var(--color-white);
   padding: 1.4rem;
 }
 
 .admin-students-home h2 {
   margin: 0;
-  color: #111827;
+  color: var(--color-ink-900);
   font-size: clamp(1.7rem, 2.4vw, 2.15rem);
 }
 
 .admin-students-home p {
   margin: 0.55rem 0 0;
-  color: #475569;
+  color: var(--color-slate-600);
   font-size: 1rem;
 }
 
@@ -30,9 +30,9 @@
 }
 
 .admin-breadcrumb-shell {
-  border: 1px solid #cfd7e4;
+  border: 1px solid var(--color-surface-400);
   border-radius: 0.35rem;
-  background: #fff;
+  background: var(--color-white);
   padding: 0.5rem 0.7rem;
   margin-bottom: 0.7rem;
 }
@@ -43,7 +43,7 @@
 }
 
 .admin-breadcrumb a {
-  color: #475569;
+  color: var(--color-slate-600);
   text-decoration: none;
 }
 
@@ -58,26 +58,26 @@
 }
 
 .admin-student-page-shell {
-  border: 1px solid #c9d2e3;
-  background: #fff;
+  border: 1px solid var(--color-surface-500);
+  background: var(--color-white);
   padding: 0.65rem;
 }
 
 .admin-student-head {
-  border-bottom: 1px solid #cfd7e4;
+  border-bottom: 1px solid var(--color-surface-400);
   margin-bottom: 0.7rem;
   padding-bottom: 0.65rem;
 }
 
 .admin-student-head h2 {
   margin: 0;
-  color: #111827;
+  color: var(--color-ink-900);
   font-size: clamp(1.6rem, 2.2vw, 2.05rem);
 }
 
 .admin-student-head p {
   margin: 0.35rem 0 0;
-  color: #475569;
+  color: var(--color-slate-600);
 }
 
 .admin-student-toolbar {
@@ -123,11 +123,11 @@
 
 .admin-student-section h3 {
   margin: 0 0 0.4rem;
-  border-bottom: 1px solid #cfd7e4;
+  border-bottom: 1px solid var(--color-surface-400);
 }
 
 .admin-student-section-title {
-  color: #fff;
+  color: var(--color-white);
   background: #1f4c93;
   display: inline-block;
   padding: 0.28rem 1.35rem 0.28rem 0.7rem;
@@ -138,7 +138,7 @@
 
 .admin-student-section h4 {
   margin: 0.15rem 0 0.35rem;
-  color: #111827;
+  color: var(--color-ink-900);
   font-size: 0.84rem;
   font-weight: 700;
 }
@@ -153,12 +153,12 @@
 .admin-student-page-shell .form-select {
   border: 1px solid #8fa1bc;
   border-radius: 0;
-  background-color: #fff;
-  color: #1e293b;
+  background-color: var(--color-white);
+  color: var(--color-slate-800);
 }
 
 .admin-student-page-shell .form-floating > label {
-  color: #475569;
+  color: var(--color-slate-600);
 }
 
 .admin-student-page-shell .form-control:focus,
@@ -184,13 +184,13 @@
   display: flex;
   justify-content: flex-end;
   gap: 0.45rem;
-  border-top: 1px solid #cfd7e4;
+  border-top: 1px solid var(--color-surface-400);
   margin-top: 0.8rem;
   padding-top: 0.65rem;
 }
 
 .admin-bulk-card {
-  border: 1px solid #cfd7e4;
+  border: 1px solid var(--color-surface-400);
   padding: 0.5rem;
   margin-top: 0.6rem;
 }
@@ -204,13 +204,13 @@
 
 .admin-bulk-card > header h4 {
   margin: 0;
-  color: #111827;
+  color: var(--color-ink-900);
   font-size: 1rem;
 }
 
 .admin-bulk-card > p {
   margin: 0.25rem 0 0.5rem;
-  color: #64748b;
+  color: var(--color-slate-500);
   font-size: 0.78rem;
 }
 
@@ -260,6 +260,7 @@
   }
 
 }
+
 
 
 

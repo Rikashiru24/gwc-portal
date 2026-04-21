@@ -36,7 +36,7 @@
   border-radius: 8px;
   padding: 0 1.4rem;
   background: #081836;
-  color: #fff;
+  color: var(--color-white);
   text-decoration: none;
   font-size: 1.05rem;
   font-weight: 700;
@@ -45,8 +45,9 @@
 .fallback-btn:hover,
 .fallback-btn:focus {
   background: #122955;
-  color: #fff;
+  color: var(--color-white);
 }
+
 
 
 

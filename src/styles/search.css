@@ -5,7 +5,7 @@
 }
 
 .search-shell.post-shell {
-  background: #e9ecf3;
+  background: var(--color-surface-100);
   min-height: 0;
   padding: 1.5rem 1rem 4rem;
 }
@@ -22,14 +22,14 @@
   display: grid;
   grid-template-columns: 1fr 84px;
   border: 1px solid #ced8e4;
-  background: #eef2f7;
+  background: var(--color-surface-50);
 }
 
 .search-query-form input {
   width: 100%;
   border: 1px solid #b8c5d8;
   background: transparent;
-  color: #0f172a;
+  color: var(--color-slate-900);
   font-size: clamp(1.05rem, 1.7vw, 1.45rem);
   padding: clamp(0.9rem, 1.9vw, 1.1rem);
 }
@@ -41,7 +41,7 @@
 
 .search-query-form button {
   border: 0;
-  color: #f8fafc;
+  color: var(--color-slate-50);
   font-weight: 600;
   font-size: 1rem;
   background: var(--dark-blue);
@@ -68,7 +68,7 @@
 
 .search-result-box {
   border: 1px solid #d5dde8;
-  background: #eef2f7;
+  background: var(--color-surface-50);
   padding: clamp(0.8rem, 1.6vw, 1.2rem);
 }
 
@@ -82,7 +82,7 @@
 
 .search-state-message h2 {
   margin: 0;
-  color: #0f172a;
+  color: var(--color-slate-900);
   font-size: clamp(1.3rem, 2.2vw, 2.05rem);
   font-weight: 500;
   line-height: 1.35;
@@ -90,14 +90,14 @@
 
 .search-state-message p {
   margin: 0.35rem 0 0;
-  color: #4b5563;
+  color: var(--color-text-muted);
   font-size: 1rem;
   text-align: justify;
   text-justify: inter-word;
 }
 
 .blockquote-footer {
-  color: #4b5563;
+  color: var(--color-text-muted);
   font-size: 1.2rem;
   font-weight: 500;
   line-height: 1.45;
@@ -115,13 +115,13 @@
 
 .search-summary h2 {
   margin: 0;
-  color: #0f172a;
+  color: var(--color-slate-900);
   font-size: clamp(1.2rem, 1.8vw, 1.45rem);
 }
 
 .search-summary p {
   margin: 0.25rem 0 0;
-  color: #4b5563;
+  color: var(--color-text-muted);
   font-size: 0.95rem;
   text-align: justify;
   text-justify: inter-word;
@@ -150,7 +150,7 @@
   height: 96px;
   object-fit: cover;
   border: 2px solid #c7ced9;
-  box-shadow: inset 0 0 0 1px #eef2f7;
+  box-shadow: inset 0 0 0 1px var(--color-surface-50);
 }
 
 .search-result-thumb-placeholder {
@@ -172,7 +172,7 @@
 
 .search-result-date {
   margin: 0.2rem 0 0.3rem;
-  color: #4b5563;
+  color: var(--color-text-muted);
   font-size: 0.84rem;
   display: inline-flex;
   align-items: center;
@@ -185,7 +185,7 @@
 
 .search-result-body p {
   margin: 0;
-  color: #334155;
+  color: var(--color-slate-700);
   line-height: 1.45;
   font-size: 0.94rem;
   text-align: justify;
@@ -244,6 +244,7 @@
     font-size: 1.45rem;
   }
 }
+
 
 
 

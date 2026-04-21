@@ -12,7 +12,7 @@
 
 .faculty-sidebar {
   background: linear-gradient(180deg, #183651 0%, #122f48 100%);
-  color: #f8fafc;
+  color: var(--color-slate-50);
   padding: 0.9rem 0.72rem;
   display: flex;
   flex-direction: column;
@@ -33,7 +33,7 @@
 
 .faculty-sidebar-head {
   padding: 0.22rem 0.42rem 0.65rem;
-  border-bottom: 1px solid rgb(255 255 255 / 16%);
+  border-bottom: 1px solid var(--overlay-white-16);
 }
 
 .faculty-eyebrow {
@@ -70,7 +70,7 @@
   min-height: 0;
   overflow-y: auto;
   scrollbar-width: thin;
-  scrollbar-color: rgb(148 163 184 / 55%) transparent;
+  scrollbar-color: var(--overlay-slate-55) transparent;
   scrollbar-gutter: stable;
 }
 
@@ -79,7 +79,7 @@
   align-items: center;
   gap: 0.38rem;
   position: relative;
-  color: #e2e8f0;
+  color: var(--color-slate-200);
   text-decoration: none;
   padding: 0.5rem 0.5rem;
   border-radius: 0.42rem;
@@ -89,8 +89,8 @@
 
 .faculty-menu a:hover,
 .faculty-menu a:focus {
-  background: rgb(148 163 184 / 22%);
-  color: #fff;
+  background: var(--overlay-slate-22);
+  color: var(--color-white);
 }
 
 .faculty-menu a i {
@@ -104,8 +104,8 @@
 }
 
 .faculty-menu a.is-active {
-  background: rgb(148 163 184 / 24%);
-  color: #f8fafc;
+  background: var(--overlay-slate-24);
+  color: var(--color-slate-50);
 }
 
 .faculty-menu a.is-active::before {
@@ -126,20 +126,20 @@
 }
 
 .faculty-panel {
-  border: 1px solid #d4deea;
+  border: 1px solid var(--color-surface-300);
   border-radius: 0.75rem;
-  background: #fff;
+  background: var(--color-white);
   padding: clamp(0.85rem, 2vw, 1.1rem);
 }
 
 .faculty-panel h3 {
   margin: 0;
-  color: #111827;
+  color: var(--color-ink-900);
 }
 
 .faculty-panel p {
   margin: 0.7rem 0 0;
-  color: #374151;
+  color: var(--color-text-secondary);
 }
 
 .faculty-sidebar-backdrop {
@@ -149,8 +149,8 @@
 .faculty-sidebar-footer {
   margin-top: auto;
   padding: 0.55rem 0.42rem 0.24rem;
-  border-top: 1px solid rgb(255 255 255 / 18%);
-  color: #cbd5e1;
+  border-top: 1px solid var(--overlay-white-18);
+  color: var(--color-slate-300);
   flex-shrink: 0;
 }
 
@@ -164,7 +164,7 @@
   margin-top: 0.2rem;
   font-size: 0.8rem;
   letter-spacing: 0.06em;
-  color: #f8fafc;
+  color: var(--color-slate-50);
 }
 
 .faculty-shell-page .site-quick-menu {
@@ -185,7 +185,7 @@
     transform: translateX(-105%);
     transition: transform 0.22s ease;
     z-index: 30;
-    box-shadow: 0 12px 34px rgb(15 23 42 / 26%);
+    box-shadow: 0 12px 34px var(--overlay-ink-26);
     padding: 0.75rem 0.65rem 0.85rem;
   }
 
@@ -201,7 +201,7 @@
     right: 0;
     bottom: 0;
     border: 0;
-    background: rgb(15 23 42 / 42%);
+    background: var(--overlay-ink-42);
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.22s ease;
@@ -217,6 +217,7 @@
     display: flex;
   }
 }
+
 
 
 

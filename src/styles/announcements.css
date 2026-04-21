@@ -6,7 +6,7 @@
 
 .ann-header {
   min-height: 104px;
-  background: #f8fafc;
+  background: var(--color-slate-50);
   box-shadow: 0 2px 0 rgba(17, 24, 39, 0.08);
 }
 
@@ -22,7 +22,7 @@
   align-items: center;
   gap: 12px;
   padding: 0 1.2rem;
-  color: #111827;
+  color: var(--color-ink-900);
 }
 
 .ann-brand-logo {
@@ -49,7 +49,7 @@
   align-items: center;
   justify-content: center;
   gap: 0.55rem;
-  color: #fff;
+  color: var(--color-white);
   text-decoration: none;
   text-transform: uppercase;
   font-weight: 700;
@@ -62,7 +62,7 @@
 
 .ann-action:hover,
 .ann-action:focus {
-  color: #fff;
+  color: var(--color-white);
   background: #134e4a;
 }
 
@@ -72,7 +72,7 @@
 }
 
 .ann-title-block {
-  background: #eef2f7;
+  background: var(--color-surface-50);
   padding: clamp(2rem, 8vh, 5rem) 1rem;
   text-align: center;
 }
@@ -104,8 +104,8 @@
 
 
 .ann-highlight {
-  background: #0f172a;
-  color: #f8fafc;
+  background: var(--color-slate-900);
+  color: var(--color-slate-50);
   padding: 2rem 1.5rem;
 }
 
@@ -118,7 +118,7 @@
 }
 
 .ann-list-wrap {
-  background: #e9ecf3;
+  background: var(--color-surface-100);
   padding: 1.5rem 1rem 4rem;
 }
 
@@ -144,6 +144,7 @@
     padding-top: 1rem;
   }
 }
+
 
 
 
