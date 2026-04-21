@@ -240,6 +240,46 @@ export function setupschedule_manage_page(root: HTMLElement): () => void {
     `
   }
 
+  const renderView = (schedule: ScheduleRecord): string => `
+    <div class="schedule-view-wrap">
+      <h3><span class="admin-student-section-title">Schedule Information</span></h3>
+      <div class="schedule-view-row">
+        <div class="schedule-view-item">
+          <p>Subject Code</p>
+          <strong>${escapeHtml(schedule.subjectCode)}</strong>
+        </div>
+        <div class="schedule-view-item">
+          <p>Descriptive Title</p>
+          <strong>${escapeHtml(schedule.title)}</strong>
+        </div>
+        <div class="schedule-view-item">
+          <p>Section</p>
+          <strong>${escapeHtml(schedule.section)}</strong>
+        </div>
+      </div>
+      <div class="schedule-view-row">
+        <div class="schedule-view-item">
+          <p>Faculty</p>
+          <strong>${escapeHtml(schedule.faculty)}</strong>
+        </div>
+        <div class="schedule-view-item">
+          <p>Room</p>
+          <strong>${escapeHtml(schedule.room)}</strong>
+        </div>
+        <div class="schedule-view-item">
+          <p>Day/Time</p>
+          <strong>${escapeHtml(schedule.dayTime)}</strong>
+        </div>
+      </div>
+      <div class="schedule-view-row">
+        <div class="schedule-view-item">
+          <p>Status</p>
+          <strong>${escapeHtml(schedule.status)}</strong>
+        </div>
+      </div>
+    </div>
+  `
+
   const onActionClick = (event: Event): void => {
     const target = event.target as HTMLElement | null
     const actionBtn = target?.closest<HTMLButtonElement>('[data-schedule-action]')
@@ -257,7 +297,7 @@ export function setupschedule_manage_page(root: HTMLElement): () => void {
       modal.open({
         title: 'View Schedule',
         confirmLabel: 'Close',
-        bodyHtml: renderForm(schedule, true),
+        bodyHtml: renderView(schedule),
         hideConfirm: true,
       })
       return

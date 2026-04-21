@@ -355,6 +355,25 @@ export function setupadministrators_directory_page(root: HTMLElement): () => voi
     `
   }
 
+  const renderAdminView = (record: AdministratorRecord): string => `
+    <div class="admin-view-wrap">
+      <h3><span class="admin-student-section-title">Administrator Information</span></h3>
+      <div class="admin-view-row">
+        <div class="admin-view-item"><p>First Name</p><strong>${escapeHtml(record.name.split(' ')[0] ?? '')}</strong></div>
+        <div class="admin-view-item"><p>Middle Name</p><strong>${escapeHtml(record.name.split(' ').slice(1, -1).join(' ') || '-')}</strong></div>
+        <div class="admin-view-item"><p>Last Name</p><strong>${escapeHtml(record.name.split(' ').slice(-1)[0] ?? '')}</strong></div>
+      </div>
+      <div class="admin-view-row">
+        <div class="admin-view-item"><p>Position</p><strong>${escapeHtml(record.position)}</strong></div>
+        <div class="admin-view-item"><p>Office</p><strong>${escapeHtml(record.office)}</strong></div>
+        <div class="admin-view-item"><p>Email</p><strong>${escapeHtml(record.email)}</strong></div>
+      </div>
+      <div class="admin-view-row">
+        <div class="admin-view-item"><p>Status</p><strong>${escapeHtml(record.status)}</strong></div>
+      </div>
+    </div>
+  `
+
   const openFormModal = (
     title: string,
     confirmLabel: string,
@@ -407,7 +426,7 @@ export function setupadministrators_directory_page(root: HTMLElement): () => voi
 
     if (action === 'view') {
       modalController.setMode('form')
-      openFormModal('View Administrator', 'Close', renderAdminForm(record, true), null, true)
+      openFormModal('View Administrator', 'Close', renderAdminView(record), null, true)
       return
     }
 

@@ -435,9 +435,44 @@
   border-color: var(--dark-blue);
 }
 
+.schedule-view-wrap {
+  display: grid;
+  gap: 0;
+}
+
+.schedule-view-row {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  padding: 0.85rem 0;
+  border-top: 1px solid #d7dde8;
+}
+
+.schedule-view-item p {
+  margin: 0;
+  color: #334155;
+  font-size: 0.84rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+.schedule-view-item strong {
+  display: block;
+  margin-top: 0.28rem;
+  color: #111827;
+  font-size: 0.98rem;
+  font-family: var(--font-body);
+  font-weight: 600;
+  letter-spacing: normal;
+}
+
 @media (max-width: 960px) {
   .schedule-grid.two-col,
   .schedule-grid.four-col {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .schedule-view-row {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
@@ -459,6 +494,11 @@
 
   .schedule-actions button {
     width: 100%;
+  }
+
+  .schedule-view-row {
+    grid-template-columns: 1fr;
+    gap: 0.6rem;
   }
 }
 
