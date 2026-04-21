@@ -68,7 +68,10 @@ export function renderposts_create_page(): string {
                 <div><dt>Status</dt><dd>Draft</dd></div>
                 <div><dt>Visibility</dt><dd>Public</dd></div>
               </dl>
-              <button type="button" id="admin-post-preview-btn" class="admin-post-preview-link">Preview Post</button>
+              <button type="button" id="admin-post-preview-btn" class="admin-post-preview-btn">
+                <i class="bi bi-eye" aria-hidden="true"></i>
+                <span>Preview Post</span>
+              </button>
               <p id="admin-post-create-feedback" class="admin-post-feedback" aria-live="polite"></p>
             </article>
 

@@ -161,20 +161,26 @@
   font-weight: 700;
 }
 
-.admin-post-preview-link {
+.admin-post-preview-btn {
   margin-top: 0.7rem;
-  border: 0;
-  background: transparent;
-  color: var(--dark-blue);
+  width: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.38rem;
+  border: 1px solid #d4deeb;
+  border-radius: 6px;
+  background: #fff;
+  color: #334155;
   font-weight: 700;
-  font-size: 0.86rem;
-  text-align: left;
-  padding: 0;
+  font-size: 0.78rem;
+  padding: 0.36rem 0.52rem;
 }
 
-.admin-post-preview-link:hover,
-.admin-post-preview-link:focus {
-  text-decoration: underline;
+.admin-post-preview-btn:hover,
+.admin-post-preview-btn:focus {
+  border-color: #b8c6da;
+  background: #f8fbff;
 }
 
 .admin-post-side-tabs {
