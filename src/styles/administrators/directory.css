@@ -19,14 +19,15 @@
 
 .admin-directory-head h2 {
   margin: 0;
-  font-size: clamp(1.12rem, 1.7vw, 1.65rem);
   color: #0f2f64;
+  font-size: clamp(1.6rem, 2.2vw, 2.05rem);
 }
 
 .admin-directory-head p {
-  margin: 0.3rem 0 0;
-  color: #334155;
-  font-size: 0.88rem;
+  margin: 0.35rem 0 0;
+  color: #475569;
+  font-size: 1rem;
+  font-weight: 400;
 }
 
 .admin-directory-search {
@@ -115,13 +116,14 @@
 .admin-directory-card-head h3 {
   margin: 0;
   color: #0f2f64;
-  font-size: 1rem;
+  font-size: 1.35rem;
 }
 
 .admin-directory-card-head p {
   margin: 0.25rem 0 0;
   color: #475569;
-  font-size: 0.82rem;
+  font-size: 1rem;
+  font-weight: 400;
 }
 
 
