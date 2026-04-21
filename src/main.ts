@@ -110,25 +110,27 @@ const setupLogoPlaceholders = (): void => {
   const logoImages = Array.from(document.querySelectorAll<HTMLImageElement>('img[src*="gwc_logo"]'))
 
   logoImages.forEach((image) => {
-    image.classList.add('logo-placeholder')
-
     const markLoaded = (): void => {
+      if (!image.classList.contains('logo-placeholder')) return
       image.classList.add('is-loaded')
       window.setTimeout(() => {
-        image.classList.remove('logo-placeholder')
-        image.classList.remove('is-loaded')
-      }, 180)
+        image.classList.remove('logo-placeholder', 'is-loaded')
+      }, 120)
       image.removeEventListener('load', markLoaded)
       image.removeEventListener('error', markLoaded)
     }
 
     if (image.complete && image.naturalWidth > 0) {
-      markLoaded()
       return
     }
 
+    image.classList.add('logo-placeholder')
     image.addEventListener('load', markLoaded, { once: true })
     image.addEventListener('error', markLoaded, { once: true })
+
+    if (typeof image.decode === 'function') {
+      void image.decode().then(markLoaded, markLoaded)
+    }
   })
 }
 
