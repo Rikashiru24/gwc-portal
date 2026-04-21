@@ -122,6 +122,12 @@ const waitForWindowLoad = (): Promise<void> =>
     window.addEventListener('load', () => resolve(), { once: true })
   })
 
+const waitForFontsReady = (): Promise<void> => {
+  const fonts = (document as Document & { fonts?: FontFaceSet }).fonts
+  if (!fonts) return Promise.resolve()
+  return fonts.ready.then(() => undefined, () => undefined)
+}
+
 const collectRouteImageSources = (): string[] => {
   const sources = new Set<string>()
   app.querySelectorAll<HTMLImageElement>('img[src]').forEach((image) => {
@@ -142,7 +148,7 @@ const preloadTargets = Array.from(
   ]),
 )
 
-Promise.allSettled([waitForWindowLoad(), ...preloadTargets.map((src) => preloadImage(src, 5000))]).finally(() => {
+Promise.allSettled([waitForWindowLoad(), waitForFontsReady(), ...preloadTargets.map((src) => preloadImage(src, 5000))]).finally(() => {
   requestAnimationFrame(() => {
     requestAnimationFrame(() => {
       if (shouldDelayFirstPaint) {
