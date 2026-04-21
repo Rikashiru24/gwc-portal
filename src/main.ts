@@ -107,6 +107,16 @@ const globalLoader = mountGlobalLoader()
 renderRoute(app, window.location.pathname)
 
 const setupLogoPlaceholders = (): void => {
+  const sessionKey = 'gwc_logo_placeholder_shown_v1'
+  try {
+    if (window.sessionStorage.getItem(sessionKey) === '1') {
+      return
+    }
+    window.sessionStorage.setItem(sessionKey, '1')
+  } catch {
+    // Ignore storage errors and continue with current-page behavior.
+  }
+
   const logoImages = Array.from(document.querySelectorAll<HTMLImageElement>('img[src*="gwc_logo"]'))
 
   logoImages.forEach((image) => {
