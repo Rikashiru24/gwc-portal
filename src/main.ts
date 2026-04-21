@@ -4,6 +4,7 @@ import 'bootstrap-icons/font/bootstrap-icons.css'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 import './styles/base.css'
+import { isImageLoaded, shouldRunLogoPlaceholder } from './app/logo_placeholder'
 import { renderRoute } from './app/router'
 const coverImageUrl = '/images/cover.avif'
 const footerLogoUrl = '/images/gwc_logo_white.avif'
@@ -107,15 +108,7 @@ const globalLoader = mountGlobalLoader()
 renderRoute(app, window.location.pathname)
 
 const setupLogoPlaceholders = (): void => {
-  const sessionKey = 'gwc_logo_placeholder_shown_v1'
-  try {
-    if (window.sessionStorage.getItem(sessionKey) === '1') {
-      return
-    }
-    window.sessionStorage.setItem(sessionKey, '1')
-  } catch {
-    // Ignore storage errors and continue with current-page behavior.
-  }
+  if (!shouldRunLogoPlaceholder(window.sessionStorage)) return
 
   const logoImages = Array.from(document.querySelectorAll<HTMLImageElement>('img[src*="gwc_logo"]'))
 
@@ -130,7 +123,7 @@ const setupLogoPlaceholders = (): void => {
       image.removeEventListener('error', markLoaded)
     }
 
-    if (image.complete && image.naturalWidth > 0) {
+    if (isImageLoaded(image)) {
       return
     }
 
