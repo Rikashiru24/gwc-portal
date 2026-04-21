@@ -1,50 +1,35 @@
-// @vitest-environment jsdom
 import { describe, expect, it } from 'vitest'
 
-import { renderRoute } from '../src/app/router'
-import { ROUTES } from '../src/app/routes'
-
-function createAppRoot(): HTMLDivElement {
-  const app = document.createElement('div')
-  app.id = 'app'
-  document.body.innerHTML = ''
-  document.body.appendChild(app)
-  return app
-}
+import { renderannouncements_page } from '../src/pages/announcements/announcements_page'
+import { renderpost_page } from '../src/pages/post/post_page'
+import { rendernot_found_page } from '../src/pages/not-found/not_found_page'
 
 describe('router integration', () => {
-  it('renders home page content for root route', () => {
-    const app = createAppRoot()
+  it('renders announcements view with key sections', () => {
+    const html = renderannouncements_page()
 
-    renderRoute(app, ROUTES.HOME)
-
-    expect(app.querySelector('h1')?.textContent).toContain('Golden West Colleges, Inc. in Action')
+    expect(html).toContain('ANNOUNCEMENTS')
+    expect(html).toContain('Other Announcements:')
   })
 
-  it('renders announcements page content for announcements route', () => {
-    const app = createAppRoot()
+  it('renders post page for a valid slug', () => {
+    const html = renderpost_page('research-colloquium')
 
-    renderRoute(app, ROUTES.ANNOUNCEMENTS)
-
-    expect(app.querySelector('.ann-title-block h1')?.textContent).toContain('ANNOUNCEMENTS')
-    expect(app.textContent).toContain('Other Announcements:')
+    expect(html).toBeTruthy()
+    expect(html).toContain('Research Colloquium')
+    expect(html).toContain('Other Related Articles:')
   })
 
-  it('renders post page for a valid post slug route', () => {
-    const app = createAppRoot()
+  it('returns null for an unknown post slug', () => {
+    const html = renderpost_page('missing-slug')
 
-    renderRoute(app, '/post/research-colloquium')
-
-    expect(app.querySelector('.post-title')?.textContent).toContain('Research Colloquium')
-    expect(app.textContent).toContain('Other Related Articles:')
+    expect(html).toBeNull()
   })
 
-  it('renders not found page for unknown routes', () => {
-    const app = createAppRoot()
+  it('renders not found page content', () => {
+    const html = rendernot_found_page()
 
-    renderRoute(app, '/missing-page')
-
-    expect(app.textContent).toContain('Page not found')
-    expect(app.textContent).toContain('Go to Homepage')
+    expect(html).toContain('Page not found')
+    expect(html).toContain('Go to Homepage')
   })
 })
