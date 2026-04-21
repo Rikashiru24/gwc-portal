@@ -274,7 +274,7 @@ export function setupschedule_manage_page(root: HTMLElement): () => void {
       <div class="schedule-view-row">
         <div class="schedule-view-item">
           <p>Status</p>
-          <strong>${escapeHtml(schedule.status)}</strong>
+          <span class="admin-pill ${schedule.status === 'Open' ? 'is-active' : 'is-inactive'}">${escapeHtml(schedule.status)}</span>
         </div>
       </div>
     </div>

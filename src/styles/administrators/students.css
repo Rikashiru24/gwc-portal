@@ -236,6 +236,20 @@
 }
 
 @media (max-width: 640px) {
+  .admin-breadcrumb-shell {
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+  }
+
+  .admin-breadcrumb {
+    flex-wrap: nowrap;
+    white-space: nowrap;
+    width: max-content;
+    min-width: 100%;
+  }
+
   .admin-students-home-actions .btn {
     min-width: 100%;
   }

@@ -369,7 +369,7 @@ export function setupadministrators_directory_page(root: HTMLElement): () => voi
         <div class="admin-view-item"><p>Email</p><strong>${escapeHtml(record.email)}</strong></div>
       </div>
       <div class="admin-view-row">
-        <div class="admin-view-item"><p>Status</p><strong>${escapeHtml(record.status)}</strong></div>
+        <div class="admin-view-item"><p>Status</p><span class="admin-pill ${getStatusClass(record.status)}">${escapeHtml(record.status)}</span></div>
       </div>
     </div>
   `
