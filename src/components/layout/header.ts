@@ -19,8 +19,10 @@ type SiteHeaderOptions = {
   logoClass: string
   titleClass: string
   titleFullClass: string
+  titleMediumClass?: string
   titleShortClass: string
   titleFull: string
+  titleMedium?: string
   titleShort?: string
   actionsNavClass: string
   actionBaseClass: string
@@ -61,9 +63,10 @@ export function renderSiteHeader(options: SiteHeaderOptions): string {
   return `
     <header class="${options.headerClass}">
       <div${innerClass}>
-        <a href="${options.brandHref}" class="${options.brandClass}">
+        <a href="${options.brandHref}" class="${options.brandClass}" data-brand-variant="full">
           <img src="${options.logoSrc}" alt="${options.logoAlt}" class="${options.logoClass}" />
           <span class="${options.titleClass} ${options.titleFullClass}">${options.titleFull}</span>
+          ${options.titleMedium && options.titleMediumClass ? `<span class="${options.titleClass} ${options.titleMediumClass}">${options.titleMedium}</span>` : ''}
           ${options.titleShort ? `<span class="${options.titleClass} ${options.titleShortClass}">${options.titleShort}</span>` : ''}
         </a>
         <nav class="${options.actionsNavClass}" aria-label="Quick links">
@@ -87,8 +90,10 @@ export function renderMainSiteHeader(options: MainSiteHeaderOptions): string {
     logoClass: 'site-brand-logo',
     titleClass: 'site-brand-title',
     titleFullClass: 'site-brand-title-full',
+    titleMediumClass: 'site-brand-title-medium',
     titleShortClass: 'site-brand-title-short',
     titleFull: 'GOLDEN WEST COLLEGES, INC.',
+    titleMedium: 'GOLDEN WEST<br />COLLEGES, INC.',
     titleShort: 'GWC, INC.',
     actionsNavClass: 'site-quick-menu',
     actionBaseClass: 'site-quick-item',

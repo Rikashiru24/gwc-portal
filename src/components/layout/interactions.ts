@@ -17,6 +17,9 @@ export function setupSiteInteractions(root: HTMLElement): () => void {
       template,
     ]),
   )
+  const brandElements = Array.from(
+    root.querySelectorAll<HTMLElement>('.site-brand, .site-overlay-brand'),
+  )
 
   createIcons({
     icons: {
@@ -72,6 +75,7 @@ export function setupSiteInteractions(root: HTMLElement): () => void {
     if (mobileSubmenuPanel) mobileSubmenuPanel.innerHTML = ''
     applyBodyOverlayState(null)
     unlockScroll()
+    updateBrandVariants()
   }
 
   const openOverlay = (name: string): void => {
@@ -92,6 +96,54 @@ export function setupSiteInteractions(root: HTMLElement): () => void {
     if (name === 'search' && searchInput) {
       window.setTimeout(() => searchInput.focus(), 1000)
     }
+    updateBrandVariants()
+  }
+
+  const parsePixelValue = (value: string): number | null => {
+    const parsed = Number.parseFloat(value)
+    return Number.isFinite(parsed) ? parsed : null
+  }
+
+  const doesBrandFit = (brand: HTMLElement): boolean => {
+    const previousMaxWidth = brand.style.maxWidth
+    brand.style.maxWidth = '100%'
+
+    const widthFits = brand.scrollWidth <= brand.clientWidth + 1
+
+    const parent = brand.parentElement
+    let heightLimit = brand.clientHeight
+    if (parent) {
+      const parentStyles = window.getComputedStyle(parent)
+      const minHeight = parsePixelValue(parentStyles.minHeight)
+      const explicitHeight = parsePixelValue(parentStyles.height)
+      heightLimit = minHeight ?? explicitHeight ?? parent.clientHeight
+    }
+    const heightFits = brand.scrollHeight <= heightLimit + 1
+
+    brand.style.maxWidth = previousMaxWidth
+    return widthFits && heightFits
+  }
+
+  const fitBrandVariant = (brand: HTMLElement): void => {
+    const variants: Array<'full' | 'medium' | 'short'> = ['full', 'medium', 'short']
+    for (const variant of variants) {
+      brand.dataset.brandVariant = variant
+      if (doesBrandFit(brand)) return
+    }
+    brand.dataset.brandVariant = 'short'
+  }
+
+  const updateBrandVariants = (): void => {
+    brandElements.forEach((brand) => fitBrandVariant(brand))
+  }
+
+  let brandResizeFrame = 0
+  const onWindowResize = (): void => {
+    if (brandResizeFrame) return
+    brandResizeFrame = window.requestAnimationFrame(() => {
+      brandResizeFrame = 0
+      updateBrandVariants()
+    })
   }
 
   const onOpenClick = (event: Event): void => {
@@ -169,13 +221,18 @@ export function setupSiteInteractions(root: HTMLElement): () => void {
 
   const onWindowLoad = (): void => {
     markHeaderReady()
+    updateBrandVariants()
   }
 
   const onPageShow = (): void => {
     // Browser scroll restoration can be applied after initial script run.
     // Re-check once page is shown before enabling header transitions.
     markHeaderReady()
+    updateBrandVariants()
   }
+
+  // Apply the best-fitting brand variant immediately to avoid first-paint flicker.
+  updateBrandVariants()
 
   // Keep transitions disabled until scroll restoration has settled.
   updateHeaderScrollState()
@@ -184,10 +241,12 @@ export function setupSiteInteractions(root: HTMLElement): () => void {
     requestAnimationFrame(() => {
       updateHeaderScrollState()
       markHeaderReady()
+      updateBrandVariants()
     })
   })
   window.addEventListener('load', onWindowLoad, { once: true })
   window.addEventListener('pageshow', onPageShow, { once: true })
+  window.addEventListener('resize', onWindowResize, { passive: true })
 
   openButtons.forEach((button) => button.addEventListener('click', onOpenClick))
   submenuTriggers.forEach((button) => button.addEventListener('click', onSubmenuTriggerClick))
@@ -205,6 +264,11 @@ export function setupSiteInteractions(root: HTMLElement): () => void {
     window.removeEventListener('scroll', updateHeaderScrollState)
     window.removeEventListener('load', onWindowLoad)
     window.removeEventListener('pageshow', onPageShow)
+    window.removeEventListener('resize', onWindowResize)
+    if (brandResizeFrame) {
+      window.cancelAnimationFrame(brandResizeFrame)
+      brandResizeFrame = 0
+    }
     unlockScroll()
   }
 }

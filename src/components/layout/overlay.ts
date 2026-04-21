@@ -14,9 +14,10 @@ export function renderHomeOverlays(options: HomeOverlayOptions): string {
         <div class="site-overlay-backdrop" data-overlay-close></div>
         <div class="site-overlay-panel site-overlay-panel-menu">
           <div class="site-overlay-topbar">
-            <a href="${ROUTES.HOME}" class="site-overlay-brand text-decoration-none" data-overlay-close>
+            <a href="${ROUTES.HOME}" class="site-overlay-brand text-decoration-none" data-overlay-close data-brand-variant="full">
               <img src="${options.logoSrc}" alt="${options.logoAlt}" class="site-overlay-brand-logo" />
               <span class="site-overlay-brand-title site-overlay-brand-title-full">GOLDEN WEST COLLEGES, INC.</span>
+              <span class="site-overlay-brand-title site-overlay-brand-title-medium">GOLDEN WEST<br />COLLEGES, INC.</span>
               <span class="site-overlay-brand-title site-overlay-brand-title-short">${options.shortBrand}</span>
             </a>
             <button type="button" class="site-overlay-close" data-overlay-close aria-label="Close menu">&times;</button>
@@ -50,9 +51,10 @@ export function renderHomeOverlays(options: HomeOverlayOptions): string {
         <div class="site-overlay-backdrop" data-overlay-close></div>
         <div class="site-overlay-panel site-overlay-panel-search">
           <div class="site-overlay-topbar">
-            <a href="${ROUTES.HOME}" class="site-overlay-brand text-decoration-none" data-overlay-close>
+            <a href="${ROUTES.HOME}" class="site-overlay-brand text-decoration-none" data-overlay-close data-brand-variant="full">
               <img src="${options.logoSrc}" alt="${options.logoAlt}" class="site-overlay-brand-logo" />
               <span class="site-overlay-brand-title site-overlay-brand-title-full">GOLDEN WEST COLLEGES, INC.</span>
+              <span class="site-overlay-brand-title site-overlay-brand-title-medium">GOLDEN WEST<br />COLLEGES, INC.</span>
               <span class="site-overlay-brand-title site-overlay-brand-title-short">${options.shortBrand}</span>
             </a>
             <button type="button" class="site-overlay-close" data-overlay-close aria-label="Close search">&times;</button>
