@@ -4,7 +4,7 @@ import 'bootstrap-icons/font/bootstrap-icons.css'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 import './styles/base.css'
-import { isImageLoaded, shouldRunLogoPlaceholder } from './app/logo_placeholder'
+import { applyLogoPlaceholders } from './app/logo_placeholder'
 import { renderRoute } from './app/router'
 const coverImageUrl = '/images/cover.avif'
 const footerLogoUrl = '/images/gwc_logo_white.avif'
@@ -106,38 +106,7 @@ const preloadImage = (src: string, timeoutMs = 1400): Promise<void> =>
 const globalLoader = mountGlobalLoader()
 
 renderRoute(app, window.location.pathname)
-
-const setupLogoPlaceholders = (): void => {
-  if (!shouldRunLogoPlaceholder(window.sessionStorage)) return
-
-  const logoImages = Array.from(document.querySelectorAll<HTMLImageElement>('img[src*="gwc_logo"]'))
-
-  logoImages.forEach((image) => {
-    const markLoaded = (): void => {
-      if (!image.classList.contains('logo-placeholder')) return
-      image.classList.add('is-loaded')
-      window.setTimeout(() => {
-        image.classList.remove('logo-placeholder', 'is-loaded')
-      }, 120)
-      image.removeEventListener('load', markLoaded)
-      image.removeEventListener('error', markLoaded)
-    }
-
-    if (isImageLoaded(image)) {
-      return
-    }
-
-    image.classList.add('logo-placeholder')
-    image.addEventListener('load', markLoaded, { once: true })
-    image.addEventListener('error', markLoaded, { once: true })
-
-    if (typeof image.decode === 'function') {
-      void image.decode().then(markLoaded, markLoaded)
-    }
-  })
-}
-
-setupLogoPlaceholders()
+applyLogoPlaceholders(document, window.sessionStorage)
 
 AOS.init({
   offset: 120,
