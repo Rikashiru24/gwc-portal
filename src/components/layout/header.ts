@@ -1,3 +1,4 @@
+import '../../styles/header.css'
 import { ROUTES } from '../../app/routes'
 
 export type HeaderAction = {

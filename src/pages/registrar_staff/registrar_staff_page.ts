@@ -1,3 +1,4 @@
+import '../../styles/registrar_staff.css'
 import { REGISTRAR_STAFF_SHELL_CONFIG, setupPortalShell } from '../../components/layout/_layout'
 import { setupclass_scheduling_form } from './schedule/schedule_create_page'
 import { setupschedule_manage_page } from './schedule/schedule_manage_page'

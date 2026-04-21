@@ -1,3 +1,4 @@
+import '../../styles/faculty.css'
 import { FACULTY_SHELL_CONFIG, setupPortalShell } from '../../components/layout/_layout'
 
 export { renderfaculty_dashboard_page } from './dashboard/dashboard_page'

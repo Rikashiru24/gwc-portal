@@ -1,3 +1,4 @@
+import '../../styles/student.css'
 import { STUDENT_SHELL_CONFIG, setupPortalShell } from '../../components/layout/_layout'
 
 export { renderstudent_dashboard_page } from './dashboard/dashboard_page'

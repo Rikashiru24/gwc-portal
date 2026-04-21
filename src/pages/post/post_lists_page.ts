@@ -1,3 +1,4 @@
+import '../../styles/post.css'
 const gwcLogo = '/images/gwc_logo.avif'
 const gwcLogoWhite = '/images/gwc_logo_white.avif'
 import { ROUTES } from '../../app/routes'

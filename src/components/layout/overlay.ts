@@ -1,3 +1,4 @@
+import '../../styles/overlay.css'
 import { ROUTES } from '../../app/routes'
 
 type HomeOverlayOptions = {

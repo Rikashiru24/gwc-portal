@@ -1,3 +1,4 @@
+import '../../styles/not_found.css'
 import { ROUTES } from '../../app/routes'
 
 export function rendernot_found_page(): string {

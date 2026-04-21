@@ -1,3 +1,5 @@
+import '../../styles/home.css'
+import '../../styles/post.css'
 const gwcLogo = '/images/gwc_logo.avif'
 const gwcLogoWhite = '/images/gwc_logo_white.avif'
 const coverImage = '/images/cover.avif'

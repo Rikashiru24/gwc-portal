@@ -1,3 +1,4 @@
+import '../../styles/footer.css'
 const gwcLogoWhite = '/images/gwc_logo_white.avif'
 import { ROUTES } from '../../app/routes'
 

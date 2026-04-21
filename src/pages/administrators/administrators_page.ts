@@ -1,3 +1,6 @@
+import '../../styles/administrators/layout.css'
+import '../../styles/administrators/directory.css'
+import '../../styles/administrators/students.css'
 import { ADMIN_SHELL_CONFIG, setupPortalShell } from '../../components/layout/_layout'
 
 export { renderadministrators_dashboard_page } from './dashboard/dashboard_page'
