@@ -180,9 +180,11 @@ class SchedulingService {
   }
 
   listPendingApprovals(): Schedule[] {
-    return this.schedules.filter((schedule) =>
-      ['CONFLICT_DETECTED', 'SUBMITTED_FOR_APPROVAL', 'UNDER_ADMIN_REVIEW'].includes(schedule.status),
-    )
+    return this.schedules.filter((schedule) => ['SUBMITTED_FOR_APPROVAL', 'UNDER_ADMIN_REVIEW'].includes(schedule.status))
+  }
+
+  listSchedulesByStatus(statuses: ScheduleStatus[]): Schedule[] {
+    return this.schedules.filter((schedule) => statuses.includes(schedule.status))
   }
 
   listApprovedByDepartment(department: string): Schedule[] {
@@ -325,6 +327,7 @@ class SchedulingService {
   submitForApproval(scheduleId: string, actorId: string, notes: string): Schedule | null {
     const schedule = this.findSchedule(scheduleId)
     if (!schedule) return null
+    if (!['CONFLICT_DETECTED', 'REJECTED_BY_ADMIN'].includes(schedule.status)) return null
 
     schedule.registrarNotes = notes
     schedule.status = 'SUBMITTED_FOR_APPROVAL'
@@ -426,6 +429,7 @@ class SchedulingService {
   createModificationRequest(input: ModificationInput): ModificationRequest | null {
     const schedule = this.findSchedule(input.scheduleId)
     if (!schedule) return null
+    if (!['APPROVED', 'FINALIZED', 'MODIFICATION_REQUESTED'].includes(schedule.status)) return null
 
     const request: ModificationRequest = {
       id: createId('mod'),

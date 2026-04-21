@@ -17,7 +17,7 @@ export function renderstudent_schedule_page(): string {
         ])}
         <article class="student-panel">
           <h3>Class Schedule Viewer</h3>
-          <p>Read-only approved and finalized schedules.</p>
+          <p>Published schedule view with subject, section, instructor, room, and meeting time.</p>
           <div class="admin-table-wrap mt-3">
             <table class="admin-table">
               <thead>
@@ -31,20 +31,24 @@ export function renderstudent_schedule_page(): string {
                 </tr>
               </thead>
               <tbody data-student-schedule-body>
-                ${rows
-                  .map(
-                    (item) => `
-                      <tr>
-                        <td>${item.subjectCode} - ${item.title}</td>
-                        <td>${item.section}</td>
-                        <td>${item.faculty}</td>
-                        <td>${item.day}</td>
-                        <td>${item.startTime}-${item.endTime}</td>
-                        <td>${item.room}</td>
-                      </tr>
-                    `,
-                  )
-                  .join('')}
+                ${
+                  rows.length
+                    ? rows
+                        .map(
+                          (item) => `
+                            <tr>
+                              <td>${item.subjectCode} - ${item.title}</td>
+                              <td>${item.section}</td>
+                              <td>${item.faculty}</td>
+                              <td>${item.day}</td>
+                              <td>${item.startTime}-${item.endTime}</td>
+                              <td>${item.room}</td>
+                            </tr>
+                          `,
+                        )
+                        .join('')
+                    : '<tr><td colspan="6" class="text-center py-3">No schedules published yet.</td></tr>'
+                }
               </tbody>
             </table>
           </div>

@@ -145,6 +145,96 @@
   color: var(--color-text-secondary);
 }
 
+.student-dashboard {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.student-dashboard-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem;
+  border-bottom: 1px solid var(--color-surface-300);
+  padding-bottom: 0.7rem;
+}
+
+.student-dashboard-head p {
+  margin: 0.3rem 0 0;
+}
+
+.student-dashboard-actions {
+  display: flex;
+  gap: 0.45rem;
+  flex-wrap: wrap;
+}
+
+.student-kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.55rem;
+}
+
+.student-kpi-card {
+  border: 1px solid var(--color-surface-300);
+  border-radius: 0.5rem;
+  background: #f8fbff;
+  padding: 0.75rem;
+}
+
+.student-kpi-card p {
+  margin: 0;
+  color: var(--color-slate-600);
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.student-kpi-card strong {
+  display: block;
+  margin-top: 0.2rem;
+  font-size: 1.35rem;
+  color: var(--color-ink-900);
+}
+
+.student-dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.65rem;
+}
+
+.student-dashboard-card {
+  border: 1px solid var(--color-surface-300);
+  border-radius: 0.5rem;
+  background: var(--color-white);
+  padding: 0.75rem;
+}
+
+.student-dashboard-card h4 {
+  margin: 0;
+  color: var(--color-ink-900);
+  font-size: 0.95rem;
+}
+
+.student-list {
+  margin: 0.55rem 0 0;
+  padding-left: 1rem;
+  display: grid;
+  gap: 0.35rem;
+  color: var(--color-slate-700);
+  font-size: 0.84rem;
+}
+
+.student-quick-links {
+  display: grid;
+  gap: 0.45rem;
+  margin-top: 0.6rem;
+}
+
+.student-quick-links .btn {
+  justify-content: flex-start;
+  text-align: left;
+}
+
 .student-sidebar-backdrop {
   display: none;
 }
@@ -218,6 +308,24 @@
 
   .student-shell-page .site-quick-menu {
     display: flex;
+  }
+
+  .student-kpi-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .student-dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .student-dashboard-head {
+    flex-direction: column;
+  }
+
+  .student-kpi-grid {
+    grid-template-columns: 1fr;
   }
 }
 

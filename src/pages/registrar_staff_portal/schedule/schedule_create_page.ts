@@ -76,7 +76,7 @@ export function renderregistrar_staff_schedule_create_page(): string {
         <article class="admin-student-page-shell">
           <header class="admin-student-head">
             <h2>Create Schedule</h2>
-            <p>Build schedules, detect conflicts, upload CSV, and submit for admin approval.</p>
+            <p>Create schedule batches, run conflict checks, then send only conflicted schedules to admin for approval.</p>
           </header>
 
           <form class="class-scheduling-form" action="#" method="post" novalidate data-schedule-create-form>
@@ -152,7 +152,7 @@ export function renderregistrar_staff_schedule_create_page(): string {
             </section>
 
             <section class="schedule-summary" data-create-summary>
-              <h3>Workflow Status</h3>
+              <h3>Schedule Status</h3>
               <ul>
                 <li>No schedule created yet.</li>
               </ul>
@@ -285,7 +285,7 @@ export function setupclass_scheduling_form(root: HTMLElement): () => void {
 
   const showSummary = (items: string[]): void => {
     summary.innerHTML = `
-      <h3>Workflow Status</h3>
+      <h3>Schedule Status</h3>
       <ul>${items.map((item) => `<li>${item}</li>`).join('')}</ul>
     `
   }
@@ -333,15 +333,17 @@ export function setupclass_scheduling_form(root: HTMLElement): () => void {
       },
       'registrar-1',
     )
-    schedulingService.submitForApproval(schedule.id, 'registrar-1', getValue('#schedule-notes') || 'Submitted from create form')
-
     const conflicts = schedulingService.listConflicts(schedule.id)
-    const hints = conflicts.length
-      ? [`Detected ${conflicts.length} conflict(s), routed to Admin.`]
-      : ['No conflicts detected; submitted to Admin for review.']
+    const hints: string[] = []
+    if (conflicts.length) {
+      schedulingService.submitForApproval(schedule.id, 'registrar-1', getValue('#schedule-notes') || 'Submitted from create form')
+      hints.push(`Detected ${conflicts.length} conflict(s), routed to Admin.`)
+    } else {
+      hints.push('No conflicts detected. Schedule remains as Draft for registrar release planning.')
+    }
 
     showSummary([
-      `Schedule ${schedule.id} submitted.`,
+      `Schedule ${schedule.id} created.`,
       ...hints,
       'Open Manage Schedule to review versions and approval status.',
     ])

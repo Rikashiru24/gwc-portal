@@ -24,7 +24,7 @@ export function renderdepartment_dashboard_page(): string {
           <header class="department-dashboard-head">
             <div>
               <h3>Department Dashboard</h3>
-              <p>Track approved schedules, modification workflow, and update notifications.</p>
+              <p>Track approved schedules, modification requests, and update notifications.</p>
             </div>
             <div class="department-dashboard-actions">
               <a href="${ROUTES.DEPARTMENT_SCHEDULE}" class="btn btn-primary">Open Schedule Review</a>

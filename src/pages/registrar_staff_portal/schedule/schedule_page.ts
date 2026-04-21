@@ -6,8 +6,11 @@ import { schedulingService } from '../../../features/scheduling/service'
 export function renderregistrar_staff_schedule_page(): string {
   const analytics = schedulingService.getAnalytics()
   const notifications = schedulingService.listNotifications('REGISTRAR').slice(0, 5)
-  const pending = schedulingService.listPendingApprovals().slice(0, 5)
-  const schedules = schedulingService.listSchedules().slice(0, 6)
+  const pendingAdmin = schedulingService.listPendingApprovals().slice(0, 5)
+  const conflictQueue = schedulingService.listSchedulesByStatus(['CONFLICT_DETECTED']).slice(0, 5)
+  const returnedQueue = schedulingService.listSchedulesByStatus(['REJECTED_BY_ADMIN']).slice(0, 5)
+  const modRequests = schedulingService.listModificationRequests().slice(0, 5)
+  const published = schedulingService.listSchedulesByStatus(['APPROVED', 'FINALIZED']).slice(0, 5)
 
   return renderPortalShell(
     REGISTRAR_STAFF_SHELL_CONFIG,
@@ -22,8 +25,8 @@ export function renderregistrar_staff_schedule_page(): string {
         <article class="registrar-dashboard">
           <header class="registrar-dashboard-head">
             <div>
-              <h2>Schedule Workflow</h2>
-              <p>Build, review, and release schedules with full visibility on conflicts and approvals.</p>
+              <h2>Schedule Operations</h2>
+              <p>Monitor conflict detection, approval queue, published schedules, and incoming modification requests.</p>
             </div>
             <div class="registrar-dashboard-actions">
               <a href="${ROUTES.REGISTRAR_STAFF_SCHEDULE_MANAGE}" class="btn btn-outline-primary">Manage Schedule</a>
@@ -33,38 +36,71 @@ export function renderregistrar_staff_schedule_page(): string {
 
           <section class="registrar-kpi-grid mt-3">
             <article class="registrar-kpi-card"><p>Total Schedules</p><strong>${analytics.totalSchedules}</strong></article>
-            <article class="registrar-kpi-card"><p>Pending Approvals</p><strong>${analytics.pendingApprovals}</strong></article>
+            <article class="registrar-kpi-card"><p>In Admin Queue</p><strong>${analytics.pendingApprovals}</strong></article>
             <article class="registrar-kpi-card"><p>Unresolved Conflicts</p><strong>${analytics.unresolvedConflicts}</strong></article>
-            <article class="registrar-kpi-card"><p>Completion Rate</p><strong>${analytics.completionRate.toFixed(1)}%</strong></article>
+            <article class="registrar-kpi-card"><p>Published</p><strong>${analytics.approvedSchedules}</strong></article>
             <article class="registrar-kpi-card"><p>Finalized</p><strong>${analytics.finalizedSchedules}</strong></article>
             <article class="registrar-kpi-card"><p>Avg Approval Time</p><strong>${analytics.avgApprovalHours.toFixed(2)}h</strong></article>
           </section>
 
           <section class="registrar-dashboard-grid mt-3">
             <article class="registrar-dashboard-card">
-              <h4>Pending Review Queue</h4>
+              <h4>Conflict Queue</h4>
               <ul class="registrar-list">
                 ${
-                  pending.length
-                    ? pending.map((item) => `<li><strong>${item.id}</strong> - ${item.department} - ${item.status}</li>`).join('')
-                    : '<li>No pending schedules.</li>'
+                  conflictQueue.length
+                    ? conflictQueue.map((item) => `<li><strong>${item.id}</strong> - ${item.department} - ${item.status}</li>`).join('')
+                    : '<li>No conflict schedules.</li>'
                 }
               </ul>
             </article>
 
             <article class="registrar-dashboard-card">
-              <h4>Recent Schedule Batches</h4>
+              <h4>Admin Review Queue</h4>
               <ul class="registrar-list">
                 ${
-                  schedules.length
-                    ? schedules.map((item) => `<li><strong>${item.id}</strong> - v${item.currentVersion} - ${item.status}</li>`).join('')
-                    : '<li>No schedules yet.</li>'
+                  pendingAdmin.length
+                    ? pendingAdmin.map((item) => `<li><strong>${item.id}</strong> - ${item.department} - ${item.status}</li>`).join('')
+                    : '<li>No schedules sent to admin.</li>'
                 }
               </ul>
             </article>
 
             <article class="registrar-dashboard-card">
-              <h4>Recent Registrar Notifications</h4>
+              <h4>Returned by Admin</h4>
+              <ul class="registrar-list">
+                ${
+                  returnedQueue.length
+                    ? returnedQueue.map((item) => `<li><strong>${item.id}</strong> - ${item.adminFeedback || 'Needs revision'}</li>`).join('')
+                    : '<li>No returned schedules.</li>'
+                }
+              </ul>
+            </article>
+
+            <article class="registrar-dashboard-card">
+              <h4>Modification Requests</h4>
+              <ul class="registrar-list">
+                ${
+                  modRequests.length
+                    ? modRequests.map((item) => `<li><strong>${item.scheduleId}</strong> - ${item.requesterRole} - ${item.status}</li>`).join('')
+                    : '<li>No modification requests.</li>'
+                }
+              </ul>
+            </article>
+
+            <article class="registrar-dashboard-card">
+              <h4>Published / Finalized</h4>
+              <ul class="registrar-list">
+                ${
+                  published.length
+                    ? published.map((item) => `<li><strong>${item.id}</strong> - v${item.currentVersion} - ${item.status}</li>`).join('')
+                    : '<li>No published schedules yet.</li>'
+                }
+              </ul>
+            </article>
+
+            <article class="registrar-dashboard-card">
+              <h4>Registrar Notifications</h4>
               <ul class="registrar-list">
                 ${notifications.length ? notifications.map((note) => `<li>${note.message}</li>`).join('') : '<li>No notifications yet.</li>'}
               </ul>

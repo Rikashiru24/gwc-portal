@@ -26,6 +26,7 @@ export function renderfaculty_classes_page(): string {
         ])}
         <article class="faculty-panel">
           <h3>My Weekly Timetable</h3>
+          <p>Review assigned classes and report scheduling issues for registrar action.</p>
           <div class="admin-table-wrap mt-3">
             <table class="admin-table">
               <thead>
@@ -52,7 +53,7 @@ export function renderfaculty_classes_page(): string {
                       </tr>
                     `,
                   )
-                  .join('')}
+                  .join('') || '<tr><td colspan="6" class="text-center py-3">No assigned classes in approved schedules.</td></tr>'}
               </tbody>
             </table>
           </div>

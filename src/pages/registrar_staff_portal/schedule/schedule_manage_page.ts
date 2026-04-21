@@ -33,10 +33,11 @@ function renderRows(): string {
         <td>
           ${renderSharedPopover({
             ariaLabel: 'Schedule row actions',
+            triggerLabel: '<i class="bi bi-three-dots-vertical" aria-hidden="true"></i>',
             actionDataAttribute: 'data-schedule-action',
             actions: [
               { label: 'View', value: 'view' },
-              { label: 'Submit', value: 'submit' },
+              { label: 'Send to Admin', value: 'submit' },
               { label: 'Finalize', value: 'finalize' },
               { label: 'Compare v1', value: 'compare' },
             ],
@@ -49,6 +50,11 @@ function renderRows(): string {
 
 export function renderregistrar_staff_schedule_manage_page(): string {
   const total = schedulingService.listSchedules().length
+  const draftCount = schedulingService.listSchedulesByStatus(['DRAFT']).length
+  const conflictCount = schedulingService.listSchedulesByStatus(['CONFLICT_DETECTED']).length
+  const reviewCount = schedulingService.listPendingApprovals().length
+  const returnedCount = schedulingService.listSchedulesByStatus(['REJECTED_BY_ADMIN']).length
+  const publishedCount = schedulingService.listSchedulesByStatus(['APPROVED', 'FINALIZED']).length
   return renderPortalShell(
     REGISTRAR_STAFF_SHELL_CONFIG,
     'schedule',
@@ -65,6 +71,14 @@ export function renderregistrar_staff_schedule_manage_page(): string {
             <h2>Manage Schedule</h2>
             <p>Total Schedules: <strong>${total}</strong></p>
           </header>
+
+          <section class="schedule-ops-strip">
+            <span class="schedule-ops-pill">Draft ${draftCount}</span>
+            <span class="schedule-ops-pill">Conflict ${conflictCount}</span>
+            <span class="schedule-ops-pill">In Admin ${reviewCount}</span>
+            <span class="schedule-ops-pill">Returned ${returnedCount}</span>
+            <span class="schedule-ops-pill">Published ${publishedCount}</span>
+          </section>
 
           <section class="admin-student-toolbar">
             <div class="admin-student-toolbar-actions">
@@ -128,8 +142,15 @@ export function renderregistrar_staff_schedule_manage_page(): string {
                           <td>${request.reason}</td>
                           <td>${request.status}</td>
                           <td>
-                            <button class="btn btn-sm btn-success" data-mod-action="accept">Accept</button>
-                            <button class="btn btn-sm btn-outline-danger" data-mod-action="reject">Reject</button>
+                            ${renderSharedPopover({
+                              ariaLabel: 'Modification request actions',
+                              triggerLabel: '<i class="bi bi-three-dots-vertical" aria-hidden="true"></i>',
+                              actionDataAttribute: 'data-mod-action',
+                              actions: [
+                                { label: 'Accept', value: 'accept' },
+                                { label: 'Reject', value: 'reject', danger: true },
+                              ],
+                            })}
                           </td>
                         </tr>
                       `,
@@ -187,21 +208,36 @@ export function setupschedule_manage_page(root: HTMLElement): () => void {
     currentPage = 1
     renderVisibleRows()
   }
-
   const renderScheduleDetail = (scheduleId: string): string => {
     const schedule = schedulingService.listSchedules().find((item) => item.id === scheduleId)
     if (!schedule) return '<p class="mb-0">Schedule not found.</p>'
 
     const current = schedule.versions.find((version) => version.versionNumber === schedule.currentVersion) ?? schedule.versions[0]
     return `
-      <p><strong>Status:</strong> ${statusToLabel(schedule.status)}</p>
-      <p><strong>Registrar Notes:</strong> ${schedule.registrarNotes || '-'}</p>
-      <p><strong>Admin Feedback:</strong> ${schedule.adminFeedback || '-'}</p>
-      <p><strong>Items in v${schedule.currentVersion}:</strong> ${current.snapshot.length}</p>
-      <ul>${current.snapshot.slice(0, 5).map((item) => `<li>${item.subjectCode} ${item.section} ${item.day} ${item.startTime}-${item.endTime} (${item.room})</li>`).join('')}</ul>
+      <div class="admin-view-wrap admin-view-separated">
+        <h3><span class="admin-student-section-title">Schedule Information</span></h3>
+        <div class="admin-view-grid-separated">
+          <div class="admin-view-item"><p>Status</p><strong>${statusToLabel(schedule.status)}</strong></div>
+          <div class="admin-view-item"><p>Current Version</p><strong>v${schedule.currentVersion}</strong></div>
+          <div class="admin-view-item"><p>Total Classes</p><strong>${current.snapshot.length}</strong></div>
+          <div class="admin-view-item"><p>Department</p><strong>${schedule.department}</strong></div>
+          <div class="admin-view-item"><p>Registrar Notes</p><strong>${schedule.registrarNotes || '-'}</strong></div>
+          <div class="admin-view-item"><p>Admin Feedback</p><strong>${schedule.adminFeedback || '-'}</strong></div>
+        </div>
+
+        <h3 class="mt-3"><span class="admin-student-section-title">Current Schedule Items</span></h3>
+        <div class="admin-view-grid-separated">
+          ${current.snapshot
+            .slice(0, 6)
+            .map(
+              (item) =>
+                `<div class="admin-view-item"><p>${item.subjectCode} ${item.section}</p><strong>${item.day} ${item.startTime}-${item.endTime} (${item.room})</strong></div>`,
+            )
+            .join('')}
+        </div>
+      </div>
     `
   }
-
   const onActionClick = (event: Event): void => {
     const target = event.target as HTMLElement | null
     const modBtn = target?.closest<HTMLButtonElement>('[data-mod-action]')
@@ -240,13 +276,13 @@ export function setupschedule_manage_page(root: HTMLElement): () => void {
     }
 
     if (action === 'submit') {
-      schedulingService.submitForApproval(scheduleId, 'registrar-1', 'Resubmitted from manage page')
+      const sent = schedulingService.submitForApproval(scheduleId, 'registrar-1', 'Sent from manage page')
       modal.setMode('confirm')
       modal.setOnConfirm(() => window.location.reload())
       modal.open({
-        title: 'Submitted',
+        title: sent ? 'Sent to Admin' : 'Cannot Send',
         confirmLabel: 'Refresh',
-        bodyHtml: '<p class="mb-0">Schedule submitted to admin review queue.</p>',
+        bodyHtml: `<p class="mb-0">${sent ? 'Schedule submitted to admin review queue.' : 'Only conflict-detected or returned schedules can be sent to admin.'}</p>`,
       })
       return
     }
@@ -270,7 +306,14 @@ export function setupschedule_manage_page(root: HTMLElement): () => void {
       modal.open({
         title: `Version Diff ${scheduleId}`,
         bodyHtml: diff.length
-          ? `<ul>${diff.map((line) => `<li>${line}</li>`).join('')}</ul>`
+          ? `
+            <div class="admin-view-wrap admin-view-separated">
+              <h3><span class="admin-student-section-title">Version Changes</span></h3>
+              <div class="admin-view-grid-separated">
+                ${diff.map((line) => `<div class="admin-view-item"><p>Change</p><strong>${line}</strong></div>`).join('')}
+              </div>
+            </div>
+          `
           : '<p class="mb-0">No comparable changes yet (need at least v2).</p>',
         hideConfirm: true,
       })

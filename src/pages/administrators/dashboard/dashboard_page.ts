@@ -1,10 +1,11 @@
 import { ADMIN_SHELL_CONFIG, renderPortalShell } from '../../../components/layout/_layout'
 import { renderSharedModal } from '../../../components/ui/modal'
 import { renderSharedPopover } from '../../../components/ui/popover'
-import { schedulingService } from '../../../features/scheduling/service'
+import { schedulingService, statusToLabel } from '../../../features/scheduling/service'
 
 export function renderadministrators_dashboard_page(): string {
   const pending = schedulingService.listPendingApprovals()
+  const conflicts = schedulingService.listConflicts().filter((item) => !item.resolved).slice(0, 8)
 
   return renderPortalShell(
     ADMIN_SHELL_CONFIG,
@@ -12,8 +13,8 @@ export function renderadministrators_dashboard_page(): string {
     `
       <section class="admin-content">
         <article class="admin-panel">
-          <h3>Approval Dashboard</h3>
-          <p>Pending approvals: <strong>${pending.length}</strong></p>
+          <h3>Schedule Approval Desk</h3>
+          <p>Schedules waiting for decision: <strong>${pending.length}</strong> | Active conflicts: <strong>${conflicts.length}</strong></p>
           <div class="admin-table-wrap mt-3">
             <table class="admin-table">
               <thead>
@@ -34,7 +35,7 @@ export function renderadministrators_dashboard_page(): string {
                         <td>${schedule.id}</td>
                         <td>${schedule.department}</td>
                         <td>${schedule.term}</td>
-                        <td>${schedule.status}</td>
+                        <td>${statusToLabel(schedule.status)}</td>
                         <td>${schedule.registrarNotes || '-'}</td>
                         <td>
                           ${renderSharedPopover({
@@ -52,6 +53,25 @@ export function renderadministrators_dashboard_page(): string {
                     `,
                   )
                   .join('')}
+              </tbody>
+            </table>
+          </div>
+
+          <div class="admin-table-wrap mt-3">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Conflict</th>
+                  <th>Severity</th>
+                  <th>Details</th>
+                </tr>
+              </thead>
+              <tbody>
+                ${
+                  conflicts.length
+                    ? conflicts.map((item) => `<tr><td>${item.type}</td><td>${item.severity}</td><td>${item.details}</td></tr>`).join('')
+                    : '<tr><td colspan="3" class="text-center py-3">No active conflicts.</td></tr>'
+                }
               </tbody>
             </table>
           </div>

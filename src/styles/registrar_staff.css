@@ -274,6 +274,27 @@
   justify-content: flex-start;
 }
 
+.schedule-ops-strip {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.schedule-ops-pill {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #c7d8e8;
+  border-radius: 999px;
+  padding: 0.38rem 0.72rem;
+  background: linear-gradient(180deg, #f8fbff 0%, #edf4fb 100%);
+  color: var(--color-slate-700);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-align: center;
+}
+
 @media (max-width: 991px) {
   .registrar_staff-layout {
     grid-template-columns: 1fr;
@@ -323,6 +344,10 @@
   .registrar-kpi-grid,
   .registrar-dashboard-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .schedule-ops-strip {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 
@@ -602,6 +627,10 @@
   .registrar-kpi-grid,
   .registrar-dashboard-grid {
     grid-template-columns: 1fr;
+  }
+
+  .schedule-ops-strip {
+    grid-template-columns: 1fr 1fr;
   }
 
   .schedule-grid.two-col,
