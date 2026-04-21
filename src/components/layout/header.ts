@@ -116,8 +116,8 @@ export function buildMainHeaderActions(
       type: 'link',
       href: announcementsHref,
       icon: 'bi-megaphone',
+      label: 'ANNOUNCEMENT',
       ariaLabel: 'Announcement',
-      className: 'site-quick-item-icon-only',
     })
   }
 
