@@ -118,6 +118,16 @@ body {
   min-height: 100dvh;
 }
 
+img.logo-placeholder {
+  background-color: var(--color-surface-300);
+  border-radius: 8px;
+  transition: background-color 180ms ease;
+}
+
+img.logo-placeholder.is-loaded {
+  background-color: transparent;
+}
+
 h1,
 h2,
 h3,

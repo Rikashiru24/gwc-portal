@@ -105,6 +105,31 @@ const preloadImage = (src: string, timeoutMs = 1400): Promise<void> =>
 const globalLoader = mountGlobalLoader()
 
 renderRoute(app, window.location.pathname)
+
+const setupLogoPlaceholders = (): void => {
+  const logoImages = Array.from(document.querySelectorAll<HTMLImageElement>('img[src*="gwc_logo"]'))
+
+  logoImages.forEach((image) => {
+    image.classList.add('logo-placeholder')
+
+    const markLoaded = (): void => {
+      image.classList.add('is-loaded')
+      image.removeEventListener('load', markLoaded)
+      image.removeEventListener('error', markLoaded)
+    }
+
+    if (image.complete && image.naturalWidth > 0) {
+      markLoaded()
+      return
+    }
+
+    image.addEventListener('load', markLoaded, { once: true })
+    image.addEventListener('error', markLoaded, { once: true })
+  })
+}
+
+setupLogoPlaceholders()
+
 AOS.init({
   offset: 120,
   delay: 0,
