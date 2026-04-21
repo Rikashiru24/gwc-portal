@@ -314,8 +314,8 @@
 .field select:focus,
 .field textarea:focus {
   outline: none;
-  border-color: #0ea5e9;
-  box-shadow: 0 0 0 3px rgb(14 165 233 / 16%);
+  border-color: var(--dark-blue);
+  box-shadow: 0 0 0 3px rgb(19 42 99 / 16%);
 }
 
 .field.full {
@@ -428,9 +428,9 @@
 }
 
 .btn-primary {
-  background: #0ea5e9;
+  background: var(--dark-blue);
   color: #fff;
-  border-color: #0284c7;
+  border-color: var(--dark-blue);
 }
 
 @media (max-width: 960px) {
