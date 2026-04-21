@@ -173,6 +173,7 @@ export const REGISTRAR_STAFF_SHELL_CONFIG: ShellConfig<RegistrarStaffSection> = 
   ],
   icons: {
     Menu,
+    Search,
     LayoutDashboard,
     FolderOpen,
     FileText,

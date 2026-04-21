@@ -95,7 +95,7 @@ export function renderregistrar_staff_schedule_manage_page(): string {
               <span class="admin-search-icon" aria-hidden="true"><i data-lucide="search"></i></span>
               <input
                 type="search"
-                placeholder="Search by code, title, section, faculty, room"
+                placeholder="Search..."
                 aria-label="Search schedules"
                 data-schedule-search
               />
