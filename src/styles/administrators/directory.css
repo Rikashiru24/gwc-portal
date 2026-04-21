@@ -19,7 +19,7 @@
 
 .admin-directory-head h2 {
   margin: 0;
-  color: #0f2f64;
+  color: #111827;
   font-size: clamp(1.6rem, 2.2vw, 2.05rem);
 }
 
@@ -88,7 +88,7 @@
   display: block;
   font-size: 1.58rem;
   line-height: 1.15;
-  color: #0f2f64;
+  color: #111827;
 }
 
 .admin-stat-card strong.is-danger {
@@ -115,7 +115,7 @@
 
 .admin-directory-card-head h3 {
   margin: 0;
-  color: #0f2f64;
+  color: #111827;
   font-size: 1.35rem;
 }
 
