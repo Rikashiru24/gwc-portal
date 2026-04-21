@@ -21,13 +21,13 @@
 .search-query-form {
   display: grid;
   grid-template-columns: 1fr 84px;
-  border: 1px solid #ced8e4;
+  border: var(--border-width-1) solid #ced8e4;
   background: var(--color-surface-50);
 }
 
 .search-query-form input {
   width: 100%;
-  border: 1px solid #b8c5d8;
+  border: var(--border-width-1) solid #b8c5d8;
   background: transparent;
   color: var(--color-slate-900);
   font-size: clamp(1.05rem, 1.7vw, 1.45rem);
@@ -45,7 +45,7 @@
   font-weight: 600;
   font-size: 1rem;
   background: var(--dark-blue);
-  padding: 0;
+  padding: var(--space-0);
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -67,7 +67,7 @@
 }
 
 .search-result-box {
-  border: 1px solid #d5dde8;
+  border: var(--border-width-1) solid #d5dde8;
   background: var(--color-surface-50);
   padding: clamp(0.8rem, 1.6vw, 1.2rem);
 }
@@ -81,7 +81,7 @@
 }
 
 .search-state-message h2 {
-  margin: 0;
+  margin: var(--space-0);
   color: var(--color-slate-900);
   font-size: clamp(1.3rem, 2.2vw, 2.05rem);
   font-weight: 500;
@@ -114,7 +114,7 @@
 }
 
 .search-summary h2 {
-  margin: 0;
+  margin: var(--space-0);
   color: var(--color-slate-900);
   font-size: clamp(1.2rem, 1.8vw, 1.45rem);
 }
@@ -129,11 +129,11 @@
 
 .search-result-list {
   list-style: none;
-  padding: 0;
-  margin: 0;
+  padding: var(--space-0);
+  margin: var(--space-0);
   display: flex;
   flex-direction: column;
-  gap: 0;
+  gap: var(--space-0);
 }
 
 .search-result-item {
@@ -149,7 +149,7 @@
   width: 140px;
   height: 96px;
   object-fit: cover;
-  border: 2px solid #c7ced9;
+  border: var(--border-width-2) solid #c7ced9;
   box-shadow: inset 0 0 0 1px var(--color-surface-50);
 }
 
@@ -164,7 +164,7 @@
 }
 
 .search-result-body h3 {
-  margin: 0;
+  margin: var(--space-0);
   color: var(--dark-blue);
   font-size: clamp(1rem, 1.6vw, 1.25rem);
   line-height: 1.2;
@@ -184,7 +184,7 @@
 }
 
 .search-result-body p {
-  margin: 0;
+  margin: var(--space-0);
   color: var(--color-slate-700);
   line-height: 1.45;
   font-size: 0.94rem;
@@ -222,8 +222,8 @@
 
   .search-query-form button {
     min-height: 54px;
-    padding: 0;
-    gap: 0;
+    padding: var(--space-0);
+    gap: var(--space-0);
   }
 
   .search-button-label {
@@ -244,6 +244,8 @@
     font-size: 1.45rem;
   }
 }
+
+
 
 
 

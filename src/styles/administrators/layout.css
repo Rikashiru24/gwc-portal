@@ -37,7 +37,7 @@
 }
 
 .admin-eyebrow {
-  margin: 0;
+  margin: var(--space-0);
   font-size: 0.7rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -62,7 +62,7 @@
 .admin-menu ul {
   list-style: none;
   margin: 0.65rem 0 0;
-  padding: 0;
+  padding: var(--space-0);
 }
 
 .admin-menu {
@@ -84,7 +84,7 @@
 
 .admin-menu::-webkit-scrollbar-thumb {
   background: rgb(148 163 184 / 50%);
-  border-radius: 999px;
+  border-radius: var(--radius-pill);
 }
 
 .admin-menu::-webkit-scrollbar-button {
@@ -99,7 +99,7 @@
   color: var(--color-slate-200);
   text-decoration: none;
   padding: 0.5rem 0.5rem;
-  border-radius: 0.42rem;
+  border-radius: var(--radius-md);
   font-weight: 700;
   font-size: 0.82rem;
 }
@@ -133,7 +133,7 @@
   width: 2px;
   height: 65%;
   transform: translateY(-50%);
-  border-radius: 10px;
+  border-radius: var(--radius-xl);
   background: #dbeafe;
 }
 
@@ -143,14 +143,14 @@
 }
 
 .admin-panel {
-  border: 1px solid var(--color-surface-300);
-  border-radius: 0.75rem;
+  border: var(--border-width-1) solid var(--color-surface-300);
+  border-radius: var(--radius-lg);
   background: var(--color-white);
   padding: clamp(0.85rem, 2vw, 1.1rem);
 }
 
 .admin-panel h3 {
-  margin: 0;
+  margin: var(--space-0);
   color: var(--color-ink-900);
 }
 
@@ -172,7 +172,7 @@
 }
 
 .admin-sidebar-footer p {
-  margin: 0;
+  margin: var(--space-0);
   font-size: 0.7rem;
 }
 
@@ -202,7 +202,7 @@
     transform: translateX(-105%);
     transition: transform 0.22s ease;
     z-index: 30;
-    box-shadow: 0 12px 34px var(--overlay-ink-26);
+    box-shadow: var(--shadow-surface-raised);
     padding: 0.75rem 0.65rem 0.85rem;
   }
 
@@ -244,6 +244,8 @@
     padding: 0.6rem;
   }
 }
+
+
 
 
 

@@ -78,7 +78,7 @@
 }
 
 .ann-title-block h1 {
-  margin: 0;
+  margin: var(--space-0);
   color: #1e3a8a;
   font-family: var(--font-display);
   letter-spacing: 0.8px;
@@ -138,13 +138,15 @@
   }
 
   .ann-highlight p {
-    padding: 1rem;
+    padding: var(--space-xl);
   }
 
   .ann-list-wrap {
     padding-top: 1rem;
   }
 }
+
+
 
 
 

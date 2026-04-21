@@ -37,7 +37,7 @@
 }
 
 .registrar_staff-eyebrow {
-  margin: 0;
+  margin: var(--space-0);
   font-size: 0.7rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -62,7 +62,7 @@
 .registrar_staff-menu ul {
   list-style: none;
   margin: 0.65rem 0 0;
-  padding: 0;
+  padding: var(--space-0);
 }
 
 .registrar_staff-menu {
@@ -82,7 +82,7 @@
   color: var(--color-slate-200);
   text-decoration: none;
   padding: 0.5rem 0.5rem;
-  border-radius: 0.42rem;
+  border-radius: var(--radius-md);
   font-weight: 700;
   font-size: 0.82rem;
 }
@@ -116,7 +116,7 @@
   width: 2px;
   height: 65%;
   transform: translateY(-50%);
-  border-radius: 10px;
+  border-radius: var(--radius-xl);
   background: var(--gold);
 }
 
@@ -126,14 +126,14 @@
 }
 
 .registrar_staff-panel {
-  border: 1px solid var(--color-surface-300);
-  border-radius: 0.75rem;
+  border: var(--border-width-1) solid var(--color-surface-300);
+  border-radius: var(--radius-lg);
   background: var(--color-white);
   padding: clamp(0.85rem, 2vw, 1.1rem);
 }
 
 .registrar_staff-panel h3 {
-  margin: 0;
+  margin: var(--space-0);
   color: var(--color-ink-900);
 }
 
@@ -155,7 +155,7 @@
 }
 
 .registrar_staff-sidebar-footer p {
-  margin: 0;
+  margin: var(--space-0);
   font-size: 0.7rem;
 }
 
@@ -185,7 +185,7 @@
     transform: translateX(-105%);
     transition: transform 0.22s ease;
     z-index: 30;
-    box-shadow: 0 12px 34px var(--overlay-ink-26);
+    box-shadow: var(--shadow-surface-raised);
     padding: 0.75rem 0.65rem 0.85rem;
   }
 
@@ -220,7 +220,7 @@
 
 .class-scheduling-content {
   display: grid;
-  gap: 0;
+  gap: var(--space-0);
 }
 
 .class-scheduling-content .admin-breadcrumb-shell {
@@ -228,11 +228,11 @@
 }
 
 .class-scheduling-header {
-  box-shadow: none;
+  box-shadow: var(--shadow-none);
 }
 
 .class-scheduling-header h3 {
-  margin: 0;
+  margin: var(--space-0);
   color: inherit;
 }
 
@@ -243,7 +243,7 @@
 
 .class-scheduling-form {
   display: grid;
-  gap: 0;
+  gap: var(--space-0);
 }
 
 .class-scheduling-toolbar {
@@ -261,7 +261,7 @@
 }
 
 .schedule-card {
-  border: 1px solid #d6e4ef;
+  border: var(--border-width-1) solid #d6e4ef;
   border-radius: 0.95rem;
   background: var(--color-white);
   padding: clamp(0.9rem, 2.2vw, 1.2rem);
@@ -269,14 +269,14 @@
 }
 
 .schedule-card h3 {
-  margin: 0;
+  margin: var(--space-0);
   font-size: 0.96rem;
   color: var(--color-ink-900);
 }
 
 .schedule-grid {
   display: grid;
-  gap: 0.75rem;
+  gap: var(--space-md);
   margin-top: 0.8rem;
 }
 
@@ -303,7 +303,7 @@
 .field select,
 .field textarea {
   width: 100%;
-  border: 1px solid #c9d9e6;
+  border: var(--border-width-1) solid #c9d9e6;
   background: #fdfefe;
   color: var(--color-ink-900);
   border-radius: 0.62rem;
@@ -328,11 +328,11 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 0.75rem;
+  gap: var(--space-md);
 }
 
 .ghost-btn {
-  border: 1px solid #b7d7e8;
+  border: var(--border-width-1) solid #b7d7e8;
   background: #effbff;
   color: #1f2937;
   border-radius: 0.65rem;
@@ -350,7 +350,7 @@
 }
 
 .time-slot h4 {
-  margin: 0;
+  margin: var(--space-0);
   font-size: 0.82rem;
   color: var(--color-ink-900);
 }
@@ -364,7 +364,7 @@
 }
 
 .time-slot-remove {
-  border: 1px solid #fecaca;
+  border: var(--border-width-1) solid #fecaca;
   background: #fef2f2;
   color: #991b1b;
   border-radius: 0.55rem;
@@ -379,14 +379,14 @@
 }
 
 .schedule-summary {
-  border: 1px solid #bde7dc;
+  border: var(--border-width-1) solid #bde7dc;
   border-radius: 0.95rem;
   background: linear-gradient(180deg, #f4fffb 0%, #ecfdf5 100%);
   padding: 0.9rem 1rem;
 }
 
 .schedule-summary h3 {
-  margin: 0;
+  margin: var(--space-0);
   font-size: 0.92rem;
   color: #064e3b;
 }
@@ -410,7 +410,7 @@
 }
 
 .schedule-actions button {
-  border: 1px solid transparent;
+  border: var(--border-width-1) solid transparent;
   border-radius: 0.65rem;
   padding: 0.54rem 0.84rem;
   font-size: 0.78rem;
@@ -437,19 +437,19 @@
 
 .schedule-view-wrap {
   display: grid;
-  gap: 0;
+  gap: var(--space-0);
 }
 
 .schedule-view-row {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1rem;
+  gap: var(--space-xl);
   padding: 0.85rem 0;
   border-top: 1px solid var(--color-surface-200);
 }
 
 .schedule-view-item p {
-  margin: 0;
+  margin: var(--space-0);
   color: var(--color-slate-700);
   font-size: 0.84rem;
   font-weight: 700;
@@ -517,6 +517,8 @@
     padding-top: 0.6rem;
   }
 }
+
+
 
 
 

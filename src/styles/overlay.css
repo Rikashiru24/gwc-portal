@@ -26,7 +26,7 @@
   z-index: 1;
   min-height: 100dvh;
   width: 100%;
-  margin: 0;
+  margin: var(--space-0);
   background: linear-gradient(180deg, #171c2b 0%, #141928 100%);
   color: #e7edf9;
   box-shadow: 0 30px 80px rgba(0, 0, 0, 0.35);
@@ -105,7 +105,7 @@
   border: 0;
   background: transparent;
   color: #f4f6fa;
-  border-radius: 999px;
+  border-radius: var(--radius-pill);
   font-size: 1.5rem;
   line-height: 1;
   font-weight: 700;
@@ -136,14 +136,14 @@
   flex-direction: column;
   align-items: center;
   gap: 2rem;
-  margin: 0;
+  margin: var(--space-0);
 }
 
 .site-search-form input {
   width: 100%;
   min-height: 84px;
   border: 0;
-  border-radius: 0;
+  border-radius: var(--radius-none);
   background: transparent;
   color: #d5d8df;
   text-align: center;
@@ -151,7 +151,7 @@
   font-weight: 400;
   padding: 0 0.5rem;
   outline: none;
-  box-shadow: none;
+  box-shadow: var(--shadow-none);
   appearance: none;
 }
 
@@ -163,7 +163,7 @@
   min-height: 56px;
   min-width: 220px;
   border: 0;
-  border-radius: 0;
+  border-radius: var(--radius-none);
   background: #2a3553;
   color: var(--color-white);
   font-size: 2rem;
@@ -202,8 +202,8 @@
 
 .site-overlay-panel-menu .site-overlay-menu-layout::-webkit-scrollbar-thumb {
   background: rgba(214, 178, 71, 0.85);
-  border-radius: 999px;
-  border: 2px solid var(--overlay-white-12);
+  border-radius: var(--radius-pill);
+  border: var(--border-width-2) solid var(--overlay-white-12);
 }
 
 .site-overlay-menu-col {
@@ -233,7 +233,7 @@
   width: fit-content;
   border: 0;
   background: transparent;
-  padding: 0;
+  padding: var(--space-0);
   text-align: left;
   color: #f2f4fa;
   font-size: 1.6rem;
@@ -309,8 +309,8 @@
 
 .site-overlay-submenu-list {
   list-style: none;
-  padding: 0;
-  margin: 0;
+  padding: var(--space-0);
+  margin: var(--space-0);
   display: grid;
   gap: 0.55rem;
 }
@@ -398,7 +398,7 @@
   }
 
   .site-overlay-mobile-submenu .site-overlay-submenu-list {
-    gap: 0.35rem;
+    gap: var(--space-2xs);
   }
 
   .site-overlay-mobile-submenu .site-overlay-submenu-list a {
@@ -462,6 +462,8 @@
     height: 40px;
   }
 }
+
+
 
 
 

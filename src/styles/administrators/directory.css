@@ -1,24 +1,24 @@
 .admin-directory-shell {
-  border: 1px solid var(--color-surface-500);
-  border-radius: 0;
+  border: var(--border-width-1) solid var(--color-surface-500);
+  border-radius: var(--radius-none);
   background: var(--color-white);
   overflow: hidden;
   max-width: 100%;
-  box-shadow: none;
+  box-shadow: var(--shadow-none);
 }
 
 .admin-directory-head {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  gap: 1rem;
+  gap: var(--space-xl);
   padding: 1rem 1rem;
   border-bottom: 1px solid var(--color-surface-400);
   background: var(--color-white);
 }
 
 .admin-directory-head h2 {
-  margin: 0;
+  margin: var(--space-0);
   color: var(--color-ink-900);
   font-size: clamp(1.6rem, 2.2vw, 2.05rem);
 }
@@ -55,8 +55,8 @@
 .admin-directory-search input {
   display: block;
   width: 100%;
-  border: 1px solid #b9c9de;
-  border-radius: 0;
+  border: var(--border-width-1) solid #b9c9de;
+  border-radius: var(--radius-none);
   background: var(--color-white);
   padding: 0.48rem 0.62rem 0.48rem 1.8rem;
   font-size: 0.88rem;
@@ -71,20 +71,20 @@
 .admin-stats-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 0.5rem;
+  gap: var(--space-xs);
   padding: 0.85rem 1rem;
 }
 
 .admin-stat-card {
   background: var(--color-white);
-  border: 1px solid var(--color-surface-400);
-  border-radius: 0;
+  border: var(--border-width-1) solid var(--color-surface-400);
+  border-radius: var(--radius-none);
   padding: 0.72rem;
-  box-shadow: none;
+  box-shadow: var(--shadow-none);
 }
 
 .admin-stat-card p {
-  margin: 0;
+  margin: var(--space-0);
   color: var(--color-slate-600);
   font-weight: 700;
   font-size: 0.8rem;
@@ -103,8 +103,8 @@
 
 .admin-directory-card {
   margin: 0 1rem 1rem;
-  border: 1px solid var(--color-surface-400);
-  border-radius: 0;
+  border: var(--border-width-1) solid var(--color-surface-400);
+  border-radius: var(--radius-none);
   background: var(--color-white);
   overflow: hidden;
 }
@@ -113,14 +113,14 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 1rem;
+  gap: var(--space-xl);
   padding: 0.78rem 0.9rem;
   border-bottom: 1px solid var(--color-surface-400);
   background: var(--color-white);
 }
 
 .admin-directory-card-head h3 {
-  margin: 0;
+  margin: var(--space-0);
   color: var(--color-ink-900);
   font-size: 1.35rem;
 }
@@ -165,7 +165,7 @@
 .admin-pill {
   display: inline-block;
   padding: 0.2rem 0.48rem;
-  border-radius: 0;
+  border-radius: var(--radius-none);
   font-size: 0.74rem;
   font-weight: 700;
 }
@@ -191,10 +191,10 @@
 }
 
 .admin-actions-trigger {
-  border: 1px solid #b8c8de;
+  border: var(--border-width-1) solid #b8c8de;
   background: #f4f8fd;
   color: #1f2937;
-  border-radius: 0;
+  border-radius: var(--radius-none);
   font-size: 0.74rem;
   font-weight: 700;
   padding: 0.24rem 0.54rem;
@@ -207,8 +207,8 @@
   display: none;
   min-width: 130px;
   padding: 0.28rem;
-  border: 1px solid #d4dce8;
-  border-radius: 0;
+  border: var(--border-width-1) solid #d4dce8;
+  border-radius: var(--radius-none);
   background: var(--color-white);
   box-shadow: 0 10px 24px rgb(15 23 42 / 16%);
   z-index: 5;
@@ -228,7 +228,7 @@
   border: 0;
   background: transparent;
   color: var(--color-slate-700);
-  border-radius: 0;
+  border-radius: var(--radius-none);
   font-size: 0.74rem;
   font-weight: 700;
   padding: 0.32rem 0.4rem;
@@ -252,14 +252,14 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 0.75rem;
+  gap: var(--space-md);
   padding: 0.66rem 0.9rem;
   border-top: 1px solid var(--color-surface-400);
   background: var(--color-white);
 }
 
 .admin-pagination-summary {
-  margin: 0;
+  margin: var(--space-0);
   color: var(--color-slate-600);
   font-size: 0.8rem;
   font-weight: 600;
@@ -267,19 +267,19 @@
 
 .admin-view-wrap {
   display: grid;
-  gap: 0;
+  gap: var(--space-0);
 }
 
 .admin-view-row {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1rem;
+  gap: var(--space-xl);
   padding: 0.85rem 0;
   border-top: 1px solid var(--color-surface-200);
 }
 
 .admin-view-item p {
-  margin: 0;
+  margin: var(--space-0);
   color: var(--color-slate-700);
   font-size: 0.84rem;
   font-weight: 700;
@@ -410,6 +410,8 @@
     padding-top: 0.6rem;
   }
 }
+
+
 
 
 

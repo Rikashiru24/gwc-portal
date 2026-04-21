@@ -43,7 +43,7 @@
 }
 
 .portal-school-name {
-  margin: 0;
+  margin: var(--space-0);
   font-family: var(--font-display);
   font-size: clamp(1.55rem, 2.5vw, 3rem);
   letter-spacing: 0.6px;
@@ -75,21 +75,21 @@
 }
 
 .login-card {
-  border-radius: 0;
+  border-radius: var(--radius-none);
   background: transparent;
   border: 0;
-  box-shadow: none;
+  box-shadow: var(--shadow-none);
 }
 
 .login-input {
   color: #1c2333;
   font-size: 0.95rem;
-  border-radius: 0;
+  border-radius: var(--radius-none);
 }
 
 .login-input:focus {
   border-color: #7f9ad6;
-  box-shadow: none;
+  box-shadow: var(--shadow-none);
 }
 
 .form-floating > .login-input.form-control ~ label {
@@ -99,7 +99,7 @@
 .login-heading {
   color: #1f334d;
   font-size: clamp(1.55rem, 2.2vw, 2.05rem);
-  margin: 0;
+  margin: var(--space-0);
   border-bottom: 2px solid #2a3c5c;
   padding-bottom: 6px;
 }
@@ -122,7 +122,7 @@
   border-color: var(--login-btn-bg-end);
   color: var(--color-white) !important;
   -webkit-text-fill-color: var(--color-white);
-  border-radius: 0;
+  border-radius: var(--radius-none);
   font-weight: 700;
   letter-spacing: 0.2px;
 }
@@ -179,6 +179,8 @@
     justify-content: center;
   }
 }
+
+
 
 
 

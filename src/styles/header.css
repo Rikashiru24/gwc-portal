@@ -12,7 +12,7 @@
   align-items: stretch;
   justify-content: space-between;
   background: transparent;
-  box-shadow: none;
+  box-shadow: var(--shadow-none);
 }
 
 .site-brand {
@@ -71,9 +71,9 @@
   display: flex;
   align-items: center;
   justify-content: stretch;
-  gap: 0;
+  gap: var(--space-0);
   background: var(--dark-blue);
-  padding: 0;
+  padding: var(--space-0);
 }
 
 .site-quick-item {
@@ -87,7 +87,7 @@
   height: 100%;
   min-width: auto;
   padding: 0 14px;
-  gap: 0.5rem;
+  gap: var(--space-xs);
   font-weight: 700;
   letter-spacing: 0.4px;
   font-size: clamp(1rem, 1.05vw, 1.2rem);
@@ -152,7 +152,7 @@
     min-height: var(--site-topbar-height);
     height: var(--site-topbar-height);
     justify-content: stretch;
-    padding: 0;
+    padding: var(--space-0);
   }
 
   .site-quick-menu .site-quick-item {
@@ -174,7 +174,7 @@
   .site-quick-menu .site-quick-item {
     font-size: 1rem;
     padding: 0 14px;
-    gap: 0.35rem;
+    gap: var(--space-2xs);
   }
 }
 
@@ -215,7 +215,7 @@
   .site-quick-menu .site-quick-item {
     padding: 0 8px;
     min-width: 44px;
-    gap: 0;
+    gap: var(--space-0);
   }
 
   .site-quick-menu .site-quick-item-icon-only {
@@ -223,6 +223,8 @@
     padding: 0 8px;
   }
 }
+
+
 
 
 

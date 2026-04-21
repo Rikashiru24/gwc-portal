@@ -49,6 +49,27 @@
   --layout-content-padding-mobile: 1rem;
   --layout-section-padding: 3rem 0;
   --layout-section-padding-mobile: 2rem var(--layout-content-padding-mobile);
+
+  --space-0: 0;
+  --space-2xs: 0.35rem;
+  --space-xs: 0.5rem;
+  --space-sm: 0.65rem;
+  --space-md: 0.75rem;
+  --space-lg: 0.85rem;
+  --space-xl: 1rem;
+
+  --radius-none: 0;
+  --radius-sm: 0.35rem;
+  --radius-md: 0.42rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 10px;
+  --radius-pill: 999px;
+
+  --border-width-1: 1px;
+  --border-width-2: 2px;
+
+  --shadow-none: none;
+  --shadow-surface-raised: 0 12px 34px var(--overlay-ink-26);
 }
 
 @font-face {
