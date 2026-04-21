@@ -38,11 +38,11 @@ export function renderregistrar_staff_schedule_page(): string {
                 </select>
               </label>
               <label class="field">
-                <span>Course Code</span>
+                <span>Subject Code</span>
                 <input type="text" placeholder="e.g. CS 301" />
               </label>
               <label class="field">
-                <span>Course Title</span>
+                <span>Descriptive Title</span>
                 <input type="text" placeholder="e.g. Software Engineering" />
               </label>
               <label class="field">
@@ -106,6 +106,7 @@ export function renderregistrar_staff_schedule_page(): string {
                       <option>Wednesday</option>
                       <option>Thursday</option>
                       <option>Friday</option>
+                      <option>Saturday</option>
                     </select>
                   </label>
                   <label class="field">
