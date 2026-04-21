@@ -29,10 +29,6 @@ export function renderposts_create_page(): string {
                 <input type="text" name="title" required maxlength="150" placeholder="Enter post title..." />
               </label>
               <label>
-                Date
-                <input type="text" name="date" placeholder="April 21, 2026" required />
-              </label>
-              <label>
                 Excerpt
                 <textarea name="excerpt" rows="3" required placeholder="Write a short excerpt..."></textarea>
               </label>
@@ -304,7 +300,7 @@ export function setupposts_create_page(root: HTMLElement): () => void {
     const formData = new FormData(form)
     const payload = {
       title: String(formData.get('title') ?? '').trim(),
-      date: String(formData.get('date') ?? '').trim(),
+      date: getTodayDateLabel(),
       category: String(formData.get('category') ?? '').trim(),
       excerpt: String(formData.get('excerpt') ?? '').trim(),
       content: String(formData.get('content') ?? '').trim(),
@@ -377,3 +373,9 @@ export function setupposts_create_page(root: HTMLElement): () => void {
     form?.removeEventListener('submit', onSubmit)
   }
 }
+  const getTodayDateLabel = (): string =>
+    new Intl.DateTimeFormat('en-US', {
+      month: 'long',
+      day: 'numeric',
+      year: 'numeric',
+    }).format(new Date())
