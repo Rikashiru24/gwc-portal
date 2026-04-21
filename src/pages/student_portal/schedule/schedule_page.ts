@@ -1,0 +1,55 @@
+import { ROUTES } from '../../../app/routes'
+import { STUDENT_SHELL_CONFIG, renderPortalShell } from '../../../components/layout/_layout'
+import { renderBreadcrumbNav } from '../../../components/ui/nav_breadcrumb'
+import { schedulingService } from '../../../features/scheduling/service'
+
+export function renderstudent_schedule_page(): string {
+  const rows = schedulingService.listStudentSchedules()
+
+  return renderPortalShell(
+    STUDENT_SHELL_CONFIG,
+    'schedule',
+    `
+      <section class="student-content">
+        ${renderBreadcrumbNav([
+          { label: 'Home', href: ROUTES.STUDENT_DASHBOARD },
+          { label: 'Schedule', active: true },
+        ])}
+        <article class="student-panel">
+          <h3>Class Schedule Viewer</h3>
+          <p>Read-only approved and finalized schedules.</p>
+          <div class="admin-table-wrap mt-3">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Subject</th>
+                  <th>Section</th>
+                  <th>Instructor</th>
+                  <th>Day</th>
+                  <th>Time</th>
+                  <th>Room</th>
+                </tr>
+              </thead>
+              <tbody data-student-schedule-body>
+                ${rows
+                  .map(
+                    (item) => `
+                      <tr>
+                        <td>${item.subjectCode} - ${item.title}</td>
+                        <td>${item.section}</td>
+                        <td>${item.faculty}</td>
+                        <td>${item.day}</td>
+                        <td>${item.startTime}-${item.endTime}</td>
+                        <td>${item.room}</td>
+                      </tr>
+                    `,
+                  )
+                  .join('')}
+              </tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+    `,
+  )
+}

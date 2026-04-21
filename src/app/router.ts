@@ -24,19 +24,23 @@ import {
   rendertestimonials_create_page,
   setuptestimonials_create_page,
   setupadministrators_page,
+  setupadministrators_dashboard_page,
+  setupdepartments_page,
 } from '../pages/administrators/administrators_page'
 import { setupSiteInteractions } from '../components/layout/interactions'
 import { renderhome_page } from '../pages/home/home_page'
 import { renderadministrators_login_page } from '../pages/login/administrators_login_page'
 import { renderchange_password_page } from '../pages/login/change_password_page'
 import { renderfaculty_login_page } from '../pages/login/faculty_login_page'
+import { renderdepartment_login_page } from '../pages/login/department_login_page'
 import {
   renderfaculty_classes_page,
   renderfaculty_dashboard_page,
   renderfaculty_gradebook_page,
   renderfaculty_settings_page,
   setupfaculty_page,
-} from '../pages/faculty/faculty_page'
+  setupfaculty_classes_page,
+} from '../pages/faculty_portal/faculty_page'
 import { renderregistrar_staff_login_page } from '../pages/login/registrar_staff_login_page'
 import { renderstudent_login_page } from '../pages/login/student_login_page'
 import {
@@ -46,7 +50,14 @@ import {
   renderstudent_settings_page,
   renderstudent_subjects_page,
   setupstudent_page,
-} from '../pages/student/student_page'
+  setupstudent_schedule_page,
+} from '../pages/student_portal/student_page'
+import {
+  renderdepartment_dashboard_page,
+  renderdepartment_schedule_page,
+  setupdepartment_page,
+  setupdepartment_schedule_page,
+} from '../pages/department_portal/department_page'
 import { rendernot_found_page } from '../pages/not-found/not_found_page'
 import {
   renderregistrar_staff_dashboard_page,
@@ -61,7 +72,7 @@ import {
   setupregistrar_staff_schedule_page,
   setupregistrar_staff_schedule_manage_page,
   setupregistrar_staff_schedule_create_page,
-} from '../pages/registrar_staff/registrar_staff_page'
+} from '../pages/registrar_staff_portal/registrar_staff_page'
 import { rendersearch_page } from '../pages/search/search_page'
 import { renderpost_page } from '../pages/post/post_page'
 import { getPostBySlug, getPostCategoryFromSlug } from '../data/posts'
@@ -106,13 +117,25 @@ export function renderRoute(app: HTMLDivElement, pathname: string): void {
 
   if (pathname === ROUTES.STUDENT_SCHEDULE) {
     app.innerHTML = renderstudent_schedule_page()
-    cleanupCurrentRoute = setupstudent_page(app)
+    cleanupCurrentRoute = setupstudent_schedule_page(app)
     return
   }
 
   if (pathname === ROUTES.STUDENT_SETTINGS) {
     app.innerHTML = renderstudent_settings_page()
     cleanupCurrentRoute = setupstudent_page(app)
+    return
+  }
+
+  if (pathname === ROUTES.DEPARTMENT_PORTAL || pathname === ROUTES.DEPARTMENT_DASHBOARD) {
+    app.innerHTML = renderdepartment_dashboard_page()
+    cleanupCurrentRoute = setupdepartment_page(app)
+    return
+  }
+
+  if (pathname === ROUTES.DEPARTMENT_SCHEDULE) {
+    app.innerHTML = renderdepartment_schedule_page()
+    cleanupCurrentRoute = setupdepartment_schedule_page(app)
     return
   }
 
@@ -131,6 +154,11 @@ export function renderRoute(app: HTMLDivElement, pathname: string): void {
     return
   }
 
+  if (pathname === ROUTES.DEPARTMENT_LOGIN) {
+    app.innerHTML = renderdepartment_login_page()
+    return
+  }
+
   if (pathname === ROUTES.CHANGE_PASSWORD) {
     app.innerHTML = renderchange_password_page()
     cleanupCurrentRoute = setupChangePasswordPage(app)
@@ -145,7 +173,7 @@ export function renderRoute(app: HTMLDivElement, pathname: string): void {
 
   if (pathname === ROUTES.FACULTY_CLASSES) {
     app.innerHTML = renderfaculty_classes_page()
-    cleanupCurrentRoute = setupfaculty_page(app)
+    cleanupCurrentRoute = setupfaculty_classes_page(app)
     return
   }
 
@@ -246,7 +274,7 @@ export function renderRoute(app: HTMLDivElement, pathname: string): void {
 
   if (pathname === ROUTES.ADMINISTRATORS) {
     app.innerHTML = renderadministrators_dashboard_page()
-    cleanupCurrentRoute = setupadministrators_page(app)
+    cleanupCurrentRoute = setupadministrators_dashboard_page(app)
     return
   }
 
@@ -318,7 +346,7 @@ export function renderRoute(app: HTMLDivElement, pathname: string): void {
 
   if (pathname === ROUTES.ADMINISTRATORS_DEPARTMENTS) {
     app.innerHTML = renderdepartments_page()
-    cleanupCurrentRoute = setupadministrators_page(app)
+    cleanupCurrentRoute = setupdepartments_page(app)
     return
   }
 
@@ -342,6 +370,8 @@ export function renderRoute(app: HTMLDivElement, pathname: string): void {
 
   app.innerHTML = rendernot_found_page()
 }
+
+
 
 
 

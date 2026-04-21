@@ -27,6 +27,7 @@ export type RegistrarStaffSection =
 
 export type FacultySection = 'dashboard' | 'classes' | 'gradebook' | 'settings'
 export type StudentSection = 'dashboard' | 'subjects' | 'grades' | 'schedule' | 'settings'
+export type DepartmentSection = 'dashboard' | 'schedule'
 
 type ShellMenuItem<TSection extends string> = {
   label: string
@@ -222,7 +223,7 @@ function renderSidebar<TSection extends string>(config: ShellConfig<TSection>, s
           <p class="${config.sidebarEyebrowClass}">${config.sidebarEyebrow}</p>
           <h1><a href="${ROUTES.HOME}" class="${config.sidebarTitleClass}">${config.sidebarTitle}</a></h1>
         </header>
-        <nav class="${config.sidebarMenuClass}" aria-label="${config.sidebarMenuAriaLabel}">
+        <nav class="${config.sidebarMenuClass} portal-sidebar-menu" aria-label="${config.sidebarMenuAriaLabel}">
           <ul>
             ${config.menuItems
               .map((item) => {
@@ -326,11 +327,27 @@ export function setupPortalShell<TSection extends string>(root: HTMLElement, con
     })
   }
 
+  const scrollActiveMenuItemIntoView = (): void => {
+    const menu = root.querySelector<HTMLElement>(`.${config.sidebarMenuClass}`)
+    const activeLink = menu?.querySelector<HTMLElement>('a.is-active')
+    if (!menu || !activeLink) return
+
+    const menuRect = menu.getBoundingClientRect()
+    const activeRect = activeLink.getBoundingClientRect()
+    const isAbove = activeRect.top < menuRect.top
+    const isBelow = activeRect.bottom > menuRect.bottom
+
+    if (isAbove || isBelow) {
+      activeLink.scrollIntoView({ block: 'nearest', inline: 'nearest' })
+    }
+  }
+
   const onHeaderResize = (): void => {
     if (brandResizeFrame) return
     brandResizeFrame = window.requestAnimationFrame(() => {
       brandResizeFrame = 0
       updateBrandVariants()
+      scrollActiveMenuItemIntoView()
     })
   }
 
@@ -377,6 +394,7 @@ export function setupPortalShell<TSection extends string>(root: HTMLElement, con
   window.addEventListener('resize', onHeaderResize, { passive: true })
   document.addEventListener('keydown', onEscape)
   updateBrandVariants()
+  scrollActiveMenuItemIntoView()
 
   return () => {
     closeSidebar()
@@ -391,6 +409,35 @@ export function setupPortalShell<TSection extends string>(root: HTMLElement, con
       brandResizeFrame = 0
     }
   }
+}
+
+export const DEPARTMENT_SHELL_CONFIG: ShellConfig<DepartmentSection> = {
+  pageClass: 'department-shell-page',
+  layoutClass: 'department-layout',
+  sidebarClass: 'department-sidebar',
+  sidebarAriaLabel: 'Department menu',
+  sidebarMainClass: 'department-sidebar-main',
+  sidebarHeadClass: 'department-sidebar-head',
+  sidebarEyebrowClass: 'department-eyebrow',
+  sidebarEyebrow: 'Department Portal',
+  sidebarTitle: 'Department',
+  sidebarTitleClass: 'department-header-link',
+  sidebarMenuClass: 'department-menu',
+  sidebarMenuAriaLabel: 'Department navigation',
+  sidebarFooterClass: 'department-sidebar-footer',
+  sidebarFooterValue: 'DEPARTMENT',
+  backdropClass: 'department-sidebar-backdrop',
+  sidebarOpenClass: 'department-sidebar-open',
+  mobileBodyLockWidth: 991,
+  menuToggleSelector: '[data-department-sidebar-open]',
+  menuToggleClassName: 'department-header-menu-toggle',
+  menuToggleAriaLabel: 'Open sidebar menu',
+  headerBrandHref: ROUTES.HOME,
+  headerLogoAlt: 'Golden West Colleges logo',
+  menuItems: [
+    { label: 'Dashboard', icon: 'bi-speedometer2', href: ROUTES.DEPARTMENT_DASHBOARD, section: 'dashboard' },
+    { label: 'Schedule Review', icon: 'bi-calendar3', href: ROUTES.DEPARTMENT_SCHEDULE, section: 'schedule' },
+  ],
 }
 
 

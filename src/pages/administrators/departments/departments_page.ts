@@ -1,22 +1,64 @@
 import { ROUTES } from '../../../app/routes'
-import { ADMIN_SHELL_CONFIG } from '../../../components/layout/_layout'
+import { ADMIN_SHELL_CONFIG, renderPortalShell } from '../../../components/layout/_layout'
+import { renderSharedModal } from '../../../components/ui/modal'
 import { renderBreadcrumbNav } from '../../../components/ui/nav_breadcrumb'
-import { renderSectionPlaceholderPage } from '../../../components/ui/section_placeholder'
+import { schedulingService } from '../../../features/scheduling/service'
 
 export function renderdepartments_page(): string {
-  return renderSectionPlaceholderPage(
+  const approved = schedulingService.listApprovedByDepartment('College of Computer Studies')
+
+  return renderPortalShell(
     ADMIN_SHELL_CONFIG,
-    { contentClass: 'admin-content', panelClass: 'admin-panel' },
     'departments',
-    'Departments',
-    'Manage department structure and assigned administrators.',
-    {
-      breadcrumbHtml: renderBreadcrumbNav([
-        { label: 'Home', href: ROUTES.ADMINISTRATORS },
-        { label: 'Departments', active: true },
-      ]),
-    },
+    `
+      <section class="admin-content">
+        ${renderBreadcrumbNav([
+          { label: 'Home', href: ROUTES.ADMINISTRATORS },
+          { label: 'Departments', active: true },
+        ])}
+        <article class="admin-panel">
+          <h3>Department Schedule Review</h3>
+          <p>Approved schedules for College of Computer Studies: <strong>${approved.length}</strong></p>
+
+          <div class="admin-table-wrap mt-3">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Schedule ID</th>
+                  <th>Term</th>
+                  <th>Status</th>
+                  <th>Request Modification</th>
+                </tr>
+              </thead>
+              <tbody>
+                ${approved
+                  .map(
+                    (schedule) => `
+                      <tr data-dept-schedule-row data-schedule-id="${schedule.id}">
+                        <td>${schedule.id}</td>
+                        <td>${schedule.term}</td>
+                        <td>${schedule.status}</td>
+                        <td>
+                          <button class="btn btn-sm btn-outline-primary" data-dept-action="request">Request Change</button>
+                        </td>
+                      </tr>
+                    `,
+                  )
+                  .join('')}
+              </tbody>
+            </table>
+          </div>
+
+          <h4 class="mt-4">Modification Requests</h4>
+          <ul data-dept-request-list>
+            ${schedulingService
+              .listModificationRequests({ requesterRole: 'DEPARTMENT' })
+              .map((request) => `<li>${request.scheduleId}: ${request.status} - ${request.reason}</li>`)
+              .join('')}
+          </ul>
+        </article>
+      </section>
+      ${renderSharedModal('department-request-modal')}
+    `,
   )
 }
-
-

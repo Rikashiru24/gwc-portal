@@ -69,9 +69,13 @@
   flex: 1;
   min-height: 0;
   overflow-y: auto;
-  scrollbar-width: thin;
-  scrollbar-color: var(--overlay-slate-55) transparent;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
   scrollbar-gutter: stable;
+}
+
+.faculty-menu::-webkit-scrollbar {
+  display: none;
 }
 
 .faculty-menu a {
@@ -81,7 +85,6 @@
   position: relative;
   color: var(--color-slate-200);
   text-decoration: none;
-  padding: 0.5rem 0.5rem;
   border-radius: var(--radius-md);
   font-weight: 700;
   font-size: 0.82rem;
@@ -140,6 +143,96 @@
 .faculty-panel p {
   margin: 0.7rem 0 0;
   color: var(--color-text-secondary);
+}
+
+.faculty-dashboard {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.faculty-dashboard-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem;
+  border-bottom: 1px solid var(--color-surface-300);
+  padding-bottom: 0.7rem;
+}
+
+.faculty-dashboard-head p {
+  margin-top: 0.25rem;
+}
+
+.faculty-dashboard-actions {
+  display: flex;
+  gap: 0.45rem;
+  flex-wrap: wrap;
+}
+
+.faculty-kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.6rem;
+}
+
+.faculty-kpi-card {
+  border: 1px solid var(--color-surface-300);
+  background: #f8fbff;
+  border-radius: 0.5rem;
+  padding: 0.75rem;
+}
+
+.faculty-kpi-card p {
+  margin: 0;
+  font-size: 0.78rem;
+  color: var(--color-slate-600);
+  font-weight: 700;
+}
+
+.faculty-kpi-card strong {
+  display: block;
+  margin-top: 0.2rem;
+  font-size: 1.35rem;
+  color: var(--color-ink-900);
+}
+
+.faculty-dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.7rem;
+}
+
+.faculty-dashboard-card {
+  border: 1px solid var(--color-surface-300);
+  border-radius: 0.5rem;
+  background: var(--color-white);
+  padding: 0.75rem;
+}
+
+.faculty-dashboard-card h4 {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--color-ink-900);
+}
+
+.faculty-list {
+  margin: 0.55rem 0 0;
+  padding-left: 1rem;
+  display: grid;
+  gap: 0.35rem;
+  color: var(--color-slate-700);
+  font-size: 0.84rem;
+}
+
+.faculty-quick-links {
+  display: grid;
+  gap: 0.45rem;
+  margin-top: 0.6rem;
+}
+
+.faculty-quick-links .btn {
+  justify-content: flex-start;
+  text-align: left;
 }
 
 .faculty-sidebar-backdrop {
@@ -215,6 +308,21 @@
 
   .faculty-shell-page .site-quick-menu {
     display: flex;
+  }
+
+  .faculty-kpi-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .faculty-dashboard-head {
+    flex-direction: column;
+  }
+
+  .faculty-dashboard-grid,
+  .faculty-kpi-grid {
+    grid-template-columns: 1fr;
   }
 }
 

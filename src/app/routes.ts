@@ -50,6 +50,10 @@ export const ROUTES = {
   STUDENT_GRADES: '/student-portal/grades',
   STUDENT_SCHEDULE: '/student-portal/schedule',
   STUDENT_SETTINGS: '/student-portal/settings',
+  DEPARTMENT_LOGIN: '/department-portal/login',
+  DEPARTMENT_PORTAL: '/department-portal',
+  DEPARTMENT_DASHBOARD: '/department-portal/dashboard',
+  DEPARTMENT_SCHEDULE: '/department-portal/schedule',
   CHANGE_PASSWORD: '/change-password',
   
 } as const
@@ -57,6 +61,7 @@ export const ROUTES = {
 export function getPostListsRoute(categorySlug: string): string {
   return `${ROUTES.POST_LISTS}/${encodeURIComponent(categorySlug)}`
 }
+
 
 
 

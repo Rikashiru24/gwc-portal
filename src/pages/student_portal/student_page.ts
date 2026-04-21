@@ -11,4 +11,6 @@ export function setupstudent_page(root: HTMLElement): () => void {
   return setupPortalShell(root, STUDENT_SHELL_CONFIG)
 }
 
-
+export function setupstudent_schedule_page(root: HTMLElement): () => void {
+  return setupPortalShell(root, STUDENT_SHELL_CONFIG)
+}

@@ -29,6 +29,7 @@ export function renderHomeOverlays(options: HomeOverlayOptions): string {
               <div class="site-overlay-mobile-submenu" data-mobile-submenu-panel></div>
               <a href="${ROUTES.STUDENT_LOGIN}" data-overlay-close>STUDENT PORTAL</a>
               <a href="${ROUTES.FACULTY_LOGIN}" data-overlay-close>FACULTY PORTAL</a>
+              <a href="${ROUTES.DEPARTMENT_LOGIN}" data-overlay-close>DEPARTMENT PORTAL</a>
               <a href="${ROUTES.REGISTRAR_STAFF_LOGIN}" data-overlay-close>REGISTRAR STAFF PORTAL</a>
               <a href="${ROUTES.ADMINISTRATORS_LOGIN}" data-overlay-close>ADMINISTRATION</a>
               <a href="#partners" data-overlay-close>ABOUT GWC</a>
@@ -73,6 +74,7 @@ export function renderHomeOverlays(options: HomeOverlayOptions): string {
       </section>
   `
 }
+
 
 
 

@@ -69,9 +69,13 @@
   flex: 1;
   min-height: 0;
   overflow-y: auto;
-  scrollbar-width: thin;
-  scrollbar-color: var(--overlay-slate-55) transparent;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
   scrollbar-gutter: stable;
+}
+
+.registrar_staff-menu::-webkit-scrollbar {
+  display: none;
 }
 
 .registrar_staff-menu a {
@@ -81,7 +85,6 @@
   position: relative;
   color: var(--color-slate-200);
   text-decoration: none;
-  padding: 0.5rem 0.5rem;
   border-radius: var(--radius-md);
   font-weight: 700;
   font-size: 0.82rem;
@@ -171,6 +174,106 @@
   display: none;
 }
 
+.registrar-dashboard {
+  border: 1px solid var(--color-surface-300);
+  border-radius: var(--radius-lg);
+  background: var(--color-white);
+  padding: clamp(0.85rem, 2vw, 1.1rem);
+  display: grid;
+  gap: 0.75rem;
+}
+
+.registrar-dashboard-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem;
+  border-bottom: 1px solid var(--color-surface-300);
+  padding-bottom: 0.7rem;
+}
+
+.registrar-dashboard-head h2 {
+  margin: 0;
+  color: var(--color-ink-900);
+}
+
+.registrar-dashboard-head p {
+  margin: 0.3rem 0 0;
+  color: var(--color-text-secondary);
+}
+
+.registrar-dashboard-actions {
+  display: flex;
+  gap: 0.45rem;
+  flex-wrap: wrap;
+}
+
+.registrar-kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.55rem;
+}
+
+.registrar-kpi-card {
+  border: 1px solid var(--color-surface-300);
+  border-radius: 0.5rem;
+  background: #f8fbff;
+  padding: 0.7rem;
+}
+
+.registrar-kpi-card p {
+  margin: 0;
+  color: var(--color-slate-600);
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.registrar-kpi-card strong {
+  display: block;
+  margin-top: 0.2rem;
+  font-size: 1.35rem;
+  color: var(--color-ink-900);
+}
+
+.registrar-dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.65rem;
+}
+
+.registrar-dashboard-card {
+  border: 1px solid var(--color-surface-300);
+  border-radius: 0.5rem;
+  background: var(--color-white);
+  padding: 0.75rem;
+}
+
+.registrar-dashboard-card h4 {
+  margin: 0;
+  color: var(--color-ink-900);
+  font-size: 0.95rem;
+}
+
+.registrar-list {
+  margin: 0.55rem 0 0;
+  padding-left: 1rem;
+  display: grid;
+  gap: 0.35rem;
+  color: var(--color-slate-700);
+  font-size: 0.84rem;
+}
+
+.registrar-quick-links {
+  display: grid;
+  gap: 0.45rem;
+  margin-top: 0.6rem;
+}
+
+.registrar-quick-links .btn {
+  text-align: left;
+  justify-content: flex-start;
+}
+
 @media (max-width: 991px) {
   .registrar_staff-layout {
     grid-template-columns: 1fr;
@@ -215,6 +318,11 @@
 
   .registrar_staff-shell-page .site-quick-menu {
     display: flex;
+  }
+
+  .registrar-kpi-grid,
+  .registrar-dashboard-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
@@ -487,6 +595,15 @@
 }
 
 @media (max-width: 640px) {
+  .registrar-dashboard-head {
+    flex-direction: column;
+  }
+
+  .registrar-kpi-grid,
+  .registrar-dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+
   .schedule-grid.two-col,
   .schedule-grid.four-col {
     grid-template-columns: 1fr;

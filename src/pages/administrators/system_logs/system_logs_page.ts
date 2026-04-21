@@ -1,20 +1,53 @@
 import { ROUTES } from '../../../app/routes'
-import { ADMIN_SHELL_CONFIG } from '../../../components/layout/_layout'
+import { ADMIN_SHELL_CONFIG, renderPortalShell } from '../../../components/layout/_layout'
 import { renderBreadcrumbNav } from '../../../components/ui/nav_breadcrumb'
-import { renderSectionPlaceholderPage } from '../../../components/ui/section_placeholder'
+import { formatDateTime, schedulingService } from '../../../features/scheduling/service'
 
 export function rendersystem_logs_page(): string {
-  return renderSectionPlaceholderPage(
+  const logs = schedulingService.listActivityLogs().slice(0, 40)
+
+  return renderPortalShell(
     ADMIN_SHELL_CONFIG,
-    { contentClass: 'admin-content', panelClass: 'admin-panel' },
     'system_logs',
-    'System Logs',
-    'Monitor audit events, login history, and system activities.',
-    {
-      breadcrumbHtml: renderBreadcrumbNav([
-        { label: 'Home', href: ROUTES.ADMINISTRATORS },
-        { label: 'System Logs', active: true },
-      ]),
-    },
+    `
+      <section class="admin-content">
+        ${renderBreadcrumbNav([
+          { label: 'Home', href: ROUTES.ADMINISTRATORS },
+          { label: 'System Logs', active: true },
+        ])}
+        <article class="admin-panel">
+          <h3>Activity Logs</h3>
+          <p>Full trace of changes, approvals, and modification requests.</p>
+          <div class="admin-table-wrap mt-3">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Time</th>
+                  <th>Actor</th>
+                  <th>Entity</th>
+                  <th>Action</th>
+                  <th>Details</th>
+                </tr>
+              </thead>
+              <tbody>
+                ${logs
+                  .map(
+                    (log) => `
+                      <tr>
+                        <td>${formatDateTime(log.createdAt)}</td>
+                        <td>${log.actorRole}:${log.actorId}</td>
+                        <td>${log.entityType} (${log.entityId})</td>
+                        <td>${log.action}</td>
+                        <td>${log.metadata}</td>
+                      </tr>
+                    `,
+                  )
+                  .join('')}
+              </tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+    `,
   )
 }

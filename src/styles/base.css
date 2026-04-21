@@ -184,6 +184,15 @@ body.overlay-open {
   --bs-pagination-active-border-color: var(--dark-blue);
 }
 
+.portal-sidebar-menu ul {
+  display: grid;
+  gap: 0.22rem;
+}
+
+.portal-sidebar-menu a {
+  padding: 0.46rem 0.56rem;
+}
+
 /*--------------------------------------------------------------
 # Loader
 --------------------------------------------------------------*/
