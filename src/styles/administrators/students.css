@@ -163,8 +163,8 @@
 
 .admin-student-page-shell .form-control:focus,
 .admin-student-page-shell .form-select:focus {
-  border-color: #2a4f95;
-  box-shadow: 0 0 0 0.1rem rgb(42 79 149 / 16%);
+  border-color: var(--color-border-focus);
+  box-shadow: var(--shadow-focus-primary);
 }
 
 .admin-student-form-grid-4 {
@@ -260,6 +260,7 @@
   }
 
 }
+
 
 
 

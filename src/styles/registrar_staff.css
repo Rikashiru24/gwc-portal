@@ -334,7 +334,7 @@
 .ghost-btn {
   border: var(--border-width-1) solid #b7d7e8;
   background: #effbff;
-  color: #1f2937;
+  color: var(--color-text-primary);
   border-radius: 0.65rem;
   padding: 0.45rem 0.65rem;
   font-size: 0.75rem;
@@ -425,7 +425,7 @@
 
 .btn-warning {
   background: #fff7ed;
-  color: #9a3412;
+  color: var(--color-text-warning);
   border-color: #fdba74;
 }
 
@@ -517,6 +517,7 @@
     padding-top: 0.6rem;
   }
 }
+
 
 
 

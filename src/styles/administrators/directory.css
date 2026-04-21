@@ -64,8 +64,8 @@
 
 .admin-directory-search input:focus {
   outline: none;
-  border-color: #2a4f95;
-  box-shadow: 0 0 0 0.1rem rgb(42 79 149 / 16%);
+  border-color: var(--color-border-focus);
+  box-shadow: var(--shadow-focus-primary);
 }
 
 .admin-stats-grid {
@@ -98,7 +98,7 @@
 }
 
 .admin-stat-card strong.is-danger {
-  color: #b91c1c;
+  color: var(--color-text-danger);
 }
 
 .admin-directory-card {
@@ -177,7 +177,7 @@
 
 .admin-pill.is-warning {
   background: #ffedd5;
-  color: #9a3412;
+  color: var(--color-text-warning);
 }
 
 .admin-pill.is-inactive {
@@ -193,7 +193,7 @@
 .admin-actions-trigger {
   border: var(--border-width-1) solid #b8c8de;
   background: #f4f8fd;
-  color: #1f2937;
+  color: var(--color-text-primary);
   border-radius: var(--radius-none);
   font-size: 0.74rem;
   font-weight: 700;
@@ -240,7 +240,7 @@
 }
 
 .admin-actions-menu button.is-danger {
-  color: #b91c1c;
+  color: var(--color-text-danger);
 }
 
 .admin-actions-menu button.is-danger:hover,
@@ -410,6 +410,7 @@
     padding-top: 0.6rem;
   }
 }
+
 
 
 

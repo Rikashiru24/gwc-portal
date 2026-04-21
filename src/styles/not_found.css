@@ -16,7 +16,7 @@
   font-size: clamp(4rem, 9vw, 7rem);
   line-height: 1;
   font-weight: 800;
-  color: #091735;
+  color: var(--color-text-not-found);
 }
 
 .fallback-title {
@@ -24,7 +24,7 @@
   font-size: clamp(2rem, 4vw, 3.2rem);
   line-height: 1.2;
   font-weight: 700;
-  color: #091735;
+  color: var(--color-text-not-found);
 }
 
 .fallback-btn {
@@ -47,6 +47,7 @@
   background: #122955;
   color: var(--color-white);
 }
+
 
 
 

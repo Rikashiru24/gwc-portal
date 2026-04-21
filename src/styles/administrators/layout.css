@@ -134,7 +134,7 @@
   height: 65%;
   transform: translateY(-50%);
   border-radius: var(--radius-xl);
-  background: #dbeafe;
+  background: var(--color-bg-info-soft);
 }
 
 .admin-content {
@@ -244,6 +244,7 @@
     padding: 0.6rem;
   }
 }
+
 
 
 

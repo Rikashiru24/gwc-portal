@@ -30,6 +30,28 @@
   --color-text-secondary: #374151;
   --color-brand-portal-start: #3c4c89;
   --color-brand-portal-end: #34447d;
+  --color-text-primary: #1f2937;
+  --color-text-heading: #202532;
+  --color-text-overlay: #f2f4fa;
+  --color-text-danger: #b91c1c;
+  --color-text-warning: #9a3412;
+  --color-text-not-found: #091735;
+
+  --color-border-soft: #cfd4dd;
+  --color-border-muted: #d4dbe6;
+  --color-border-timeline: #d4d9e6;
+  --color-border-focus: #2a4f95;
+  --color-border-overlay-strong: rgba(255, 255, 255, 0.25);
+
+  --color-bg-muted: #f4f5f7;
+  --color-bg-info-soft: #dbeafe;
+  --color-bg-footer: #e5e7eb;
+
+  --color-overlay-link: #9ec5ff;
+  --color-overlay-scroll-thumb: rgba(214, 178, 71, 0.85);
+  --color-shadow-gold-inset: #5d4911;
+  --shadow-focus-primary: 0 0 0 0.1rem rgb(42 79 149 / 16%);
+
   --overlay-white-12: rgba(255, 255, 255, 0.12);
   --overlay-white-16: rgb(255 255 255 / 16%);
   --overlay-white-18: rgb(255 255 255 / 18%);

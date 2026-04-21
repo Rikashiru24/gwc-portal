@@ -124,7 +124,7 @@
 }
 
 .ann-list-wrap .post-related-head h2 {
-  color: #202532;
+  color: var(--color-text-heading);
 }
 
 @media (max-width: 991px) {
@@ -145,6 +145,7 @@
     padding-top: 1rem;
   }
 }
+
 
 
 

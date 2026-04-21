@@ -53,7 +53,7 @@
 
 .post-title {
   margin: 0 0 0.6rem;
-  color: #202532;
+  color: var(--color-text-heading);
   font-size: clamp(2rem, 5.6vw, 4.05rem);
   line-height: 1.05;
   font-weight: 800;
@@ -113,7 +113,7 @@
 .post-related-head h2 {
   margin: 0 0 1rem;
   font-size: clamp(1.5rem, 3vw, 2.15rem);
-  color: #202532;
+  color: var(--color-text-heading);
 }
 
 .post-see-more {
@@ -134,8 +134,8 @@
 }
 
 .post-related-card {
-  background: #f4f5f7;
-  border: var(--border-width-1) solid #cfd4dd;
+  background: var(--color-bg-muted);
+  border: var(--border-width-1) solid var(--color-border-soft);
   display: flex;
   flex-direction: column;
   min-height: 100%;
@@ -179,7 +179,7 @@
 
 .post-related-body p {
   margin: var(--space-0);
-  color: #1f2937;
+  color: var(--color-text-primary);
   line-height: 1.55;
   text-align: justify;
   text-justify: inter-word;
@@ -229,6 +229,7 @@
     font-size: 0.9rem;
   }
 }
+
 
 
 

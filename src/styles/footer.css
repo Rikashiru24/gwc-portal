@@ -1,6 +1,6 @@
 .site-footer {
-  background: #1f2937;
-  color: #e5e7eb;
+  background: var(--color-text-primary);
+  color: var(--color-bg-footer);
 }
 
 .site-footer-main {
@@ -61,14 +61,14 @@
 }
 
 .site-footer-links a {
-  color: #dbeafe;
+  color: var(--color-bg-info-soft);
   text-decoration: none;
   overflow-wrap: anywhere;
   word-break: break-word;
 }
 
 .site-footer-contact a {
-  color: #e5e7eb;
+  color: var(--color-bg-footer);
   text-decoration: none;
   overflow-wrap: anywhere;
   word-break: break-word;
@@ -201,6 +201,7 @@
     gap: var(--space-sm);
   }
 }
+
 
 
 
