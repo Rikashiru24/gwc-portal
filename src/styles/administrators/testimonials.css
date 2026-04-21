@@ -1,0 +1,37 @@
+.admin-posts-panel-gap {
+  margin-top: 1rem;
+}
+
+.admin-post-form-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  flex-wrap: wrap;
+}
+
+#admin-testimonial-list td:nth-child(3) {
+  min-width: 320px;
+}
+
+.admin-testimonial-image-field .admin-post-image-dropzone {
+  min-height: 170px;
+}
+
+.admin-testimonial-featured-switch {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.6rem;
+  margin: 0;
+  padding: 0.2rem 0;
+}
+
+.admin-testimonial-featured-switch .form-check-input {
+  float: none;
+  margin: 0;
+}
+
+.admin-testimonial-featured-switch .form-check-label {
+  color: #334155;
+  font-size: 0.9rem;
+}

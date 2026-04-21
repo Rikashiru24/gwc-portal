@@ -27,6 +27,8 @@ export const ROUTES = {
   ADMINISTRATORS_STUDENTS_BULK: '/administrators/students/bulk',
   ADMINISTRATORS_POSTS: '/administrators/posts',
   ADMINISTRATORS_POSTS_CREATE: '/administrators/posts/create',
+  ADMINISTRATORS_TESTIMONIALS: '/administrators/testimonials',
+  ADMINISTRATORS_TESTIMONIALS_CREATE: '/administrators/testimonials/create',
   ADMINISTRATORS_DEPARTMENTS: '/administrators/departments',
   ADMINISTRATORS_REPORTS: '/administrators/reports',
   ADMINISTRATORS_SETTINGS: '/administrators/settings',

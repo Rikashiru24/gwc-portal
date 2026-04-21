@@ -5,6 +5,12 @@ import type { PostCategory } from '../../../data/posts'
 import { createPost } from '../../../api/posts'
 
 const CATEGORY_OPTIONS: PostCategory[] = ['ANNOUNCEMENT', 'GLOBAL', 'COMMUNITY', 'EVENTS']
+const getTodayDateLabel = (): string =>
+  new Intl.DateTimeFormat('en-US', {
+    month: 'long',
+    day: 'numeric',
+    year: 'numeric',
+  }).format(new Date())
 
 export function renderposts_create_page(): string {
   return renderPortalShell(
@@ -322,7 +328,7 @@ export function setupposts_create_page(root: HTMLElement): () => void {
     const formData = new FormData(form)
     const payload = {
       title: String(formData.get('title') ?? '').trim(),
-      date: String(formData.get('date') ?? '').trim(),
+      date: getTodayDateLabel(),
       category: String(formData.get('category') ?? '').trim(),
       excerpt: String(formData.get('excerpt') ?? '').trim(),
       content: String(formData.get('content') ?? '').trim(),
@@ -373,9 +379,3 @@ export function setupposts_create_page(root: HTMLElement): () => void {
     form?.removeEventListener('submit', onSubmit)
   }
 }
-  const getTodayDateLabel = (): string =>
-    new Intl.DateTimeFormat('en-US', {
-      month: 'long',
-      day: 'numeric',
-      year: 'numeric',
-    }).format(new Date())
