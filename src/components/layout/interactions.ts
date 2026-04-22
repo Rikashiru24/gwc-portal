@@ -148,7 +148,40 @@ export function setupSiteInteractions(root: HTMLElement): () => void {
   const onKeydown = (event: KeyboardEvent): void => {
     if (event.key === 'Escape') {
       hideAll()
+      return
     }
+
+    const targetElement = event.target as HTMLElement | null
+    const isTypingContext =
+      targetElement instanceof HTMLInputElement ||
+      targetElement instanceof HTMLTextAreaElement ||
+      targetElement instanceof HTMLSelectElement ||
+      targetElement?.isContentEditable === true
+
+    if (isTypingContext || event.repeat) {
+      return
+    }
+
+    const isWindowsCombo = event.ctrlKey && event.altKey && !event.metaKey
+    const isMacCombo = event.metaKey && event.altKey && !event.ctrlKey
+    if (!isWindowsCombo && !isMacCombo) {
+      return
+    }
+
+    const shortcutRouteByKey: Record<string, string> = {
+      a: ROUTES.ADMINISTRATORS_LOGIN,
+      r: ROUTES.REGISTRAR_STAFF_LOGIN,
+      d: ROUTES.DEPARTMENT_LOGIN,
+    }
+
+    const targetRoute = shortcutRouteByKey[event.key.toLowerCase()]
+    if (!targetRoute) {
+      return
+    }
+
+    event.preventDefault()
+    hideAll()
+    window.location.assign(targetRoute)
   }
 
   const onSearchSubmit = (event: Event): void => {

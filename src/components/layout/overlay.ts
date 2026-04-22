@@ -26,12 +26,8 @@ export function renderHomeOverlays(options: HomeOverlayOptions): string {
           <div class="site-overlay-menu-layout">
             <nav class="site-overlay-menu-col">
               <button type="button" class="site-overlay-menu-trigger" data-menu-target="academics">ACADEMICS</button>
+              <button type="button" class="site-overlay-menu-trigger" data-menu-target="login">LOGIN</button>
               <div class="site-overlay-mobile-submenu" data-mobile-submenu-panel></div>
-              <a href="${ROUTES.STUDENT_LOGIN}" data-overlay-close>STUDENT PORTAL</a>
-              <a href="${ROUTES.FACULTY_LOGIN}" data-overlay-close>FACULTY PORTAL</a>
-              <a href="${ROUTES.DEPARTMENT_LOGIN}" data-overlay-close>DEPARTMENT PORTAL</a>
-              <a href="${ROUTES.REGISTRAR_STAFF_LOGIN}" data-overlay-close>REGISTRAR STAFF PORTAL</a>
-              <a href="${ROUTES.ADMINISTRATORS_LOGIN}" data-overlay-close>ADMINISTRATION</a>
               <a href="#partners" data-overlay-close>ABOUT GWC</a>
             </nav>
             <div class="site-overlay-menu-divider" aria-hidden="true"></div>
@@ -43,6 +39,12 @@ export function renderHomeOverlays(options: HomeOverlayOptions): string {
               <li><a href="#strand">STRAND</a></li>
               <li><a href="#faculty">FACULTY</a></li>
               <li><a href="#special-programs">SPECIAL PROGRAMS</a></li>
+            </ul>
+          </template>
+          <template data-submenu-template="login">
+            <ul class="site-overlay-submenu-list">
+              <li><a href="${ROUTES.STUDENT_LOGIN}">STUDENT PORTAL</a></li>
+              <li><a href="${ROUTES.FACULTY_LOGIN}">FACULTY PORTAL</a></li>
             </ul>
           </template>
         </div>
