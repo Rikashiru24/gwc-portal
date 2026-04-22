@@ -5,7 +5,6 @@ import AOS from 'aos'
 import 'aos/dist/aos.css'
 import './styles/base.css'
 import { AOS_OPTIONS, createAosRunner, syncAosAfterLoad } from './app/aos'
-import { applyLogoPlaceholders } from './app/logo_placeholder'
 import { renderRoute } from './app/router'
 const coverImageUrl = '/images/cover.avif'
 const footerLogoUrl = '/images/gwc_logo_white.avif'
@@ -108,7 +107,6 @@ const globalLoader = mountGlobalLoader()
 const runAos = createAosRunner(AOS, AOS_OPTIONS)
 
 renderRoute(app, window.location.pathname)
-applyLogoPlaceholders(document, window.sessionStorage)
 
 const waitForWindowLoad = (): Promise<void> =>
   new Promise((resolve) => {
