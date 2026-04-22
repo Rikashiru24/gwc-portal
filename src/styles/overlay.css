@@ -67,7 +67,7 @@
   align-items: center;
   min-width: 0;
   flex: 1 1 auto;
-  gap: 4px;
+  gap: 2px;
   color: #f4f6fa;
 }
 
@@ -465,9 +465,7 @@
     padding: 0 8px;
   }
 
-  .site-overlay-brand {
-    gap: 4px;
-  }
+
 
   .site-overlay-brand-logo {
     width: 44px;
