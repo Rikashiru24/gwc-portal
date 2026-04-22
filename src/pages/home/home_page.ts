@@ -63,7 +63,7 @@ export function renderhome_page(): string {
               <article class="site-story-card">
                 <img src="${getImage(globalFeatured, 'https://picsum.photos/id/180/1200/720.jpg')}" alt="${globalFeatured?.title ?? 'Featured story'}" class="site-story-image" />
                 <div class="site-story-body">
-                  <h3>${globalFeatured?.title ?? 'No Featured Story Yet'}</h3>
+                  <h2>${globalFeatured?.title ?? 'No Featured Story Yet'}</h2>
                   <p>${globalFeatured?.excerpt ?? 'Check back soon for the latest updates from Golden West Colleges.'}</p>
                   ${
                     globalFeatured
@@ -111,7 +111,7 @@ export function renderhome_page(): string {
               <article class="site-story-card site-story-card-on-dark">
                 <img src="${getImage(communityFeatured, 'https://picsum.photos/seed/gwc-community-extension/1200/720')}" alt="${communityFeatured?.title ?? 'Community story'}" class="site-story-image" />
                 <div class="site-story-body">
-                  <h3>${communityFeatured?.title ?? 'No Community Story Yet'}</h3>
+                  <h2>${communityFeatured?.title ?? 'No Community Story Yet'}</h2>
                   <p>${communityFeatured?.excerpt ?? 'Community engagement stories will be posted here.'}</p>
                   ${
                     communityFeatured
@@ -237,22 +237,6 @@ export function renderhome_page(): string {
           </div>
         </div>
       </section>
-
-      <section id="careers" class="site-post-section site-post-section-light">
-        <div class="post-container home-section-inner">
-          <header class="site-careers-head" data-aos="fade-up">
-            <h2 class="site-post-section-title">Be Part of Our Team</h2>
-            <p class="site-careers-subtitle">Currently no vacant position available</p>
-            <p class="site-careers-caption">Available Faculty Positions:</p>
-          </header>
-          <div class="site-job-list site-job-list-wide">
-            <article class="site-job-item" data-aos="fade-up" data-aos-delay="60"><span class="site-job-count">2</span><strong>Instructor I</strong><span>SG 12 - ₱ 22,500.00</span></article>
-            <article class="site-job-item" data-aos="fade-up" data-aos-delay="120"><span class="site-job-count">1</span><strong>Instructor II</strong><span>SG 13 - ₱ 24,800.00</span></article>
-            <article class="site-job-item" data-aos="fade-up" data-aos-delay="180"><span class="site-job-count">1</span><strong>Instructor III</strong><span>SG 14 - ₱ 27,200.00</span></article>
-          </div>
-        </div>
-      </section>
-
       ${renderMainSiteFooter()}
     </main>
   `

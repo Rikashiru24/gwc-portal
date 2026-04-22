@@ -306,6 +306,7 @@ body.overlay-open {
   z-index: 999998;
   opacity: 1;
   animation: spin 4s linear infinite;
+  border-radius: 50%;
 }
 
 #loading-image {
@@ -317,6 +318,7 @@ body.overlay-open {
   height: 20vh;
   margin: auto;
   z-index: 999999;
+  border-radius: 50%;
 }
 
 @keyframes spin {
