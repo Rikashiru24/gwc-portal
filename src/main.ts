@@ -4,6 +4,7 @@ import 'bootstrap-icons/font/bootstrap-icons.css'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 import './styles/base.css'
+import { AOS_OPTIONS, createAosRunner, syncAosAfterLoad } from './app/aos'
 import { applyLogoPlaceholders } from './app/logo_placeholder'
 import { renderRoute } from './app/router'
 const coverImageUrl = '/images/cover.avif'
@@ -104,17 +105,10 @@ const preloadImage = (src: string, timeoutMs = 1400): Promise<void> =>
   })
 
 const globalLoader = mountGlobalLoader()
+const runAos = createAosRunner(AOS, AOS_OPTIONS)
 
 renderRoute(app, window.location.pathname)
 applyLogoPlaceholders(document, window.sessionStorage)
-
-AOS.init({
-  offset: 120,
-  delay: 0,
-  easing: 'ease-out-cubic',
-  duration: 700,
-  once: false,
-})
 
 const waitForWindowLoad = (): Promise<void> =>
   new Promise((resolve) => {
@@ -154,6 +148,7 @@ const preloadTargets = Array.from(
 Promise.allSettled([waitForWindowLoad(), waitForFontsReady(), ...preloadTargets.map((src) => preloadImage(src, 5000))]).finally(() => {
   requestAnimationFrame(() => {
     requestAnimationFrame(() => {
+      syncAosAfterLoad(app, runAos)
       if (shouldDelayFirstPaint) {
         document.documentElement.classList.remove('route-reload-pending')
       }
