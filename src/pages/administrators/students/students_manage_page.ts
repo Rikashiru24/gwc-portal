@@ -44,6 +44,7 @@ function renderRows(): string {
         <td class="admin-student-actions">
           ${renderSharedPopover({
             ariaLabel: 'Student row actions',
+            triggerLabel: '<i class="bi bi-three-dots-vertical" aria-hidden="true"></i>',
             actionDataAttribute: 'data-student-action',
             actions: [
               { label: 'View', value: 'view' },
