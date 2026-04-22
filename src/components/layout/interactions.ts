@@ -8,7 +8,12 @@ export function setupSiteInteractions(root: HTMLElement): () => void {
   const searchForm = root.querySelector<HTMLFormElement>('[data-search-form]')
   const searchInput = root.querySelector<HTMLInputElement>('[data-search-form] input[name="q"]')
   const submenuPanel = root.querySelector<HTMLElement>('[data-submenu-panel]')
-  const mobileSubmenuPanel = root.querySelector<HTMLElement>('[data-mobile-submenu-panel]')
+  const mobileSubmenuPanels = new Map(
+    Array.from(root.querySelectorAll<HTMLElement>('[data-mobile-submenu-for]')).map((panel) => [
+      panel.dataset.mobileSubmenuFor ?? '',
+      panel,
+    ]),
+  )
   const submenuTriggers = Array.from(root.querySelectorAll<HTMLButtonElement>('[data-menu-target]'))
   const submenuTemplates = new Map(
     Array.from(root.querySelectorAll<HTMLTemplateElement>('[data-submenu-template]')).map((template) => [
@@ -60,7 +65,9 @@ export function setupSiteInteractions(root: HTMLElement): () => void {
     })
     submenuTriggers.forEach((trigger) => trigger.classList.remove('is-active'))
     if (submenuPanel) submenuPanel.innerHTML = ''
-    if (mobileSubmenuPanel) mobileSubmenuPanel.innerHTML = ''
+    mobileSubmenuPanels.forEach((panel) => {
+      panel.innerHTML = ''
+    })
     applyBodyOverlayState(null)
     unlockScroll()
     updateBrandVariants()
@@ -78,7 +85,9 @@ export function setupSiteInteractions(root: HTMLElement): () => void {
     if (name === 'menu') {
       submenuTriggers.forEach((item) => item.classList.remove('is-active'))
       if (submenuPanel) submenuPanel.innerHTML = ''
-      if (mobileSubmenuPanel) mobileSubmenuPanel.innerHTML = ''
+      mobileSubmenuPanels.forEach((panel) => {
+        panel.innerHTML = ''
+      })
     }
 
     if (name === 'search' && searchInput) {
@@ -196,12 +205,16 @@ export function setupSiteInteractions(root: HTMLElement): () => void {
     const template = submenuTemplates.get(name)
     if (!template) {
       if (submenuPanel) submenuPanel.innerHTML = ''
-      if (mobileSubmenuPanel) mobileSubmenuPanel.innerHTML = ''
+      mobileSubmenuPanels.forEach((panel) => {
+        panel.innerHTML = ''
+      })
       return
     }
 
     if (submenuPanel) submenuPanel.innerHTML = template.innerHTML
-    if (mobileSubmenuPanel) mobileSubmenuPanel.innerHTML = template.innerHTML
+    mobileSubmenuPanels.forEach((panel, panelName) => {
+      panel.innerHTML = panelName === name ? template.innerHTML : ''
+    })
   }
 
   const onSubmenuTriggerClick = (event: Event): void => {
@@ -213,7 +226,9 @@ export function setupSiteInteractions(root: HTMLElement): () => void {
     if (isAlreadyActive) {
       trigger.classList.remove('is-active')
       if (submenuPanel) submenuPanel.innerHTML = ''
-      if (mobileSubmenuPanel) mobileSubmenuPanel.innerHTML = ''
+      mobileSubmenuPanels.forEach((panel) => {
+        panel.innerHTML = ''
+      })
       return
     }
 

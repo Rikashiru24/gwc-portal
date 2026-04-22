@@ -26,8 +26,9 @@ export function renderHomeOverlays(options: HomeOverlayOptions): string {
           <div class="site-overlay-menu-layout">
             <nav class="site-overlay-menu-col">
               <button type="button" class="site-overlay-menu-trigger" data-menu-target="academics">ACADEMICS</button>
+              <div class="site-overlay-mobile-submenu" data-mobile-submenu-for="academics"></div>
               <button type="button" class="site-overlay-menu-trigger" data-menu-target="login">LOGIN</button>
-              <div class="site-overlay-mobile-submenu" data-mobile-submenu-panel></div>
+              <div class="site-overlay-mobile-submenu" data-mobile-submenu-for="login"></div>
               <a href="#partners" data-overlay-close>ABOUT GWC</a>
             </nav>
             <div class="site-overlay-menu-divider" aria-hidden="true"></div>
