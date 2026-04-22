@@ -1,7 +1,7 @@
 import { ROUTES } from '../../../app/routes'
 import { ADMIN_SHELL_CONFIG, renderPortalShell, setupPortalShell } from '../../../components/layout/_layout'
 import { renderAdminBreadcrumbNav } from '../../../components/ui/nav_breadcrumb'
-import { renderAdminSectionTitle, renderAdminSubheading } from '../../../components/ui/admin_section_heading'
+import { renderAdminSectionTitle, renderAdminSubheading } from '../../../components/ui/section_title_heading'
 import { hydrateLocationSelects, setupProvinceCityCascade } from '../../../api/psgc'
 
 function renderSectionFields(): string {

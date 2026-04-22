@@ -1,4 +1,4 @@
-import { renderAdminSectionTitle, renderAdminSubheading } from '../ui/admin_section_heading'
+import { renderAdminSectionTitle, renderAdminSubheading } from '../ui/section_title_heading'
 
 function floatingInput(id: string, label: string, type = 'text'): string {
   return `

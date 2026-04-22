@@ -4,7 +4,7 @@ import { renderAdminBreadcrumbNav } from '../../../components/ui/nav_breadcrumb'
 import { renderSharedModal, setupSharedModal } from '../../../components/ui/modal'
 import { renderSharedPagination, setupSharedPagination } from '../../../components/ui/pagination'
 import { renderSharedPopover } from '../../../components/ui/popover'
-import { renderAdminSectionTitle, renderAdminSubheading } from '../../../components/ui/admin_section_heading'
+import { renderAdminSectionTitle, renderAdminSubheading } from '../../../components/ui/section_title_heading'
 import { renderStudentAccountForm } from '../../../components/forms/student_account_form'
 
 type StudentRecord = {
