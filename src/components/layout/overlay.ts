@@ -29,7 +29,8 @@ export function renderHomeOverlays(options: HomeOverlayOptions): string {
               <div class="site-overlay-mobile-submenu" data-mobile-submenu-for="academics"></div>
               <button type="button" class="site-overlay-menu-trigger" data-menu-target="login">LOGIN</button>
               <div class="site-overlay-mobile-submenu" data-mobile-submenu-for="login"></div>
-              <a href="#partners" data-overlay-close>ABOUT GWC</a>
+              <button type="button" class="site-overlay-menu-trigger" data-menu-target="about-gwc">ABOUT GWC</button>
+              <div class="site-overlay-mobile-submenu" data-mobile-submenu-for="about-gwc"></div>
             </nav>
             <div class="site-overlay-menu-divider" aria-hidden="true"></div>
             <div class="site-overlay-submenu-panel" data-submenu-panel aria-live="polite"></div>
@@ -45,6 +46,12 @@ export function renderHomeOverlays(options: HomeOverlayOptions): string {
             <ul class="site-overlay-submenu-list">
               <li><a href="${ROUTES.STUDENT_LOGIN}">STUDENT PORTAL</a></li>
               <li><a href="${ROUTES.FACULTY_LOGIN}">FACULTY PORTAL</a></li>
+            </ul>
+          </template>
+          <template data-submenu-template="about-gwc">
+            <ul class="site-overlay-submenu-list">
+              <li><a href="${ROUTES.ABOUT_GWC_HISTORY}">GWC HISTORY</a></li>
+              <li><a href="${ROUTES.ABOUT_GWC_FAQS}">FAQs</a></li>
             </ul>
           </template>
         </div>

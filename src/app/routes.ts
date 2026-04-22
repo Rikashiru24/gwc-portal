@@ -3,6 +3,9 @@ export const ROUTES = {
   ANNOUNCEMENTS: '/announcements',
   POSTS_BASE: '/post',
   POST_LISTS: '/post/lists',
+  ABOUT_GWC: '/about-gwc',
+  ABOUT_GWC_HISTORY: '/about-gwc/gwc-history',
+  ABOUT_GWC_FAQS: '/about-gwc/faqs',
 
   // Registrar staff routes
   REGISTRAR_STAFF: '/registrar-staff',

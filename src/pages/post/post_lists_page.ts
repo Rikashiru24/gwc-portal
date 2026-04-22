@@ -7,6 +7,7 @@ import { getPostCategorySlug, getPostPath, getPostsByCategory } from '../../data
 import { buildMainHeaderActions, renderMainSiteHeader } from '../../components/layout/header'
 import { renderMainSiteFooter } from '../../components/layout/footer'
 import { renderHomeOverlays } from '../../components/layout/overlay'
+import { renderSectionSubHeaderGray } from '../../components/ui/section_sub_header'
 
 export function renderpost_lists_page(category: PostCategory): string {
   const cards = getPostsByCategory(category)
@@ -27,12 +28,10 @@ export function renderpost_lists_page(category: PostCategory): string {
         searchAriaLabel: 'Search post lists',
       })}
 
-      <section class="post-list-hero">
-        <div class="post-container post-list-hero-inner">
-          <p class="post-list-eyebrow">Other Articles</p>
-          <h1 class="post-list-title">${getPostCategorySlug(category)}</h1>
-        </div>
-      </section>
+      ${renderSectionSubHeaderGray({
+        eyebrow: 'Other Articles',
+        title: getPostCategorySlug(category),
+      })}
 
       <section class="post-shell">
         <div class="post-container">
