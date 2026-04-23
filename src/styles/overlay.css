@@ -284,13 +284,6 @@
   transition: transform 0.25s ease-out;
 }
 
-.site-overlay-menu-col a:hover,
-.site-overlay-menu-col a:focus,
-.site-overlay-menu-trigger:hover,
-.site-overlay-menu-trigger:focus {
-  color: var(--color-overlay-link);
-}
-
 .site-overlay-menu-col a:hover::after,
 .site-overlay-menu-col a:focus::after,
 .site-overlay-menu-trigger:hover::after,
@@ -363,11 +356,6 @@
   transform: scaleX(0);
   transform-origin: bottom left;
   transition: transform 0.25s ease-out;
-}
-
-.site-overlay-submenu-list a:hover,
-.site-overlay-submenu-list a:focus {
-  color: var(--color-overlay-link);
 }
 
 .site-overlay-submenu-list a:hover::after,
