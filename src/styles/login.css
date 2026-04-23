@@ -1,4 +1,11 @@
 .login-page {
+  --login-brand-primary: var(--dark-blue);
+  --login-brand-hover: var(--color-ink-900);
+  --login-input-text: var(--color-slate-800);
+  --login-input-label: var(--color-slate-600);
+  --login-heading-border: var(--dark-blue);
+  --login-heading-text: var(--dark-blue);
+  --login-focus-ring: color-mix(in srgb, var(--dark-blue) 34%, var(--color-white));
   min-height: var(--layout-page-min-height);
   display: flex;
   flex-direction: column;
@@ -7,7 +14,7 @@
 
 .portal-header {
   position: relative;
-  background: linear-gradient(180deg, var(--color-brand-portal-start) 0%, var(--color-brand-portal-end) 100%);
+  background: linear-gradient(180deg, var(--login-brand-primary) 0%, var(--login-brand-primary) 100%);
   color: var(--color-white);
   overflow: hidden;
 }
@@ -17,9 +24,9 @@
   inset: 0;
   opacity: 0.28;
   background-image:
-    radial-gradient(1200px 170px at 10% 100%, transparent 60%, rgba(146, 171, 255, 0.6) 61%, transparent 62%),
-    radial-gradient(1200px 180px at 45% 0%, transparent 62%, rgba(146, 171, 255, 0.55) 63%, transparent 64%),
-    radial-gradient(1200px 180px at 80% 100%, transparent 62%, rgba(146, 171, 255, 0.45) 63%, transparent 64%);
+    radial-gradient(1200px 170px at 10% 100%, transparent 60%, color-mix(in srgb, var(--login-brand-primary) 42%, var(--color-white)) 61%, transparent 62%),
+    radial-gradient(1200px 180px at 45% 0%, transparent 62%, color-mix(in srgb, var(--login-brand-primary) 39%, var(--color-white)) 63%, transparent 64%),
+    radial-gradient(1200px 180px at 80% 100%, transparent 62%, color-mix(in srgb, var(--login-brand-primary) 34%, var(--color-white)) 63%, transparent 64%);
 }
 
 .portal-header-inner {
@@ -82,25 +89,25 @@
 }
 
 .login-input {
-  color: #1c2333;
+  color: var(--login-input-text);
   font-size: 0.95rem;
   border-radius: var(--radius-none);
 }
 
 .login-input:focus {
-  border-color: #7f9ad6;
-  box-shadow: var(--shadow-none);
+  border-color: var(--login-brand-primary);
+  box-shadow: 0 0 0 0.14rem var(--login-focus-ring);
 }
 
 .form-floating > .login-input.form-control ~ label {
-  color: #3f4a62;
+  color: var(--login-input-label);
 }
 
 .login-heading {
-  color: #1f334d;
+  color: var(--login-heading-text);
   font-size: clamp(1.55rem, 2.2vw, 2.05rem);
   margin: var(--space-0);
-  border-bottom: 2px solid #2a3c5c;
+  border-bottom: 2px solid var(--login-heading-border);
   padding-bottom: 6px;
 }
 
@@ -110,10 +117,10 @@
 }
 
 .login-submit-btn {
-  --login-btn-bg-start: var(--color-brand-portal-start);
-  --login-btn-bg-end: var(--color-brand-portal-end);
-  --login-btn-bg-start-hover: var(--color-ink-900);
-  --login-btn-bg-end-hover: var(--color-ink-900);
+  --login-btn-bg-start: var(--login-brand-primary);
+  --login-btn-bg-end: var(--login-brand-primary);
+  --login-btn-bg-start-hover: var(--login-brand-hover);
+  --login-btn-bg-end-hover: var(--login-brand-hover);
   --bs-btn-color: var(--color-white);
   --bs-btn-hover-color: var(--color-white);
   --bs-btn-active-color: var(--color-white);
@@ -122,7 +129,7 @@
   border-color: var(--login-btn-bg-end);
   color: var(--color-white) !important;
   -webkit-text-fill-color: var(--color-white);
-  border-radius: var(--radius-none);
+  border-radius: var(--radius-pill);
   font-weight: 700;
   letter-spacing: 0.2px;
 }
@@ -143,14 +150,14 @@
 }
 
 .admin-login-page .login-submit-btn {
-  --login-btn-bg-start: var(--color-brand-portal-start);
-  --login-btn-bg-end: var(--color-brand-portal-end);
-  --login-btn-bg-start-hover: var(--color-ink-900);
-  --login-btn-bg-end-hover: var(--color-ink-900);
+  --login-btn-bg-start: var(--login-brand-primary);
+  --login-btn-bg-end: var(--login-brand-primary);
+  --login-btn-bg-start-hover: var(--login-brand-hover);
+  --login-btn-bg-end-hover: var(--login-brand-hover);
 }
 
 .portal-footer {
-  background: linear-gradient(180deg, var(--color-brand-portal-start) 0%, var(--color-brand-portal-end) 100%);
+  background: linear-gradient(180deg, var(--login-brand-primary) 0%, var(--login-brand-primary) 100%);
   color: var(--color-white);
   text-align: center;
   padding: 14px 16px;
